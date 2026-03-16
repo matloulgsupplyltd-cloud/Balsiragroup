@@ -33,7 +33,7 @@ header{
   border-bottom:1px solid #1f1f25;
   position:relative;
 }
-header img{height:60px;} /* logo size */
+header img{height:60px;}
 .desktop-nav a{
   margin-left:28px;
   color:var(--muted);
@@ -128,42 +128,25 @@ header img{height:60px;} /* logo size */
   border-radius:10px;
   border:1px solid #1f1f25;
 }
-
 .tender-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   cursor:pointer;
 }
-
-.tender-header h3{
-  color:var(--accent);
-}
-
-.tender-header span{
-  transition:0.3s;
-}
-
-.tender-card.open .tender-header span{
-  transform:rotate(180deg);
-}
-
+.tender-header h3{color:var(--accent);}
+.tender-header span{transition:0.3s;}
+.tender-card.open .tender-header span{transform:rotate(180deg);}
 .tender-extra{
   max-height:0;
   overflow:hidden;
   transition:max-height 0.4s ease;
 }
-
 .tender-card.open .tender-extra{
   max-height:1000px;
   margin-top:15px;
 }
-
-.tender-extra p{
-  color:var(--muted);
-  margin:6px 0;
-}
-
+.tender-extra p{color:var(--muted);margin:6px 0;}
 .contact-link{
   margin-top:12px;
   padding-top:10px;
@@ -210,7 +193,7 @@ footer{
 @media(max-width:900px){
   .desktop-nav{display:none;}
   .hamburger{display:flex;}
-  header img{height:50px;} /* smaller logo on mobile */
+  header img{height:50px;}
 }
 </style>
 </head>
@@ -219,7 +202,6 @@ footer{
 
 <header>
   <img src="logo.png" alt="BALSIRA GROUP Logo">
-
   <nav class="desktop-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -231,11 +213,8 @@ footer{
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
-
   <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 </header>
 
@@ -269,7 +248,7 @@ footer{
 <div id="pagination"></div>
 
 <footer>
-  © 2026 BALSIRA GROUP. All rights reserved.
+  &copy; 2026 BALSIRA GROUP. All rights reserved.
 </footer>
 
 <script>
@@ -281,6 +260,7 @@ function toggleMenu(){
 
 // --- TENDERS SCRIPT ---
 const tenders = [];
+
 const sectors = [
   "Water & Sanitation Equipment",
   "Energy & Power Systems",
@@ -288,6 +268,7 @@ const sectors = [
   "Construction Materials",
   "Agriculture & Irrigation"
 ];
+
 const tenderTitles = [
   "Supply of Industrial Water Pumps and Valves",
   "Procurement of HDPE Piping Systems",
@@ -304,19 +285,122 @@ const tenderTitles = [
   "Irrigation Pumps and Systems for Agriculture",
   "Storage Solutions for Farming Infrastructure"
 ];
+
 const types = ["Government", "Private"];
+
+// --- EXPANDED & DIVERSE INTERNATIONAL LOCATIONS ---
 const locations = [
+  // Africa - Southern
   "Johannesburg, South Africa",
-  "Pretoria, South Africa",
   "Cape Town, South Africa",
   "Durban, South Africa",
-  "Port Elizabeth, South Africa",
+  "Pretoria, South Africa",
   "Gaborone, Botswana",
   "Windhoek, Namibia",
   "Lusaka, Zambia",
+  "Harare, Zimbabwe",
+  "Blantyre, Malawi",
+  "Maputo, Mozambique",
+  "Mbabane, Eswatini",
+  "Maseru, Lesotho",
+  // Africa - East
   "Nairobi, Kenya",
-  "Accra, Ghana"
+  "Dar es Salaam, Tanzania",
+  "Kampala, Uganda",
+  "Kigali, Rwanda",
+  "Addis Ababa, Ethiopia",
+  "Djibouti City, Djibouti",
+  "Mogadishu, Somalia",
+  "Bujumbura, Burundi",
+  "Asmara, Eritrea",
+  // Africa - West
+  "Accra, Ghana",
+  "Lagos, Nigeria",
+  "Abuja, Nigeria",
+  "Dakar, Senegal",
+  "Abidjan, Cote d'Ivoire",
+  "Bamako, Mali",
+  "Ouagadougou, Burkina Faso",
+  "Lome, Togo",
+  "Cotonou, Benin",
+  "Freetown, Sierra Leone",
+  "Conakry, Guinea",
+  "Monrovia, Liberia",
+  "Banjul, Gambia",
+  // Africa - North & Central
+  "Cairo, Egypt",
+  "Casablanca, Morocco",
+  "Tunis, Tunisia",
+  "Algiers, Algeria",
+  "Tripoli, Libya",
+  "Khartoum, Sudan",
+  "Kinshasa, DR Congo",
+  "Brazzaville, Republic of Congo",
+  "Yaounde, Cameroon",
+  "Libreville, Gabon",
+  "Luanda, Angola",
+  // Middle East
+  "Dubai, UAE",
+  "Abu Dhabi, UAE",
+  "Riyadh, Saudi Arabia",
+  "Doha, Qatar",
+  "Muscat, Oman",
+  "Kuwait City, Kuwait",
+  "Amman, Jordan",
+  "Beirut, Lebanon",
+  "Baghdad, Iraq",
+  "Tehran, Iran",
+  // Asia - South & Southeast
+  "Mumbai, India",
+  "Delhi, India",
+  "Dhaka, Bangladesh",
+  "Karachi, Pakistan",
+  "Colombo, Sri Lanka",
+  "Kathmandu, Nepal",
+  "Kuala Lumpur, Malaysia",
+  "Jakarta, Indonesia",
+  "Manila, Philippines",
+  "Bangkok, Thailand",
+  "Ho Chi Minh City, Vietnam",
+  "Yangon, Myanmar",
+  "Phnom Penh, Cambodia",
+  // Asia - East & Central
+  "Shanghai, China",
+  "Beijing, China",
+  "Tokyo, Japan",
+  "Seoul, South Korea",
+  "Singapore, Singapore",
+  "Tashkent, Uzbekistan",
+  "Almaty, Kazakhstan",
+  // Europe
+  "Istanbul, Turkey",
+  "Warsaw, Poland",
+  "Bucharest, Romania",
+  "Sofia, Bulgaria",
+  "Athens, Greece",
+  "Lisbon, Portugal",
+  "Madrid, Spain",
+  "Milan, Italy",
+  "Rotterdam, Netherlands",
+  "Hamburg, Germany",
+  // Americas
+  "Houston, USA",
+  "Miami, USA",
+  "Toronto, Canada",
+  "Mexico City, Mexico",
+  "Bogota, Colombia",
+  "Lima, Peru",
+  "Santiago, Chile",
+  "Buenos Aires, Argentina",
+  "Sao Paulo, Brazil",
+  "Caracas, Venezuela",
+  // Oceania
+  "Perth, Australia",
+  "Brisbane, Australia",
+  "Auckland, New Zealand",
+  "Port Moresby, Papua New Guinea"
 ];
+
 const descriptions = [
   "This tender covers supply, installation, and maintenance of equipment, ensuring compliance with industry standards and quality assurance.",
   "The project requires experienced contractors with proven capabilities in delivering similar equipment and operational support.",
@@ -325,49 +409,66 @@ const descriptions = [
   "The scope includes supply, logistics, installation, testing, and after-sales support as required by the project specifications."
 ];
 
-// Generate 100 tenders
-for(let i=0;i<100;i++){
-  let sector = sectors[i % sectors.length];
-  let title = tenderTitles[i % tenderTitles.length];
-  let description = descriptions[i % descriptions.length];
-  let country = locations[i % locations.length];
-  let tenderType = types[i % types.length];
-  
-  let minBudget = Math.floor(Math.random()*50+10)*1000; 
-  let maxBudget = minBudget + Math.floor(Math.random()*100+50)*1000; 
-  let budget = `USD ${minBudget.toLocaleString()} – USD ${maxBudget.toLocaleString()}`;
+// Shuffle helper to avoid clustering same location
+function shuffledLocations(count) {
+  const pool = [...locations];
+  const result = [];
+  for (let i = 0; i < count; i++) {
+    if (pool.length === 0) pool.push(...locations);
+    const idx = Math.floor(Math.random() * pool.length);
+    result.push(pool.splice(idx, 1)[0]);
+  }
+  return result;
+}
 
-  let daysAhead = Math.floor(Math.random()*30)+2;
+const assignedLocations = shuffledLocations(100);
+
+// Generate 100 tenders
+for(let i = 0; i < 100; i++){
+  let sector      = sectors[i % sectors.length];
+  let title       = tenderTitles[i % tenderTitles.length];
+  let description = descriptions[i % descriptions.length];
+  let country     = assignedLocations[i]; // unique, non-repetitive random location
+  let tenderType  = types[i % types.length];
+
+  let minBudget = Math.floor(Math.random() * 50 + 10) * 1000;
+  let maxBudget = minBudget + Math.floor(Math.random() * 100 + 50) * 1000;
+  let budget = `USD ${minBudget.toLocaleString()} - USD ${maxBudget.toLocaleString()}`;
+
+  let daysAhead = Math.floor(Math.random() * 30) + 2;
   let closingDate = new Date();
   closingDate.setDate(closingDate.getDate() + daysAhead);
   let closing = closingDate.toISOString().split('T')[0];
 
-  let tenderNumber = `SCMP 29/08/02R-${String(i+1).padStart(3,'0')}`;
+  let tenderNumber = `SCMP 29/08/02R-${String(i + 1).padStart(3, '0')}`;
   let specialConditions = "Bidders must purchase equipment from BALSIRA; full product catalog available in Products page.";
 
   tenders.push({
     title, description, sector, type: tenderType, closing, daysRemaining: daysAhead,
-    location: country, budget, eligibility: "Company registration, Tax compliance, ISO certification, Minimum 3 years project experience",
+    location: country, budget,
+    eligibility: "Company registration, Tax compliance, ISO certification, Minimum 3 years project experience",
     contact: "tenders@balsiragroup.africa", tenderNumber, specialConditions
   });
 }
 
-// Pagination
+// --- PAGINATION ---
 let currentPage = 1;
 const itemsPerPage = 20;
+let activeFilter = "all";
 
-function displayPage(page=1, filter="all"){
+function displayPage(page = 1, filter = activeFilter){
   currentPage = page;
-  const filtered = tenders.filter(t => filter==="all" || t.sector===filter);
-  const start = (page-1)*itemsPerPage;
-  const end = start + itemsPerPage;
-  const pageItems = filtered.slice(start,end);
+  activeFilter = filter;
+  const filtered = tenders.filter(t => filter === "all" || t.sector === filter);
+  const start = (page - 1) * itemsPerPage;
+  const pageItems = filtered.slice(start, start + itemsPerPage);
   const list = document.getElementById("tenderList");
+
   list.innerHTML = pageItems.map(t => `
     <div class="tender-card">
       <div class="tender-header" onclick="this.parentElement.classList.toggle('open')">
         <h3>${t.title}</h3>
-        <span>▼</span>
+        <span>&#9660;</span>
       </div>
       <p>${t.description}</p>
       <p><strong>Closing Date:</strong> ${new Date(t.closing).toLocaleDateString('en-GB')}</p>
@@ -392,34 +493,32 @@ function displayPage(page=1, filter="all"){
   renderPagination(filtered.length, page);
 }
 
-// Pagination buttons
 function renderPagination(totalItems, page){
-  const totalPages = Math.ceil(totalItems/itemsPerPage);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
   const container = document.getElementById("pagination");
-  let html = `<button class="page-btn" onclick="displayPage(1)">First</button>`;
-  for(let i=1;i<=totalPages;i++){
-    if(i<=3 || i>totalPages-2 || (i>=page-1 && i<=page+1)){
-      html += `<button class="page-btn ${i===page?'active':''}" onclick="displayPage(${i})">${i}</button>`;
-    } else if(i===4 && page>5){
-      html += `…`;
-    } else if(i===totalPages-3 && page<totalPages-4){
-      html += `…`;
+  let html = `<button class="page-btn" onclick="displayPage(1,'${activeFilter}')">First</button>`;
+  for(let i = 1; i <= totalPages; i++){
+    if(i <= 3 || i > totalPages - 2 || (i >= page - 1 && i <= page + 1)){
+      html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="displayPage(${i},'${activeFilter}')">${i}</button>`;
+    } else if(i === 4 && page > 5){
+      html += `&hellip;`;
+    } else if(i === totalPages - 3 && page < totalPages - 4){
+      html += `&hellip;`;
     }
   }
-  html += `<button class="page-btn" onclick="displayPage(${totalPages})">Last</button>`;
+  html += `<button class="page-btn" onclick="displayPage(${totalPages},'${activeFilter}')">Last</button>`;
   container.innerHTML = html;
 }
 
-// Filter
-document.querySelectorAll(".filter-btn").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     displayPage(1, btn.dataset.sector);
   };
 });
 
-displayPage(); // initial load
+displayPage();
 </script>
 
 </body>
