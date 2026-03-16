@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Insights | BALSIRA</title>
+<link rel="icon" href="logo.png" type="image/png">
+<style>
+  :root {
+    --bg:#0b0b0d;
+    --panel:#121217;
+    --accent:#c9a24d;
+    --text:#eaeaea;
+    --muted:#9a9a9a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+
+  /* Header */
+  header{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background: linear-gradient(180deg,#0b0b0d,#0e0e12);border-bottom:1px solid #1f1f25;}
+  header img{height:60px;}
+
+  /* Desktop nav */
+  nav.desktop-nav { display:flex; align-items:center; }
+  nav.desktop-nav a{margin-left:28px;color:var(--muted);text-decoration:none;font-weight:500;}
+  nav.desktop-nav a:hover{color:var(--text);}
+
+  /* Hamburger menu */
+  .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+  .hamburger span { display:block; height:3px; width:25px; background:var(--text); border-radius:2px; }
+
+  /* Mobile nav */
+  nav.mobile-nav { display:none; flex-direction:column; position:absolute; top:80px; left:0; width:100%; background:var(--panel); padding:20px 0; border-top:1px solid #1f1f25; }
+  nav.mobile-nav a{padding:10px 20px; color:var(--text); text-decoration:none; font-weight:500;}
+  nav.mobile-nav a:hover{background:#1f1f25;}
+  nav.mobile-nav.show { display:flex; }
+
+  /* Hero */
+  .hero{
+    padding:120px 60px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+    background:url('https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600') center/cover no-repeat;
+    border-radius:12px;
+    color:#fff;
+  }
+  .hero h1{font-size:3rem;font-weight:700;margin-bottom:20px;text-shadow:1px 1px 5px rgba(0,0,0,0.7);}
+  .hero p{color:#f0f0f0;font-size:1.2rem;max-width:700px;margin:auto;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+
+  /* Section */
+  section{padding:80px 60px;max-width:1200px;margin:auto;}
+  h2{font-size:2rem;margin-bottom:30px;text-align:center;}
+  .grid{display:grid;grid-template-columns: repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+  .card{background:var(--panel);border:1px solid #1f1f25;padding:25px;border-radius:10px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .card h3{margin-top:0;}
+  .card p{color:var(--muted);}
+
+  /* Footer */
+  footer{padding:60px;background:#070709;border-top:1px solid #1f1f25;display:grid;grid-template-columns: repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+  footer h4{margin-bottom:12px;}
+  footer a{display:block;color:var(--muted);text-decoration:none;margin-bottom:8px;}
+  footer a:hover{color:var(--text);}
+  .copyright{grid-column:1/-1;color:var(--muted);font-size:0.9rem;margin-top:20px;text-align:center;}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    nav.desktop-nav { display:none; }
+    .hamburger { display:flex; }
+    header img { height:50px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo" />
+
+  <!-- Desktop nav -->
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Market Insights</h1>
+  <p>Explore case studies, demand forecasts, and trends across agriculture, mining, energy, and construction sectors in Tanzania and East Africa.</p>
+</div>
+
+<section>
+  <h2>Sector Case Studies</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Agriculture & Irrigation</h3>
+      <p>Analysis of solar pump deployments and borehole irrigation projects across rural Tanzania.</p>
+    </div>
+    <div class="card">
+      <h3>Mining & Geophysics</h3>
+      <p>Trends in exploration equipment and geophysical survey efficiency for mineral-rich regions.</p>
+    </div>
+    <div class="card">
+      <h3>Energy</h3>
+      <p>Forecasts for renewable and conventional energy machinery requirements in East Africa.</p>
+    </div>
+    <div class="card">
+      <h3>Construction & Infrastructure</h3>
+      <p>Insights into civil works, heavy machinery demand, and government infrastructure projects.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Live Demand Forecasts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Water Pump Demand</h3>
+      <p>Projected installations and tenders for the next 12 months in rural and urban areas.</p>
+    </div>
+    <div class="card">
+      <h3>Machinery Procurement</h3>
+      <p>Forecast for industrial and construction machinery based on current tender pipelines.</p>
+    </div>
+    <div class="card">
+      <h3>Mining Equipment Trends</h3>
+      <p>Emerging requirements for geophysical survey tools and extraction machinery.</p>
+    </div>
+    <div class="card">
+      <h3>Energy Sector Needs</h3>
+      <p>Expected tenders and equipment demand in solar, hydro, and conventional energy projects.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="news.html">News</a>
+  </div>
+  <div>
+    <h4>Suppliers</h4>
+    <a href="suppliers.html">Register</a>
+    <a href="membership.html">Membership</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+  </div>
+  <div class="copyright">© 2026 BALSIRA GROUP. All rights reserved.</div>
+</footer>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

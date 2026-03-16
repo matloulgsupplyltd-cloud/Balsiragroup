@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water & Sanitation Equipment | LG Supply Ltd</title>
+<link rel="icon" href="logo.png">
+<style>
+:root {
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 60px;
+  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
+  border-bottom:1px solid #1f1f25;
+  position:relative;
+}
+header img{height:40px;}
+
+.desktop-nav{display:flex;}
+.desktop-nav a{
+  margin-left:28px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+}
+.desktop-nav a:hover{color:var(--text);}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:var(--text);
+}
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:var(--panel);
+  border-top:1px solid #1f1f25;
+}
+.mobile-nav a{
+  padding:12px 20px;
+  color:var(--text);
+  text-decoration:none;
+}
+.mobile-nav a:hover{background:#1f1f25;}
+.mobile-nav.show{display:flex;}
+
+@media (max-width:1024px){
+  .desktop-nav{display:none;}
+  .hamburger{display:flex;}
+}
+
+.hero{
+  padding:60px 24px;
+  text-align:center;
+  max-width:1000px;
+  margin:auto;
+}
+.hero h1{font-size:2.4rem;}
+.hero p{color:var(--muted);}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px;
+}
+h2{
+  color:var(--accent);
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.product-card{
+  background:var(--panel);
+  border:1px solid #1f1f25;
+  border-radius:12px;
+  overflow:hidden;
+}
+.product-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.product-card .content{
+  padding:22px;
+}
+.product-card h3{color:var(--accent); margin-top:0;}
+.product-card p{color:var(--muted);}
+.product-card ul{
+  padding-left:18px;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* REQUEST QUOTE BUTTON */
+.request-quote{
+  display:block;
+  margin:40px auto;
+  padding:15px 30px;
+  background:var(--accent);
+  color:#000;
+  text-align:center;
+  font-weight:600;
+  border-radius:6px;
+  width:200px;
+  text-decoration:none;
+  transition:0.3s;
+}
+.request-quote:hover{
+  opacity:0.9;
+}
+
+/* FOOTER */
+footer{
+  padding:60px;
+  background:#070709;
+  border-top:1px solid #1f1f25;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer h4{margin-bottom:12px;}
+footer p{color:var(--muted);}
+.copyright{
+  grid-column:1/-1;
+  text-align:center;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="LG Supply Ltd Logo">
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Water & Sanitation Equipment</h1>
+  <p>Explore our range of high-quality water infrastructure solutions.</p>
+</div>
+
+<section>
+<h2>Our Products</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="Piping & Distribution Systems.jfif" alt="Piping & Distribution Systems">
+<div class="content">
+<h3>Piping & Distribution Systems</h3>
+<p>Durable pipes and fittings for municipal and industrial water networks.</p>
+<ul>
+<li>HDPE & PVC pipes</li>
+<li>Fittings & connectors</li>
+<li>Distribution manifolds</li>
+<li>Pressure regulators</li>
+</ul>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Pumping Stations.webp" alt="Pumping Stations">
+<div class="content">
+<h3>Pumping Stations</h3>
+<p>Efficient pumping solutions for large-scale water transfer and supply.</p>
+<ul>
+<li>Centrifugal pumps</li>
+<li>Booster stations</li>
+<li>Control panels</li>
+<li>Monitoring systems</li>
+</ul>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Storage Tanks & Reservoirs.jpg" alt="Storage Tanks & Reservoirs">
+<div class="content">
+<h3>Storage Tanks & Reservoirs</h3>
+<p>Reliable storage solutions for treated and untreated water.</p>
+<ul>
+<li>Steel & HDPE tanks</li>
+<li>Reservoir structures</li>
+<li>Level monitoring systems</li>
+<li>Safety accessories</li>
+</ul>
+</div>
+</div>
+
+<div class="product-card">
+<img src="UV Disinfection Systems.jfif" alt="UV Disinfection Systems">
+<div class="content">
+<h3>UV Disinfection Systems</h3>
+<p>Advanced UV systems for microbial treatment in water facilities.</p>
+<ul>
+<li>UV lamps & reactors</li>
+<li>Control units</li>
+<li>Flow measurement</li>
+<li>Maintenance kits</li>
+</ul>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Water Filtration Systems.jpg" alt="Water Filtration Systems">
+<div class="content">
+<h3>Water Filtration Systems</h3>
+<p>High-performance filtration for industrial and municipal applications.</p>
+<ul>
+<li>Sand & media filters</li>
+<li>Cartridge filters</li>
+<li>Membrane systems</li>
+<li>Backwash systems</li>
+</ul>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Water Treatment Plants.webp" alt="Water Treatment Plants">
+<div class="content">
+<h3>Water Treatment Plants</h3>
+<p>Integrated treatment solutions for drinking and industrial water.</p>
+<ul>
+<li>Clarifiers & sedimentation tanks</li>
+<li>Coagulation & flocculation units</li>
+<li>Disinfection systems</li>
+<li>Automation & SCADA</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<a href="contact.html" class="request-quote">Request a Quote →</a>
+</section>
+
+<footer>
+<div>
+<h4>LG Supply Ltd</h4>
+<p>Engineering & Infrastructure Supply</p>
+<p>Southern & East Africa</p>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Email: info@lgsupply.co.za</p>
+<p>Phone: +27 10 555 0123</p>
+</div>
+
+<div>
+<h4>Address</h4>
+<p>Sandton Business District</p>
+<p>Johannesburg, South Africa</p>
+</div>
+
+<div class="copyright">
+© 2026 LG Supply Ltd. All rights reserved.
+</div>
+</footer>
+
+<script>
+document.getElementById('hamburger').onclick = () =>
+document.getElementById('mobile-nav').classList.toggle('show');
+</script>
+
+</body>
+</html>

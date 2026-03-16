@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construction Materials | LG Supply Ltd</title>
+<link rel="icon" href="logo.png">
+
+<style>
+:root{
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 60px;
+  background:#0b0b0d;
+  border-bottom:1px solid #1f1f25;
+  position:relative;
+}
+header img{height:40px;}
+.desktop-nav a{
+  margin-left:26px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.desktop-nav a:hover{color:var(--text);}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:25px;height:3px;background:#fff;
+}
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:#121217;
+  position:absolute;
+  top:100%;left:0;width:100%;
+}
+.mobile-nav a{
+  padding:12px 20px;
+  color:#fff;
+  text-decoration:none;
+}
+.mobile-nav.show{display:flex;}
+
+@media(max-width:1024px){
+  .desktop-nav{display:none;}
+  .hamburger{display:flex;}
+}
+
+.hero{
+  padding:60px 24px;
+  text-align:center;
+}
+.hero p{color:var(--muted);}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px;
+}
+h2{
+  color:var(--accent);
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.product-card{
+  background:var(--panel);
+  border:1px solid #1f1f25;
+  border-radius:12px;
+  overflow:hidden;
+}
+.product-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.product-card .content{
+  padding:20px;
+}
+.product-card h3{
+  color:var(--accent);
+  margin-top:0;
+}
+.product-card p{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.request-quote{
+  display:block;
+  width:220px;
+  margin:50px auto;
+  padding:15px;
+  text-align:center;
+  background:var(--accent);
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:6px;
+}
+
+footer{
+  background:#070709;
+  padding:60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer p{color:var(--muted);}
+.copyright{
+  grid-column:1/-1;
+  text-align:center;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" alt="LG Supply Ltd">
+<nav class="desktop-nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="tenders.html">Tenders</a>
+<a href="suppliers.html">Suppliers</a>
+<a href="products.html">Products</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="hamburger" id="hamburger">
+<span></span><span></span><span></span>
+</div>
+
+<nav class="mobile-nav" id="mobile-nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="tenders.html">Tenders</a>
+<a href="suppliers.html">Suppliers</a>
+<a href="products.html">Products</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Construction Materials</h1>
+<p>High-quality materials supporting civil, commercial, and infrastructure projects.</p>
+</div>
+
+<section>
+<h2>Product Range</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="Aggregates.jfif">
+<div class="content">
+<h3>Aggregates</h3>
+<p>Crushed stone, sand, and gravel for concrete and road construction.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Bricks & Blocks.jfif">
+<div class="content">
+<h3>Bricks & Blocks</h3>
+<p>Structural and finishing masonry solutions for buildings.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Building Accessories.jfif">
+<div class="content">
+<h3>Building Accessories</h3>
+<p>Fasteners, sealants, fixings, and construction support products.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Cement Products.jfif">
+<div class="content">
+<h3>Cement Products</h3>
+<p>Bulk and packaged cement for structural and finishing works.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Formwork Systems.jfif">
+<div class="content">
+<h3>Formwork Systems</h3>
+<p>Reusable modular formwork improving efficiency on-site.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Precast Concrete.jfif">
+<div class="content">
+<h3>Precast Concrete</h3>
+<p>Pre-engineered concrete elements for rapid construction.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Reinforcing Steel.jfif">
+<div class="content">
+<h3>Reinforcing Steel</h3>
+<p>High-strength rebar and mesh for reinforced concrete structures.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Road Construction Materials.jfif">
+<div class="content">
+<h3>Road Construction Materials</h3>
+<p>Bitumen, asphalt, and base layers for road infrastructure.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Roofing Materials.jfif">
+<div class="content">
+<h3>Roofing Materials</h3>
+<p>Metal roofing sheets, insulation, and accessories.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="Structural Steel.jfif">
+<div class="content">
+<h3>Structural Steel</h3>
+<p>Beams, columns, and fabricated steel components.</p>
+</div>
+</div>
+
+</div>
+
+<a href="contact.html" class="request-quote">Request a Quote →</a>
+</section>
+
+<footer>
+<div>
+<h4>LG Supply Ltd</h4>
+<p>Engineering & Infrastructure Supply</p>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Email: info@lgsupply.co.za</p>
+<p>Phone: +27 10 555 0123</p>
+</div>
+
+<div>
+<h4>Address</h4>
+<p>Johannesburg, South Africa</p>
+</div>
+
+<div class="copyright">
+© 2026 LG Supply Ltd. All rights reserved.
+</div>
+</footer>
+
+<script>
+document.getElementById('hamburger').onclick = () =>
+document.getElementById('mobile-nav').classList.toggle('show');
+</script>
+
+</body>
+</html>

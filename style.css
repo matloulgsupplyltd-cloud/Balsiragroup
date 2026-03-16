@@ -1,0 +1,190 @@
+/* =========================
+   Root Colors
+========================= */
+:root {
+  --bg: #0b0b0d;
+  --panel: #121217;
+  --accent: #c9a24d;
+  --text: #eaeaea;
+  --muted: #9a9a9a;
+}
+
+/* =========================
+   Global Styles
+========================= */
+* { box-sizing: border-box; }
+body { 
+  margin: 0; 
+  font-family: 'Inter','Segoe UI',sans-serif; 
+  background: var(--bg); 
+  color: var(--text);
+}
+h2, h3, h4 { color: var(--accent); }
+
+/* =========================
+   Header & Navigation
+========================= */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: linear-gradient(180deg,#0b0b0d,#0e0e12);
+  border-bottom: 1px solid #1f1f25;
+  position: relative;
+  z-index: 1000;
+}
+header .logo-menu {
+  display: flex;
+  align-items: center;
+}
+header .logo {
+  height: 48px;
+}
+nav {
+  display: flex;
+  gap: 28px;
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  color: var(--text);
+}
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  margin-left: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile navigation */
+@media (max-width:768px){
+  .hamburger { display: block; }
+  nav {
+    flex-direction: column;
+    background: var(--panel);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    display: none;
+    padding: 20px;
+    border-radius: 0 0 0 10px;
+    border: 1px solid #1f1f25;
+  }
+  nav.show { display: flex; }
+}
+
+/* =========================
+   Hero Sections
+========================= */
+.hero {
+  padding: 100px 40px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  color: var(--muted);
+}
+
+/* =========================
+   Forms
+========================= */
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--panel);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #1f1f25;
+  display: grid;
+  gap: 20px;
+}
+input, select, textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #2b2b33;
+  background: #0b0b0d;
+  color: var(--text);
+  width: 100%;
+}
+textarea { resize: vertical; }
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { opacity: 0.9; }
+
+/* =========================
+   Cards (Tenders / Projects)
+========================= */
+.project-card, .tender-card {
+  background: var(--panel);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #1f1f25;
+}
+.project-card h3, .tender-card h3 { margin-top: 0; }
+.project-card p, .tender-card p { color: var(--muted); }
+
+#projectList, #tenderList {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 20px;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  padding: 60px;
+  background: #070709;
+  border-top: 1px solid #1f1f25;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 40px;
+}
+footer h4 { margin-bottom: 12px; }
+footer a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+footer a:hover { color: var(--text); }
+.copyright {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* =========================
+   Premium Section
+========================= */
+#premiumEmail {
+  max-width: 400px;
+  display: block;
+  margin: 10px auto;
+}
+#payButton {
+  display: block;
+  margin: 0 auto;
+}

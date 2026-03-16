@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | BALSIRA</title>
+<link rel="icon" href="logo.png">
+
+<style>
+:root {
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 60px;
+  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
+  border-bottom:1px solid #1f1f25;
+  position:relative;
+}
+header img{height:40px;}
+
+.desktop-nav{display:flex;}
+.desktop-nav a{
+  margin-left:28px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+}
+.desktop-nav a:hover{color:var(--text);}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:var(--text);
+}
+
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:var(--panel);
+  border-top:1px solid #1f1f25;
+}
+.mobile-nav a{
+  padding:12px 20px;
+  color:var(--text);
+  text-decoration:none;
+}
+.mobile-nav a:hover{background:#1f1f25;}
+.mobile-nav.show{display:flex;}
+
+@media (max-width:1024px){
+  .desktop-nav{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* HERO */
+.hero{
+  padding:70px 24px;
+  text-align:center;
+  max-width:1000px;
+  margin:auto;
+}
+.hero h1{font-size:2.4rem;}
+.hero p{color:var(--muted);}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px;
+}
+h2{
+  color:var(--accent);
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* PRODUCT GRID */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.product-card{
+  background:var(--panel);
+  border:1px solid #1f1f25;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  transition: transform 0.2s;
+  text-decoration:none;
+  color:inherit;
+}
+.product-card:hover{
+  transform:scale(1.03);
+}
+.product-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.product-card .content{
+  padding:22px;
+}
+.product-card h3{color:var(--accent); margin-top:0;}
+.product-card p{color:var(--muted);}
+.product-card ul{
+  padding-left:18px;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+.product-grid a {
+  text-decoration:none;
+  color:inherit;
+}
+
+/* PARTNERS */
+.partner-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.partner-card{
+  background:var(--panel);
+  border:1px solid #1f1f25;
+  border-radius:12px;
+  padding:30px;
+  text-align:center;
+}
+.partner-card img{
+  height:55px;
+  margin-bottom:18px;
+}
+.partner-card p{color:var(--muted);}
+
+/* FOOTER */
+footer{
+  padding:60px;
+  background:#070709;
+  border-top:1px solid #1f1f25;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer h4{margin-bottom:12px;}
+footer p{color:var(--muted);}
+footer a{color:var(--muted); text-decoration:none;}
+footer a:hover{color:var(--text);}
+.copyright{
+  grid-column:1/-1;
+  text-align:center;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="LG Supply Ltd Logo">
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Products & Supply Categories</h1>
+  <p>Engineering-grade equipment sourced from globally recognised manufacturers.</p>
+</div>
+
+<section>
+<h2>Key Supply Categories</h2>
+
+<div class="product-grid">
+
+<a href="water.html" class="product-card">
+<img src="water.jpg" alt="Water & Sanitation Equipment">
+<div class="content">
+<h3>Water & Sanitation Equipment</h3>
+<p>Complete solutions for municipal and industrial water infrastructure.</p>
+<ul>
+<li>Pumps & valves</li>
+<li>HDPE piping systems</li>
+<li>Water treatment plants</li>
+<li>Storage tanks</li>
+</ul>
+</div>
+</a>
+
+<a href="energy.html" class="product-card">
+<img src="energy.jpg" alt="Energy & Power Systems">
+<div class="content">
+<h3>Energy & Power Systems</h3>
+<p>Reliable equipment for grid, backup, and renewable energy projects.</p>
+<ul>
+<li>Generators</li>
+<li>Transformers</li>
+<li>Solar & inverters</li>
+<li>Electrical cabling</li>
+</ul>
+</div>
+</a>
+
+<a href="mining.html" class="product-card">
+<img src="mining.jpg" alt="Mining & Industrial Supplies">
+<div class="content">
+<h3>Mining & Industrial Supplies</h3>
+<p>Heavy-duty equipment designed for harsh operating environments.</p>
+<ul>
+<li>Mining machinery</li>
+<li>PPE & safety gear</li>
+<li>Industrial tools</li>
+<li>Mechanical components</li>
+</ul>
+</div>
+</a>
+
+<a href="construction.html" class="product-card">
+<img src="construction.jpeg" alt="Construction Materials">
+<div class="content">
+<h3>Construction Materials</h3>
+<p>Certified materials supporting major civil works.</p>
+<ul>
+<li>Structural steel</li>
+<li>Cement & aggregates</li>
+<li>Formwork systems</li>
+<li>Road construction materials</li>
+</ul>
+</div>
+</a>
+
+<a href="agriculture.html" class="product-card">
+<img src="agriculture.jpg" alt="Agriculture & Irrigation">
+<div class="content">
+<h3>Agriculture & Irrigation</h3>
+<p>Solutions improving efficiency and sustainability in agriculture.</p>
+<ul>
+<li>Irrigation systems</li>
+<li>Water pumps</li>
+<li>Farming infrastructure</li>
+<li>Storage solutions</li>
+</ul>
+</div>
+</a>
+
+</div>
+</section>
+
+<section>
+<h2>Strategic Engineering Partners</h2>
+
+<div class="partner-grid">
+
+<div class="partner-card">
+<img src="cat.png" alt="Caterpillar Logo">
+<p><strong>Caterpillar (CAT)</strong><br>Global leader in construction and mining equipment.</p>
+</div>
+
+<div class="partner-card">
+<img src="siemens.png" alt="Siemens Logo">
+<p><strong>Siemens</strong><br>Electrical, automation, and energy systems.</p>
+</div>
+
+<div class="partner-card">
+<img src="grundfos.png" alt="Grundfos Logo">
+<p><strong>Grundfos</strong><br>World-leading pump and water solutions supplier.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <p>Engineering & Infrastructure Supply</p>
+    <p>Southern & East Africa</p>
+  </div>
+
+  <div>
+    <h4>UK Head Office</h4>
+    <p>12 Hay Hill, Mayfair, London, W1J 8NR</p>
+    <p>WhatsApp: <a href="https://wa.me/447506347826" target="_blank">+44 7506 347826</a></p>
+    <p>Email: Jsmith@headoffice-Balsiragroup.com</p>
+  </div>
+
+  <div>
+    <h4>Tanzania Branch</h4>
+    <p>9th Floor, Salamander Tower, Samora Avenue, Dar es Salaam</p>
+    <p>WhatsApp: <a href="https://wa.me/255796942804" target="_blank">+255 796 942 804</a></p>
+    <p>Emails: Eslom@LG-supply.com, Vickline@LG-supply.com</p>
+  </div>
+
+  <div>
+    <h4>Nigeria Branch</h4>
+    <p>1st Floor Left Wing, Gabriel Akinmade Taylor Plaza, 2 Allen Ave, Ikeja 101233, Lagos</p>
+    <p>WhatsApp: <a href="https://wa.me/2349045311631" target="_blank">+234 904 531 1631</a></p>
+    <p>Emails: jackline@balsiragroup.com, Adeleke@balsiragroup.com</p>
+  </div>
+
+  <div>
+    <h4>South Africa Office</h4>
+    <p>The Link, 173 Oxford Road, Rosebank, Johannesburg, South Africa</p>
+    <p>WhatsApp: (to be provided)</p>
+    <p>Email: Riaan.coetzee@headoffice-Balsiragroup.com</p>
+  </div>
+
+  <div class="copyright">
+    © 2026 LG Supply Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').onclick = () =>
+document.getElementById('mobile-nav').classList.toggle('show');
+</script>
+
+</body>
+</html>

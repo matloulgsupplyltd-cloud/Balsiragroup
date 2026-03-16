@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | BALSIRA</title>
+<link rel="icon" href="logo.png" type="image/png">
+
+<style>
+:root {
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+  --success:#4BB543;
+  --error:#FF4C4C;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background: linear-gradient(180deg,#0b0b0d,#0e0e12);border-bottom:1px solid #1f1f25;}
+header img{height:60px;}
+
+/* Desktop nav */
+nav.desktop-nav { display:flex; align-items:center; }
+nav.desktop-nav a{margin-left:28px;color:var(--muted);text-decoration:none;font-weight:500;}
+nav.desktop-nav a:hover{color:var(--text);}
+
+/* Hamburger */
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+.hamburger span { display:block; height:3px; width:25px; background:var(--text); border-radius:2px; }
+
+/* Mobile nav */
+nav.mobile-nav { display:none; flex-direction:column; position:absolute; top:80px; left:0; width:100%; background:var(--panel); padding:20px 0; border-top:1px solid #1f1f25; }
+nav.mobile-nav a{padding:10px 20px; color:var(--text); text-decoration:none; font-weight:500;}
+nav.mobile-nav a:hover{background:#1f1f25;}
+nav.mobile-nav.show { display:flex; }
+
+/* Hero */
+.hero{
+  padding:120px 60px;
+  text-align:center;
+  max-width:1200px;
+  margin:auto;
+  background: url('https://images.unsplash.com/photo-1556740769-9014f5f3e2b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600') center/cover no-repeat;
+  border-radius:12px;
+  color:#fff;
+}
+.hero h1{font-size:3rem;margin-bottom:20px;text-shadow:1px 1px 5px rgba(0,0,0,0.7);}
+.hero p{color:#f0f0f0;max-width:700px;margin:auto;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+
+/* Form */
+form{
+  max-width:600px;
+  margin:40px auto;
+  background:var(--panel);
+  padding:30px;
+  border-radius:10px;
+  border:1px solid #1f1f25;
+  display:grid;
+  gap:20px;
+}
+input, textarea{
+  padding:12px;
+  border-radius:6px;
+  border:1px solid #2b2b33;
+  background:#0b0b0d;
+  color:var(--text);
+  width:100%;
+  transition: border 0.3s;
+}
+textarea{resize:vertical;}
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:6px;
+  background:var(--accent);
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+}
+button:hover{opacity:0.9;}
+
+/* Success/Error message */
+.form-message{
+  text-align:center;
+  font-weight:600;
+  margin-top:-10px;
+  margin-bottom:10px;
+  opacity:0;
+  transition: opacity 0.5s ease;
+}
+.form-message.show{opacity:1;}
+
+/* Contact Info */
+.contact-info{
+  max-width:800px;
+  margin:40px auto 60px auto;
+  color:var(--muted);
+}
+.contact-info h3{color:var(--accent);margin-bottom:10px;}
+.contact-info p{margin:6px 0;}
+
+/* Footer */
+footer{padding:60px;background:#070709;border-top:1px solid #1f1f25;display:grid;grid-template-columns: repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+footer h4{margin-bottom:12px;}
+footer a{display:block;color:var(--muted);text-decoration:none;margin-bottom:8px;}
+footer a:hover{color:var(--text);}
+.copyright{grid-column:1/-1;color:var(--muted);font-size:0.9rem;margin-top:20px;text-align:center;}
+
+/* Responsive */
+@media (max-width:1024px){
+  nav.desktop-nav { display:none; }
+  .hamburger { display:flex; }
+  header img{height:50px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo" />
+
+  <!-- Desktop nav -->
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Contact Us</h1>
+  <p>Get in touch with BALSIRA GROUP for inquiries, partnerships, or supplier support.</p>
+</div>
+
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number">
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+  <div class="form-message" id="formMessage"></div>
+</form>
+
+<div class="contact-info">
+  <h3>UK Head Office</h3>
+  <p>12 Hay Hill, Mayfair, London, W1J 8NR</p>
+  <p><strong>WhatsApp:</strong> +44 7506 347826</p>
+  <p><strong>Email:</strong> Jsmith@Balsiragroup.com</p>
+
+  <h3>Tanzania Branch</h3>
+  <p>9th Floor, Salamander Tower, Samora Avenue, Dar es Salaam</p>
+  <p><strong>WhatsApp:</strong> +255 796 942 804</p>
+  <p><strong>Emails:</strong> Eslom@LG-supply.com</p>
+
+  <h3>Nigeria Branch</h3>
+  <p>1st Floor Left Wing, Gabriel Akinmade Taylor Plaza, 2 Allen Ave, Ikeja 101233, Lagos, Nigeria</p>
+  <p><strong>WhatsApp:</strong> +234 904 531 1631</p>
+  <p><strong>Emails:</strong> Adeleke@balsiragroup.com</p>
+
+  <h3>South Africa Office</h3>
+  <p>The Link, 173 Oxford Road, Rosebank, Johannesburg, South Africa</p>
+  <p><strong>WhatsApp:</strong> +27 68 152 0018</p>
+  <p><strong>Email:</strong> Riaan@Balsiragroup.com</p>
+</div>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="news.html">News</a>
+  </div>
+  <div>
+    <h4>Suppliers</h4>
+    <a href="suppliers.html">Register</a>
+    <a href="membership.html">Membership</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+  </div>
+  <div class="copyright">© 2026 BALSIRA GROUP. All rights reserved.</div>
+</footer>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
+

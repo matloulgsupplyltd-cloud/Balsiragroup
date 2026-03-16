@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News | LG Supply Ltd</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-menu">
+    <img src="logo.png" class="logo" alt="DemandCo Logo">
+    <button id="hamburger" class="hamburger">&#9776;</button>
+  </div>
+  <nav id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Company News</h1>
+  <p>Updates, announcements, and tender activity</p>
+</section>
+
+<section id="projectList">
+
+  <div class="project-card">
+    <h3>LG Supply Launches Tanzania Operations</h3>
+    <p>
+      LG Supply Ltd officially commenced operations in Tanzania to support
+      agricultural, mining, and infrastructure development through structured
+      demand aggregation and tender issuance.
+    </p>
+    <p><strong>Date:</strong> January 2026</p>
+  </div>
+
+  <div class="project-card">
+    <h3>Solar Water Pump Tenders Released</h3>
+    <p>
+      New tenders have been issued for solar-powered irrigation pumps targeting
+      rural farming and borehole projects across East Africa.
+    </p>
+    <p><strong>Date:</strong> February 2026</p>
+  </div>
+
+  <div class="project-card">
+    <h3>Supplier Registration Opens</h3>
+    <p>
+      Engineering equipment suppliers are now able to register on the DemandCo
+      platform to participate in competitive tenders and procurement programs.
+    </p>
+    <p><strong>Date:</strong> March 2026</p>
+  </div>
+
+</section>
+
+<footer>
+  <div class="copyright">
+    © 2026 LG Supply Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  hamburger.onclick = () => nav.classList.toggle('show');
+</script>
+
+</body>
+</html>

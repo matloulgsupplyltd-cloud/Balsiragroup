@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | BALSIRA</title>
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+:root {
+  --bg: #0b0b0d;
+  --panel: #121217;
+  --accent: #c9a24d;
+  --text: #eaeaea;
+  --muted: #9a9a9a;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family: 'Inter', 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+
+/* HEADER */
+header { display:flex; align-items:center; justify-content:space-between; padding:20px 60px; background: linear-gradient(180deg, #0b0b0d, #0e0e12); border-bottom:1px solid #1f1f25; position:relative; }
+header img { height:60px; } /* increased logo size */
+
+/* Desktop nav */
+nav.desktop-nav { display: flex; align-items: center; }
+nav.desktop-nav a { margin-left:28px; color: var(--muted); text-decoration:none; font-weight:500; }
+nav.desktop-nav a:hover { color: var(--text); }
+
+/* Hamburger menu */
+.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.hamburger span { display: block; height: 3px; width: 25px; background: var(--text); border-radius: 2px; }
+
+/* Mobile nav */
+nav.mobile-nav { display: none; flex-direction: column; position: absolute; top: 100px; left: 0; width: 100%; background: var(--panel); padding: 20px 0; border-top: 1px solid #1f1f25; }
+nav.mobile-nav a { padding: 10px 20px; color: var(--text); text-decoration: none; font-weight: 500; }
+nav.mobile-nav a:hover { background: #1f1f25; }
+nav.mobile-nav.show { display: flex; }
+
+/* HERO */
+.hero {
+  padding:120px 60px;
+  text-align:center;
+  color: #eaeaea;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/3184638/pexels-photo-3184638.jpeg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.hero h1 { font-size:3rem; margin-bottom:20px; }
+.hero p { max-width:760px; margin:auto; color:var(--text); font-size:1.2rem; }
+
+/* Sections */
+section { padding:80px 60px; max-width:1200px; margin:auto; }
+h2 { font-size:2rem; margin-bottom:30px; text-align:center; }
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:30px; }
+.card { background: var(--panel); border:1px solid #1f1f25; padding:30px; border-radius:10px; }
+.card h3 { margin-top:0; }
+.card img { width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:20px; }
+
+/* Feature section */
+.feature { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+.feature img { width:100%; height:320px; object-fit:cover; border-radius:10px; }
+
+/* Footer */
+footer { padding:60px; background:#070709; border-top:1px solid #1f1f25; display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:40px; }
+footer h4 { margin-bottom:12px; }
+footer a { display:block; color: var(--muted); text-decoration:none; margin-bottom:8px; }
+footer a:hover { color: var(--text); }
+.copyright { grid-column:1/-1; color: var(--muted); font-size:0.9rem; margin-top:20px; text-align:center; }
+
+@media (max-width:1024px) {
+  nav.desktop-nav { display: none; }
+  .hamburger { display: flex; }
+  .feature { grid-template-columns:1fr; }
+  header img { height:50px; } /* mobile logo size */
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo" />
+
+  <!-- Desktop nav -->
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>About us</h1>
+  <p>BALSIRA GROUP is a buyer-led procurement authority focused on sourcing engineering equipment for high-demand sectors across Africa, ensuring transparent, compliant, and efficient tendering processes.</p>
+</div>
+
+<section>
+  <h2>Our Mission & Vision</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" alt="Mission image">
+      <h3>Our Mission</h3>
+      <p>To be Africa's leading procurement aggregator, providing ethical and efficient tendering while connecting suppliers with high-value infrastructure projects. We strive to reduce procurement risks and enhance operational efficiency for all stakeholders.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg" alt="Vision image">
+      <h3>Our Vision</h3>
+      <p>To streamline procurement for critical infrastructure, creating transparency, fostering supplier growth, and driving regional development. Our goal is to enable sustainable economic growth by linking demand and supply efficiently.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Our Role in the Value Chain</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/6693654/pexels-photo-6693654.jpeg" alt="Identify needs">
+      <h3>Identify Needs</h3>
+      <p>We analyse client projects and market requirements for procurement, providing insights to optimise sourcing strategies and reduce inefficiencies.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/4386374/pexels-photo-4386374.jpeg" alt="Issue tenders">
+      <h3>Issue Tenders</h3>
+      <p>Transparent tendering using regional and international standards ensures compliance and fair market access for all suppliers.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" alt="Aggregate supplier bids">
+      <h3>Aggregate Supplier Bids</h3>
+      <p>We evaluate supplier submissions independently, ensuring ethical and efficient decision-making while maintaining market neutrality.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3184416/pexels-photo-3184416.jpeg" alt="Coordinate fulfilment">
+      <h3>Coordinate Fulfilment</h3>
+      <p>Seamless integration with BALSIRA GROUP for end-to-end procurement delivery, monitoring project milestones and supplier performance for optimal results.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>UK-Africa Advantage</h2>
+  <div class="feature">
+    <img src="https://images.pexels.com/photos/6770611/pexels-photo-6770611.jpeg" alt="Economic and financial collaboration">
+    <div class="card">
+      <p>BALSIRA GROUP leverages UK advisory expertise for international sourcing standards while maintaining a strong local presence in Africa. This ensures compliance, quality, and market responsiveness for all procurement projects, delivering measurable economic value and financial efficiency for our clients.</p>
+      <p>Our cross-border collaboration brings best practices in risk management, supplier governance, and market insights, enabling institutions to access resources strategically and responsibly.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="news.html">News</a>
+  </div>
+  <div>
+    <h4>Suppliers</h4>
+    <a href="suppliers.html">Register</a>
+    <a href="membership.html">Membership</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+  </div>
+  <div class="copyright">© 2026 BALSIRA GROUP. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

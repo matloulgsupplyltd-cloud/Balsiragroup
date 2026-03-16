@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BALSIRA | Procurement & Tender Authority</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<style>
+:root{
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 60px;
+  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
+  border-bottom:1px solid #1f1f25;
+}
+header img{height:60px;}
+
+/* Desktop nav */
+nav.desktop-nav{
+  display:flex;
+  align-items:center;
+}
+nav.desktop-nav a{
+  margin-left:28px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+}
+nav.desktop-nav a:hover{color:var(--text);}
+
+/* Hamburger menu */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:5px;
+}
+.hamburger span{
+  display:block;
+  height:3px;
+  width:25px;
+  background:var(--text);
+  border-radius:2px;
+}
+
+/* Mobile nav */
+nav.mobile-nav{
+  display:none;
+  flex-direction:column;
+  position:absolute;
+  top:100px;
+  left:0;
+  width:100%;
+  background:var(--panel);
+  padding:20px 0;
+  border-top:1px solid #1f1f25;
+}
+nav.mobile-nav a{
+  padding:10px 20px;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:500;
+}
+nav.mobile-nav a:hover{background:#1f1f25;}
+nav.mobile-nav.show{display:flex;}
+
+/* HERO */
+.hero{
+  padding:80px 60px;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+.hero img{
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:30px;
+}
+.hero h1{font-size:2.8rem; margin-bottom:20px;}
+.hero p{
+  color:var(--muted);
+  max-width:700px;
+  margin:auto;
+  margin-bottom:30px;
+}
+.cta a{
+  display:inline-block;
+  padding:14px 28px;
+  margin:8px;
+  border-radius:6px;
+  font-weight:600;
+  text-decoration:none;
+}
+.primary{background:var(--accent);color:#000;}
+.secondary{border:1px solid #2b2b33;color:var(--text);}
+
+/* SECTIONS */
+section{
+  padding:80px 60px;
+  max-width:1200px;
+  margin:auto;
+}
+section h2{
+  font-size:2.2rem;
+  margin-bottom:20px;
+  border-left:4px solid var(--accent);
+  padding-left:12px;
+}
+section p{
+  color:var(--muted);
+  margin-bottom:40px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid #1f1f25;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+}
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+/* FOOTER */
+footer{
+  padding:60px;
+  background:#070709;
+  border-top:1px solid #1f1f25;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+}
+footer a{
+  color:var(--muted);
+  text-decoration:none;
+  display:block;
+  margin-bottom:8px;
+}
+footer a:hover{color:var(--text);}
+.copyright{
+  grid-column:1/-1;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav.desktop-nav{display:none;}
+  .hamburger{display:flex;}
+  header img{height:50px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo">
+
+  <!-- Desktop nav -->
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <img src="https://images.pexels.com/photos/3862135/pexels-photo-3862135.jpeg" alt="Supply Chain Logistics">
+  <h1>Centralised Procurement & Tender Authority Across Africa</h1>
+  <p>
+    BALSIRA is a buyer-led procurement authority representing aggregated
+    institutional demand across infrastructure, utilities, and public sector
+    supply chains.
+  </p>
+  <div class="cta">
+    <a href="tenders.html" class="primary">View Live Tenders</a>
+    <a href="suppliers.html" class="secondary">Supplier Registration</a>
+  </div>
+</div>
+
+<section>
+  <h2>Why BALSIRA</h2>
+  <p>
+    Fragmented procurement, supplier inefficiencies, compliance risk, and
+    inflated costs undermine institutional supply chains.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg" alt="Fragmented Procurement">
+      <h3>Fragmented Procurement</h3>
+      <p>Unified tender aggregation across institutions.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg" alt="Supplier Inefficiencies">
+      <h3>Supplier Inefficiencies</h3>
+      <p>Fair access and structured participation.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Compliance Risk">
+      <h3>Compliance Risk</h3>
+      <p>Aligned to public sector frameworks.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3184290/pexels-photo-3184290.jpeg" alt="Inflated Costs">
+      <h3>Inflated Costs</h3>
+      <p>Demand aggregation improves pricing discipline.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Sectors We Serve</h2>
+  <p>Structured procurement across critical economic sectors.</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg" alt="Agriculture">
+      <h3>Agriculture</h3>
+      <p>Inputs, equipment, and agri-infrastructure.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg" alt="Mining">
+      <h3>Mining</h3>
+      <p>Heavy equipment and operational supply chains.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg" alt="Energy">
+      <h3>Energy</h3>
+      <p>Utilities and energy infrastructure procurement.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg" alt="Construction">
+      <h3>Construction</h3>
+      <p>Public works and infrastructure projects.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="news.html">News</a>
+  </div>
+  <div>
+    <h4>Suppliers</h4>
+    <a href="suppliers.html">Register</a>
+    <a href="membership.html">Membership</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+  </div>
+  <div class="copyright">© 2026 BALSIRA GROUP. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

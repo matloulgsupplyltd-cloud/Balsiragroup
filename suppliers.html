@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suppliers | BALSIRA </title>
+<link rel="icon" href="logo.png">
+
+<style>
+:root {
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+* { box-sizing: border-box; }
+body { margin:0;font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+
+/* HEADER */
+header { display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background: linear-gradient(180deg,#0b0b0d,#0e0e12);border-bottom:1px solid #1f1f25; }
+header img { height:60px; } /* desktop logo bigger */
+
+nav { display:flex; gap:28px; }
+
+nav a { color:var(--muted); text-decoration:none; font-weight:500; }
+nav a:hover { color:var(--text); }
+
+/* HAMBURGER */
+.hamburger { display:none; font-size:28px; background:none; border:none; color:var(--text); cursor:pointer; }
+
+/* HERO */
+.hero { padding:100px 60px; text-align:center; }
+.hero h1 { font-size:3rem; margin-bottom:20px; }
+.hero p { color:var(--muted); }
+
+/* FORM */
+form { max-width:600px; margin:40px auto; background:var(--panel); padding:30px; border-radius:10px; border:1px solid #1f1f25; display:grid; gap:20px; }
+input, select, textarea { padding:12px; border-radius:6px; border:1px solid #2b2b33; background:#0b0b0d; color:var(--text); width:100%; }
+textarea { resize:vertical; }
+button { padding:12px 24px; border:none; border-radius:6px; background:var(--accent); color:#000; font-weight:600; cursor:pointer; }
+button:hover { opacity:0.9; }
+
+.subscribe-section { margin:60px 0; text-align:center; }
+h2 { color:var(--accent); margin-bottom:10px; }
+
+/* FOOTER */
+footer { padding:60px; background:#070709; border-top:1px solid #1f1f25; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:40px; }
+footer h4 { margin-bottom:12px; }
+footer a { display:block; color:var(--muted); text-decoration:none; margin-bottom:8px; }
+footer a:hover { color:var(--text); }
+footer .copyright { grid-column:1/-1; color:var(--muted); font-size:0.9rem; margin-top:20px; text-align:center; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  header { padding:20px; }
+  nav { position:absolute; top:80px; left:0; right:0; background:#0b0b0d; flex-direction:column; align-items:center; display:none; padding:30px 0; border-bottom:1px solid #1f1f25; }
+  nav.show { display:flex; }
+  .hamburger { display:block; }
+  header img { height:50px; } /* mobile logo */
+  .hero { padding:70px 20px; }
+  .hero h1 { font-size:2.2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo">
+
+  <button class="hamburger" id="hamburger">☰</button>
+
+  <nav id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a> <!-- added -->
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Supplier Registration</h1>
+  <p>Register your company to supply engineering equipment to BALSIRA GROUP.</p>
+</div>
+
+<form id="supplierForm">
+  <input type="text" name="company_name" placeholder="Company Name" required>
+  <input type="text" name="contact_person" placeholder="Contact Person" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="tel" name="phone" placeholder="Phone" required>
+
+  <select name="sector" required>
+    <option value="">Select Sector</option>
+    <option value="Agriculture">Agriculture</option>
+    <option value="Mining">Mining</option>
+    <option value="Energy">Energy</option>
+    <option value="Construction">Construction</option>
+    <option value="Water">Water</option>
+  </select>
+
+  <textarea name="experience" placeholder="Experience"></textarea>
+
+  <button type="submit">Register</button>
+</form>
+
+<div class="subscribe-section">
+  <h2>Upgrade to Premium Supplier</h2>
+  <p style="color:var(--muted);">Access exclusive tenders and priority listings.</p>
+
+  <input type="email" id="premiumEmail" placeholder="Enter your registered email" style="max-width:400px;margin:10px auto;">
+  <button id="payButton">Subscribe</button>
+</div>
+
+<footer>
+  <div>
+    <h4>BALSIRA GROUP</h4>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="news.html">News</a>
+  </div>
+
+  <div>
+    <h4>Suppliers</h4>
+    <a href="suppliers.html">Register</a>
+    <a href="membership.html">Membership</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+  </div>
+
+  <div class="copyright">
+    © 2026 BALSIRA GROUP. All rights reserved.
+  </div>
+</footer>
+
+<script>
+/* HAMBURGER MENU */
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+</script>
+
+</body>
+</html>

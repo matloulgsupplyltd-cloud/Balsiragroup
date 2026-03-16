@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenders | BALSIRA</title>
+<link rel="icon" type="image/png" href="logo.png">
+
+<style>
+:root {
+  --bg:#0b0b0d;
+  --panel:#121217;
+  --accent:#c9a24d;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 60px;
+  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
+  border-bottom:1px solid #1f1f25;
+  position:relative;
+}
+header img{height:60px;} /* logo size */
+.desktop-nav a{
+  margin-left:28px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+}
+.desktop-nav a:hover{color:var(--text);}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:var(--text);
+  margin:4px 0;
+}
+
+/* MOBILE NAV */
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:#0e0e12;
+}
+.mobile-nav a{
+  padding:16px 24px;
+  border-top:1px solid #1f1f25;
+  color:var(--muted);
+  text-decoration:none;
+}
+.mobile-nav a:hover{color:var(--text);}
+
+/* HERO */
+.hero{
+  padding:120px 60px;
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url('https://cloudfront-us-east-1.images.arcpublishing.com/adn/6BQOV7F6Z5HD5O75DZH52Q43FI.jpg');
+  background-size:cover;
+  background-position:center;
+}
+.hero h1{font-size:3rem;margin-bottom:20px; color:var(--accent);}
+.hero p{
+  color:var(--muted);
+  max-width:700px;
+  margin:auto;
+  font-size:1.2rem;
+}
+
+/* FILTER */
+#filterBar{
+  max-width:1200px;
+  margin:20px auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.filter-btn{
+  padding:10px 20px;
+  border-radius:6px;
+  border:1px solid var(--muted);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  font-weight:500;
+}
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
+}
+
+/* GRID */
+#tenderList{
+  max-width:1200px;
+  margin:20px auto 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.tender-card{
+  background:var(--panel);
+  padding:20px;
+  border-radius:10px;
+  border:1px solid #1f1f25;
+}
+
+.tender-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+
+.tender-header h3{
+  color:var(--accent);
+}
+
+.tender-header span{
+  transition:0.3s;
+}
+
+.tender-card.open .tender-header span{
+  transform:rotate(180deg);
+}
+
+.tender-extra{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+}
+
+.tender-card.open .tender-extra{
+  max-height:1000px;
+  margin-top:15px;
+}
+
+.tender-extra p{
+  color:var(--muted);
+  margin:6px 0;
+}
+
+.contact-link{
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid #1f1f25;
+}
+.contact-link a{
+  color:var(--accent);
+  text-decoration:underline;
+  font-weight:500;
+}
+
+/* PAGINATION */
+#pagination{
+  max-width:1200px;
+  margin:20px auto 60px;
+  text-align:center;
+}
+.page-btn{
+  margin:0 5px;
+  padding:6px 12px;
+  border-radius:4px;
+  border:1px solid var(--muted);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+}
+.page-btn.active,
+.page-btn:hover{
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
+}
+
+/* FOOTER */
+footer{
+  padding:60px;
+  background:#070709;
+  border-top:1px solid #1f1f25;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .desktop-nav{display:none;}
+  .hamburger{display:flex;}
+  header img{height:50px;} /* smaller logo on mobile */
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="BALSIRA GROUP Logo">
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tenders.html">Tenders</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="market-insights.html">Market Insights</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="tenders.html">Tenders</a>
+  <a href="suppliers.html">Suppliers</a>
+  <a href="products.html">Products</a>
+  <a href="compliance.html">Compliance</a>
+  <a href="market-insights.html">Market Insights</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="hero">
+  <h1>Open Equipment Tenders</h1>
+  <p>Explore tenders issued by BALSIRA GROUP for equipment and supplies in water, energy, mining, construction, and agriculture sectors.</p>
+</div>
+
+<div id="filterBar">
+  <button class="filter-btn active" data-sector="all">All</button>
+  <button class="filter-btn" data-sector="Water & Sanitation Equipment">Water & Sanitation</button>
+  <button class="filter-btn" data-sector="Energy & Power Systems">Energy & Power</button>
+  <button class="filter-btn" data-sector="Mining & Industrial Supplies">Mining & Industrial</button>
+  <button class="filter-btn" data-sector="Construction Materials">Construction</button>
+  <button class="filter-btn" data-sector="Agriculture & Irrigation">Agriculture & Irrigation</button>
+</div>
+
+<div id="tenderList"></div>
+<div id="pagination"></div>
+
+<footer>
+  © 2026 BALSIRA GROUP. All rights reserved.
+</footer>
+
+<script>
+// --- MOBILE MENU ---
+function toggleMenu(){
+  const nav = document.getElementById('mobileNav');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+}
+
+// --- TENDERS SCRIPT ---
+const tenders = [];
+const sectors = [
+  "Water & Sanitation Equipment",
+  "Energy & Power Systems",
+  "Mining & Industrial Supplies",
+  "Construction Materials",
+  "Agriculture & Irrigation"
+];
+const tenderTitles = [
+  "Supply of Industrial Water Pumps and Valves",
+  "Procurement of HDPE Piping Systems",
+  "Installation and Commissioning of Water Treatment Plant",
+  "Supply of Storage Tanks",
+  "Procurement of Generators and Backup Energy Systems",
+  "Supply of Transformers and Solar Inverters",
+  "Electrical Cabling and Accessories",
+  "Purchase of Mining PPE and Safety Gear",
+  "Procurement of Industrial Tools and Mechanical Components",
+  "Structural Steel Supply for Civil Works",
+  "Cement and Aggregates for Road Construction",
+  "Formwork Systems for Building Projects",
+  "Irrigation Pumps and Systems for Agriculture",
+  "Storage Solutions for Farming Infrastructure"
+];
+const types = ["Government", "Private"];
+const locations = [
+  "Johannesburg, South Africa",
+  "Pretoria, South Africa",
+  "Cape Town, South Africa",
+  "Durban, South Africa",
+  "Port Elizabeth, South Africa",
+  "Gaborone, Botswana",
+  "Windhoek, Namibia",
+  "Lusaka, Zambia",
+  "Nairobi, Kenya",
+  "Accra, Ghana"
+];
+const descriptions = [
+  "This tender covers supply, installation, and maintenance of equipment, ensuring compliance with industry standards and quality assurance.",
+  "The project requires experienced contractors with proven capabilities in delivering similar equipment and operational support.",
+  "Successful bidders will be responsible for delivery, installation, commissioning, and providing ongoing technical support.",
+  "Bidders must ensure adherence to safety regulations, environmental compliance, and provide documentation for all delivered equipment.",
+  "The scope includes supply, logistics, installation, testing, and after-sales support as required by the project specifications."
+];
+
+// Generate 100 tenders
+for(let i=0;i<100;i++){
+  let sector = sectors[i % sectors.length];
+  let title = tenderTitles[i % tenderTitles.length];
+  let description = descriptions[i % descriptions.length];
+  let country = locations[i % locations.length];
+  let tenderType = types[i % types.length];
+  
+  let minBudget = Math.floor(Math.random()*50+10)*1000; 
+  let maxBudget = minBudget + Math.floor(Math.random()*100+50)*1000; 
+  let budget = `USD ${minBudget.toLocaleString()} – USD ${maxBudget.toLocaleString()}`;
+
+  let daysAhead = Math.floor(Math.random()*30)+2;
+  let closingDate = new Date();
+  closingDate.setDate(closingDate.getDate() + daysAhead);
+  let closing = closingDate.toISOString().split('T')[0];
+
+  let tenderNumber = `SCMP 29/08/02R-${String(i+1).padStart(3,'0')}`;
+  let specialConditions = "Bidders must purchase equipment from BALSIRA; full product catalog available in Products page.";
+
+  tenders.push({
+    title, description, sector, type: tenderType, closing, daysRemaining: daysAhead,
+    location: country, budget, eligibility: "Company registration, Tax compliance, ISO certification, Minimum 3 years project experience",
+    contact: "tenders@balsiragroup.africa", tenderNumber, specialConditions
+  });
+}
+
+// Pagination
+let currentPage = 1;
+const itemsPerPage = 20;
+
+function displayPage(page=1, filter="all"){
+  currentPage = page;
+  const filtered = tenders.filter(t => filter==="all" || t.sector===filter);
+  const start = (page-1)*itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageItems = filtered.slice(start,end);
+  const list = document.getElementById("tenderList");
+  list.innerHTML = pageItems.map(t => `
+    <div class="tender-card">
+      <div class="tender-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>${t.title}</h3>
+        <span>▼</span>
+      </div>
+      <p>${t.description}</p>
+      <p><strong>Closing Date:</strong> ${new Date(t.closing).toLocaleDateString('en-GB')}</p>
+      <p><strong>Days Remaining:</strong> in ${t.daysRemaining} days</p>
+      <div class="tender-extra">
+        <p><strong>Tender Number:</strong> ${t.tenderNumber}</p>
+        <p><strong>Sector:</strong> ${t.sector}</p>
+        <p><strong>Type:</strong> ${t.type}</p>
+        <p><strong>Project Location:</strong> ${t.location}</p>
+        <p><strong>Estimated Budget:</strong> ${t.budget}</p>
+        <p><strong>Eligibility:</strong> ${t.eligibility}</p>
+        <p><strong>Special Conditions:</strong> ${t.specialConditions}</p>
+        <p><strong>Contact:</strong> ${t.contact}</p>
+        <div class="contact-link">
+          <a href="contact.html">Contact for Quote</a><br>
+          <a href="products.html">View Products</a>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  renderPagination(filtered.length, page);
+}
+
+// Pagination buttons
+function renderPagination(totalItems, page){
+  const totalPages = Math.ceil(totalItems/itemsPerPage);
+  const container = document.getElementById("pagination");
+  let html = `<button class="page-btn" onclick="displayPage(1)">First</button>`;
+  for(let i=1;i<=totalPages;i++){
+    if(i<=3 || i>totalPages-2 || (i>=page-1 && i<=page+1)){
+      html += `<button class="page-btn ${i===page?'active':''}" onclick="displayPage(${i})">${i}</button>`;
+    } else if(i===4 && page>5){
+      html += `…`;
+    } else if(i===totalPages-3 && page<totalPages-4){
+      html += `…`;
+    }
+  }
+  html += `<button class="page-btn" onclick="displayPage(${totalPages})">Last</button>`;
+  container.innerHTML = html;
+}
+
+// Filter
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    displayPage(1, btn.dataset.sector);
+  };
+});
+
+displayPage(); // initial load
+</script>
+
+</body>
+</html>
