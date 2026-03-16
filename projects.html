@@ -142,6 +142,8 @@ section{
   font-size:1.5rem;
   color: var(--accent);
   transition: transform 0.3s ease;
+  flex-shrink:0;
+  margin-left:16px;
 }
 .case-study.open .arrow{
   transform: rotate(180deg);
@@ -188,22 +190,12 @@ footer a:hover{color:var(--text);}
 
 /* RESPONSIVE */
 @media (max-width: 900px){
-  header{
-    padding:20px 24px;
-  }
-  nav{
-    display:none;
-  }
-  .hamburger{
-    display:flex;
-  }
-  section{
-    padding:40px 24px;
-  }
-  .hero{
-    padding:80px 24px;
-  }
-  header img { height:50px; }
+  header{padding:20px 24px;}
+  nav{display:none;}
+  .hamburger{display:flex;}
+  section{padding:40px 24px;}
+  .hero{padding:80px 24px;}
+  header img{height:50px;}
 }
 </style>
 </head>
@@ -212,7 +204,6 @@ footer a:hover{color:var(--text);}
 
 <header>
   <img src="logo.png" alt="BALSIRA GROUP Logo">
-
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -224,11 +215,8 @@ footer a:hover{color:var(--text);}
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
-
   <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 </header>
 
@@ -246,10 +234,7 @@ footer a:hover{color:var(--text);}
 
 <div class="hero">
   <h1>Projects & Case Studies</h1>
-  <p>
-    A selection of infrastructure, environmental, and engineering projects
-    successfully delivered by BALSIRA GROUP.
-  </p>
+  <p>A selection of infrastructure, environmental, and engineering projects successfully delivered by BALSIRA GROUP.</p>
 </div>
 
 <section>
@@ -258,18 +243,14 @@ footer a:hover{color:var(--text);}
   <div class="case-study">
     <div class="clickable-area">
       <h2>Lesotho Lowlands Water Development Project – Phase II</h2>
-      <span class="arrow">▼</span>
+      <span class="arrow">&#9660;</span>
     </div>
     <div class="meta">
       <span>Water Infrastructure</span>
       <span>Southern Africa</span>
       <span>Bulk Water Supply</span>
     </div>
-    <p>
-      BALSIRA GROUP supported a national water infrastructure programme
-      delivering intake works, treatment facilities, pipelines, and
-      distribution systems to expanding urban centres.
-    </p>
+    <p>BALSIRA GROUP supported a national water infrastructure programme delivering intake works, treatment facilities, pipelines, and distribution systems to expanding urban centres.</p>
     <div class="more-info">
       <p><strong>Client:</strong> Government of Lesotho</p>
       <p><strong>Duration:</strong> Jan 2021 – Dec 2023</p>
@@ -278,7 +259,7 @@ footer a:hover{color:var(--text);}
       <p><strong>Technologies/Equipment:</strong> SCADA systems, submersible pumps, filtration units, pressure sensors.</p>
       <p><strong>Stakeholders:</strong> Government agencies, local municipalities, civil contractors.</p>
       <p><strong>Budget:</strong> $45M</p>
-      <p><strong>Environmental & Social Impact:</strong> Improved water access for 250,000 residents, reduced contamination risk, sustainable groundwater management.</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Improved water access for 250,000 residents, reduced contamination risk, sustainable groundwater management.</p>
       <p><strong>Key Achievements:</strong> 150 km new pipelines, 3 upgraded treatment facilities, project completed 2 months ahead of schedule.</p>
       <p><strong>Lessons Learned:</strong> Early stakeholder engagement and real-time monitoring is critical for large-scale water infrastructure projects.</p>
     </div>
@@ -287,18 +268,15 @@ footer a:hover{color:var(--text);}
   <!-- Project 2 -->
   <div class="case-study">
     <div class="clickable-area">
-      <h2>Environmental Flow & Water Quality Assessment</h2>
-      <span class="arrow">▼</span>
+      <h2>Environmental Flow &amp; Water Quality Assessment</h2>
+      <span class="arrow">&#9660;</span>
     </div>
     <div class="meta">
       <span>Environmental Services</span>
       <span>Water Resources</span>
       <span>Impact Assessment</span>
     </div>
-    <p>
-      The project focused on environmental flow modelling, water quality
-      analysis, and sustainable abstraction planning to protect river systems.
-    </p>
+    <p>The project focused on environmental flow modelling, water quality analysis, and sustainable abstraction planning to protect river systems.</p>
     <div class="more-info">
       <p><strong>Client:</strong> Regional Water Authority</p>
       <p><strong>Duration:</strong> Mar 2022 – Nov 2022</p>
@@ -307,7 +285,7 @@ footer a:hover{color:var(--text);}
       <p><strong>Technologies/Equipment:</strong> Flow meters, water quality sensors, GIS mapping, modeling software.</p>
       <p><strong>Stakeholders:</strong> Local farmers, environmental NGOs, municipal water departments.</p>
       <p><strong>Budget:</strong> $1.2M</p>
-      <p><strong>Environmental & Social Impact:</strong> Protection of biodiversity, improved community water management, long-term river sustainability.</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Protection of biodiversity, improved community water management, long-term river sustainability.</p>
       <p><strong>Key Achievements:</strong> Completed comprehensive assessment report, established early warning system for water quality issues, recommended flow adjustments for agriculture.</p>
       <p><strong>Lessons Learned:</strong> Collaborative stakeholder engagement ensures sustainability and acceptance of environmental plans.</p>
     </div>
@@ -317,17 +295,13 @@ footer a:hover{color:var(--text);}
   <div class="case-study">
     <div class="clickable-area">
       <h2>Multi-Phase Water Infrastructure Planning</h2>
-      <span class="arrow">▼</span>
+      <span class="arrow">&#9660;</span>
     </div>
     <div class="meta">
       <span>Infrastructure</span>
-      <span>Planning & Supervision</span>
+      <span>Planning &amp; Supervision</span>
     </div>
-    <p>
-      BALSIRA GROUP provided procurement support, tender documentation,
-      contractor evaluation, and construction supervision for regional
-      water systems.
-    </p>
+    <p>BALSIRA GROUP provided procurement support, tender documentation, contractor evaluation, and construction supervision for regional water systems.</p>
     <div class="more-info">
       <p><strong>Client:</strong> Multiple Municipalities</p>
       <p><strong>Duration:</strong> Apr 2021 – Ongoing</p>
@@ -336,9 +310,789 @@ footer a:hover{color:var(--text);}
       <p><strong>Technologies/Equipment:</strong> Project management software, pipeline design tools, supervision drones.</p>
       <p><strong>Stakeholders:</strong> Municipal councils, contractors, local communities.</p>
       <p><strong>Budget:</strong> $20M+</p>
-      <p><strong>Environmental & Social Impact:</strong> Improved regional water access, enhanced planning capacity, reduced project delays.</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Improved regional water access, enhanced planning capacity, reduced project delays.</p>
       <p><strong>Key Achievements:</strong> Streamlined procurement, multiple regional systems improved, optimized project supervision.</p>
       <p><strong>Lessons Learned:</strong> Centralized coordination with local authorities reduces delays and enhances compliance.</p>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Zambia Rural Electrification Solar Microgrid Programme</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>East Africa</span>
+      <span>Renewable Energy</span>
+    </div>
+    <p>BALSIRA GROUP supplied and commissioned solar microgrid systems to provide reliable electricity to off-grid rural communities across three provinces in Zambia.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Zambia Rural Electrification Authority</p>
+      <p><strong>Duration:</strong> Jun 2022 – May 2024</p>
+      <p><strong>Challenges:</strong> Remote site access, limited grid infrastructure, community resistance to new technology, harsh climate conditions.</p>
+      <p><strong>Solutions:</strong> Pre-fabricated microgrid units, community training programmes, local technician certification, weather-resistant equipment housing.</p>
+      <p><strong>Technologies/Equipment:</strong> Solar PV panels, lithium-ion battery banks, solar inverters, smart metering systems, distribution boards.</p>
+      <p><strong>Stakeholders:</strong> Rural electrification authority, village community leaders, NGOs, local contractors.</p>
+      <p><strong>Budget:</strong> $8.5M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Clean energy access for 40,000 residents, reduced reliance on diesel generators, 6,000 tonnes CO2 emissions avoided annually.</p>
+      <p><strong>Key Achievements:</strong> 85 microgrids installed, 12,000 households connected, 200 local technicians trained.</p>
+      <p><strong>Lessons Learned:</strong> Community ownership of assets significantly improves system longevity and reduces vandalism.</p>
+    </div>
+  </div>
+
+  <!-- Project 5 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Namibia Mine Dewatering &amp; Slurry Pump Installation</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Mining &amp; Industrial</span>
+      <span>Southern Africa</span>
+      <span>Dewatering Systems</span>
+    </div>
+    <p>BALSIRA GROUP procured and installed high-capacity dewatering and slurry pump systems for an open-pit mine operation experiencing severe groundwater ingress challenges.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Namibia Mining Corporation</p>
+      <p><strong>Duration:</strong> Feb 2023 – Oct 2023</p>
+      <p><strong>Challenges:</strong> High groundwater inflow rates, corrosive slurry composition, tight installation schedule to avoid production downtime.</p>
+      <p><strong>Solutions:</strong> High-chrome impeller slurry pumps, redundant pump configurations, automated float-switch controls, chemical-resistant piping.</p>
+      <p><strong>Technologies/Equipment:</strong> Warman slurry pumps, submersible dewatering pumps, polyurethane-lined pipelines, automated pump controllers.</p>
+      <p><strong>Stakeholders:</strong> Mine management, engineering team, health and safety officers, civil contractors.</p>
+      <p><strong>Budget:</strong> $3.8M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Reduced risk of mine flooding, improved worker safety, controlled discharge of mine water to licensed settling ponds.</p>
+      <p><strong>Key Achievements:</strong> Zero production days lost due to flooding, dewatering capacity increased by 180%, installation completed on schedule.</p>
+      <p><strong>Lessons Learned:</strong> Redundant pump systems are essential for continuous mine operations in high-inflow conditions.</p>
+    </div>
+  </div>
+
+  <!-- Project 6 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Botswana National Roads Rehabilitation Programme</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Construction Materials</span>
+      <span>Southern Africa</span>
+      <span>Road Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied construction materials including cement, aggregates, bitumen, and steel reinforcement for a major national roads rehabilitation programme across Botswana.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Botswana Roads Department</p>
+      <p><strong>Duration:</strong> Aug 2020 – Dec 2022</p>
+      <p><strong>Challenges:</strong> Simultaneous delivery to multiple remote sites, material quality assurance, harsh summer heat affecting concrete curing.</p>
+      <p><strong>Solutions:</strong> Centralized logistics hub, certified material testing on delivery, heat-resistant admixtures for concrete mixes.</p>
+      <p><strong>Technologies/Equipment:</strong> Bulk cement tankers, aggregate conveyors, bitumen storage tanks, rebar bending and cutting equipment.</p>
+      <p><strong>Stakeholders:</strong> Roads department, civil engineering firms, local aggregate suppliers, transport contractors.</p>
+      <p><strong>Budget:</strong> $12M (materials supply component)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Improved transport connectivity for rural communities, reduced vehicle maintenance costs, boosted regional trade.</p>
+      <p><strong>Key Achievements:</strong> Over 800 km of roads rehabilitated, 100% on-time material deliveries, zero material rejection incidents.</p>
+      <p><strong>Lessons Learned:</strong> Centralised material testing reduces quality disputes and project delays significantly.</p>
+    </div>
+  </div>
+
+  <!-- Project 7 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Kenya Drip Irrigation Expansion – Rift Valley Agricultural Zone</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>East Africa</span>
+      <span>Drip Irrigation</span>
+    </div>
+    <p>BALSIRA GROUP supplied and commissioned advanced drip irrigation systems for smallholder and commercial farms, significantly improving water use efficiency across the Rift Valley region.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Kenya Ministry of Agriculture</p>
+      <p><strong>Duration:</strong> Jan 2023 – Dec 2023</p>
+      <p><strong>Challenges:</strong> Variable soil types, uneven terrain, low farmer technical literacy, unreliable water source pressure.</p>
+      <p><strong>Solutions:</strong> Pressure-compensating drip emitters, terrain-adaptive pipeline layouts, farmer training workshops, booster pump installations.</p>
+      <p><strong>Technologies/Equipment:</strong> Netafim drip tape, booster pumps, filtration units, fertigation systems, soil moisture sensors.</p>
+      <p><strong>Stakeholders:</strong> Ministry of Agriculture, smallholder farmer cooperatives, agricultural NGOs, county governments.</p>
+      <p><strong>Budget:</strong> $5.6M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> 40% reduction in water consumption, 25% increase in crop yields, improved food security for 15,000 farming households.</p>
+      <p><strong>Key Achievements:</strong> 3,200 hectares equipped with drip irrigation, 8,500 farmers trained, 3 crop seasons completed post-installation with measurable yield improvement.</p>
+      <p><strong>Lessons Learned:</strong> Farmer-led maintenance models dramatically improve system uptime compared to contractor-only maintenance agreements.</p>
+    </div>
+  </div>
+
+  <!-- Project 8 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>South Africa Wastewater Treatment Plant Upgrade – Gauteng</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>Southern Africa</span>
+      <span>Wastewater Treatment</span>
+    </div>
+    <p>BALSIRA GROUP supplied mechanical and electrical equipment for the full upgrade of an aging wastewater treatment plant serving a metropolitan area of 600,000 residents.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Ekurhuleni Metropolitan Municipality</p>
+      <p><strong>Duration:</strong> May 2021 – Mar 2023</p>
+      <p><strong>Challenges:</strong> Upgrading while maintaining partial plant operation, aging civil infrastructure, tight regulatory compliance deadlines.</p>
+      <p><strong>Solutions:</strong> Phased equipment replacement, temporary bypass systems, close coordination with plant operators, compliance testing at each phase.</p>
+      <p><strong>Technologies/Equipment:</strong> Aeration blowers, clarifier mechanisms, sludge pumps, UV disinfection units, SCADA automation systems.</p>
+      <p><strong>Stakeholders:</strong> Municipality, Department of Water and Sanitation, environmental regulators, civil engineering contractor.</p>
+      <p><strong>Budget:</strong> $22M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Eliminated untreated effluent discharge into local river, improved public health outcomes, compliance with DWS Green Drop standards.</p>
+      <p><strong>Key Achievements:</strong> Plant capacity increased from 40 to 65 ML/day, achieved Green Drop certification, zero downtime during upgrade phases.</p>
+      <p><strong>Lessons Learned:</strong> Phased commissioning with parallel operations is essential for live plant upgrades in densely populated areas.</p>
+    </div>
+  </div>
+
+  <!-- Project 9 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Mozambique Flood Recovery &amp; Water Supply Restoration</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water Infrastructure</span>
+      <span>East Africa</span>
+      <span>Disaster Recovery</span>
+    </div>
+    <p>Following Cyclone Idai, BALSIRA GROUP provided emergency water supply equipment and supported the rapid restoration of damaged water infrastructure in Sofala Province.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> FIPAG (Mozambique Water Supply Investment Fund)</p>
+      <p><strong>Duration:</strong> Apr 2019 – Feb 2020</p>
+      <p><strong>Challenges:</strong> Severely damaged infrastructure, flood-contaminated water sources, urgent humanitarian need, limited road access.</p>
+      <p><strong>Solutions:</strong> Rapid deployment of mobile water treatment units, emergency pipeline repair kits, helicopter-assisted delivery to cut-off areas.</p>
+      <p><strong>Technologies/Equipment:</strong> Mobile chlorination units, emergency submersible pumps, HDPE pipe repair clamps, water bladder storage tanks.</p>
+      <p><strong>Stakeholders:</strong> FIPAG, UNICEF, humanitarian NGOs, local government, military logistics.</p>
+      <p><strong>Budget:</strong> $4.1M (emergency phase)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Restored clean water access for 180,000 displaced persons within 6 weeks, prevented cholera outbreak, supported long-term resilience planning.</p>
+      <p><strong>Key Achievements:</strong> Water supply restored 3 weeks ahead of target, 14 key infrastructure points repaired, emergency response model adopted as national best practice.</p>
+      <p><strong>Lessons Learned:</strong> Pre-positioned emergency equipment depots dramatically reduce response time in disaster-prone regions.</p>
+    </div>
+  </div>
+
+  <!-- Project 10 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Ghana Gold Mine Tailings Water Management System</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Mining &amp; Industrial</span>
+      <span>West Africa</span>
+      <span>Water Management</span>
+    </div>
+    <p>BALSIRA GROUP designed and supplied a complete tailings water recirculation and treatment system to enable water reuse and minimise environmental discharge at a large-scale gold mining operation.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> AngloGold Ashanti – Obuasi Mine</p>
+      <p><strong>Duration:</strong> Sep 2022 – Aug 2023</p>
+      <p><strong>Challenges:</strong> High cyanide and heavy metal concentrations in tailings water, strict environmental discharge limits, complex treatment chemistry.</p>
+      <p><strong>Solutions:</strong> Multi-stage chemical treatment, clarification, pH correction, UV and activated carbon polishing systems.</p>
+      <p><strong>Technologies/Equipment:</strong> Chemical dosing skids, lamella clarifiers, activated carbon filters, pH and turbidity sensors, sump pumps.</p>
+      <p><strong>Stakeholders:</strong> Mine management, Ghana Environmental Protection Agency, local community representatives, mine environmental team.</p>
+      <p><strong>Budget:</strong> $6.9M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Zero non-compliant discharge events post-commissioning, 60% reduction in freshwater abstraction, improved community trust.</p>
+      <p><strong>Key Achievements:</strong> Achieved EPA discharge compliance within first quarter of operation, water recycling rate of 75% achieved, reduced freshwater costs by $1.2M annually.</p>
+      <p><strong>Lessons Learned:</strong> Involving environmental regulators during design phase prevents costly post-commissioning modifications.</p>
+    </div>
+  </div>
+
+  <!-- Project 11 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Tanzania Rural Water Supply Borehole Programme</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>East Africa</span>
+      <span>Groundwater Development</span>
+    </div>
+    <p>BALSIRA GROUP supplied borehole pumps, solar pump controllers, and elevated storage tanks for a rural groundwater development programme serving underserved villages in Dodoma Region.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Tanzania Ministry of Water</p>
+      <p><strong>Duration:</strong> Mar 2022 – Nov 2022</p>
+      <p><strong>Challenges:</strong> Variable borehole yields, dispersed village locations, low maintenance capacity among beneficiary communities.</p>
+      <p><strong>Solutions:</strong> Variable speed solar pump controllers matched to borehole yields, simplified maintenance design, community water committee training.</p>
+      <p><strong>Technologies/Equipment:</strong> Solar submersible pumps, galvanised elevated tanks, float valves, yield-matched pump controllers, PVC rising mains.</p>
+      <p><strong>Stakeholders:</strong> Ministry of Water, UNICEF, village water committees, district authorities.</p>
+      <p><strong>Budget:</strong> $2.8M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Clean water access provided to 85,000 rural residents, 60% reduction in waterborne illness incidence, women's time burden significantly reduced.</p>
+      <p><strong>Key Achievements:</strong> 120 boreholes equipped, 95% system uptime after 12 months, water committee governance model replicated nationally.</p>
+      <p><strong>Lessons Learned:</strong> Matching pump specifications precisely to borehole yield data prevents premature pump burnout and extends asset life.</p>
+    </div>
+  </div>
+
+  <!-- Project 12 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>South Africa Coal Power Station Cooling Tower Rebuild</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>Southern Africa</span>
+      <span>Industrial Plant</span>
+    </div>
+    <p>BALSIRA GROUP supplied mechanical components and industrial valves for the complete rebuild of cooling tower units at a major coal-fired power station, restoring generation capacity.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Eskom Holdings SOC</p>
+      <p><strong>Duration:</strong> Jan 2022 – Oct 2022</p>
+      <p><strong>Challenges:</strong> Extreme time pressure due to national power shortage, high-precision engineering requirements, safety-critical environment.</p>
+      <p><strong>Solutions:</strong> Pre-fabricated modular fill media, accelerated procurement, dedicated on-site BALSIRA supply management team.</p>
+      <p><strong>Technologies/Equipment:</strong> Cooling tower fill media, drift eliminators, distribution nozzles, butterfly valves, circulating water pumps, expansion joints.</p>
+      <p><strong>Stakeholders:</strong> Eskom engineering team, OEM contractors, Department of Energy, National Energy Regulator of South Africa.</p>
+      <p><strong>Budget:</strong> $18M (equipment supply)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Restoration of 600 MW generation capacity, contributing to national load shedding reduction, improved plant thermal efficiency.</p>
+      <p><strong>Key Achievements:</strong> All equipment delivered and installed within 9-month schedule, generation unit returned to service on target, zero safety incidents during works.</p>
+      <p><strong>Lessons Learned:</strong> Dedicated on-site supply management eliminates procurement delays in fast-track industrial projects.</p>
+    </div>
+  </div>
+
+  <!-- Project 13 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Zimbabwe Urban Water Distribution Network Expansion</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water Infrastructure</span>
+      <span>Southern Africa</span>
+      <span>Distribution Networks</span>
+    </div>
+    <p>BALSIRA GROUP supplied HDPE pipelines, gate valves, pressure-reducing stations, and service connection materials for a major urban distribution network expansion in Harare.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Harare City Council</p>
+      <p><strong>Duration:</strong> Jul 2021 – Jun 2023</p>
+      <p><strong>Challenges:</strong> Ageing existing network causing high leakage rates, population growth outpacing infrastructure, limited council budget.</p>
+      <p><strong>Solutions:</strong> Phased replacement targeting highest-loss zones first, pressure management zoning, leak detection surveys prior to each phase.</p>
+      <p><strong>Technologies/Equipment:</strong> HDPE DN200–DN630 pipes, gate valves, pressure-reducing valves, service saddles, electrofusion fittings, acoustic leak detectors.</p>
+      <p><strong>Stakeholders:</strong> Harare City Council, Zimbabwe National Water Authority, civil contractors, resident associations.</p>
+      <p><strong>Budget:</strong> $14M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Non-revenue water reduced from 52% to 28%, improved service hours from 4 to 18 hours per day, reduced illegal connection incidence.</p>
+      <p><strong>Key Achievements:</strong> 85 km of new pipelines installed, 42,000 new household connections made, pressure management reduced pipe burst frequency by 70%.</p>
+      <p><strong>Lessons Learned:</strong> Pressure management zones should be established before pipe replacement to maximise the investment benefit.</p>
+    </div>
+  </div>
+
+  <!-- Project 14 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Ethiopia Sugar Estate Irrigation Canal Lining Programme</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>East Africa</span>
+      <span>Canal Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied lining materials and irrigation equipment for the rehabilitation of irrigation canals serving a large sugar cane estate to reduce seepage losses and improve conveyance efficiency.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Ethiopian Sugar Corporation</p>
+      <p><strong>Duration:</strong> Feb 2023 – Jan 2024</p>
+      <p><strong>Challenges:</strong> Extensive canal network, active crop irrigation during construction, high seepage losses reducing estate water availability.</p>
+      <p><strong>Solutions:</strong> Pre-cast concrete lining panels, rolling construction schedule maintaining partial canal operation, inlet control gate upgrades.</p>
+      <p><strong>Technologies/Equipment:</strong> Pre-cast concrete canal liners, HDPE canal liners, radial gates, flow measurement flumes, canal cleaning machinery.</p>
+      <p><strong>Stakeholders:</strong> Ethiopian Sugar Corporation, Ministry of Irrigation, civil construction teams, estate agronomists.</p>
+      <p><strong>Budget:</strong> $7.3M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> 35% reduction in irrigation water losses, improved downstream water availability, enhanced estate production capacity.</p>
+      <p><strong>Key Achievements:</strong> 280 km of canals lined, seepage reduced from 30% to 8%, irrigation efficiency improved enabling expansion of cane cultivation area by 1,800 hectares.</p>
+      <p><strong>Lessons Learned:</strong> Hybrid lining systems combining pre-cast and HDPE sections offer cost and time advantages over single-material approaches in large irrigation schemes.</p>
+    </div>
+  </div>
+
+  <!-- Project 15 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Malawi Drinking Water Safety &amp; Chlorination Upgrade</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>East Africa</span>
+      <span>Water Treatment</span>
+    </div>
+    <p>BALSIRA GROUP supplied automated chlorination dosing systems and water quality monitoring equipment to upgrade drinking water safety across 18 district water supply schemes in Malawi.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Malawi Water Boards</p>
+      <p><strong>Duration:</strong> May 2022 – Feb 2023</p>
+      <p><strong>Challenges:</strong> Inconsistent manual chlorination practices, remote site access, limited technical staff capacity, power supply reliability issues.</p>
+      <p><strong>Solutions:</strong> Solar-powered automated chlorine dosing systems, remote telemetry monitoring, operator training programmes, preventative maintenance schedules.</p>
+      <p><strong>Technologies/Equipment:</strong> Chlorine dosing pumps, residual chlorine analysers, solar-powered control panels, GSM telemetry units, emergency chlorine storage systems.</p>
+      <p><strong>Stakeholders:</strong> Central and Northern Region Water Boards, Ministry of Health, UNICEF, district health offices.</p>
+      <p><strong>Budget:</strong> $1.9M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Elimination of chlorination failures across all 18 schemes, significant reduction in diarrhoeal disease cases, improved public health outcomes for 320,000 beneficiaries.</p>
+      <p><strong>Key Achievements:</strong> 100% scheme compliance with WHO chlorine residual standards, remote monitoring preventing 34 potential failure events in first year of operation.</p>
+      <p><strong>Lessons Learned:</strong> Remote telemetry systems are cost-effective for dispersed rural water schemes where daily site visits are impractical.</p>
+    </div>
+  </div>
+
+  <!-- Project 16 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Angola LNG Plant Industrial Valve &amp; Instrument Supply</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>Central Africa</span>
+      <span>Oil &amp; Gas</span>
+    </div>
+    <p>BALSIRA GROUP supplied a comprehensive range of industrial valves, instrumentation, and pipe fittings for a major LNG processing plant expansion project in Soyo, Angola.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Angola LNG (Chevron, Sonangol, BP, Total, ENI consortium)</p>
+      <p><strong>Duration:</strong> Oct 2021 – Sep 2022</p>
+      <p><strong>Challenges:</strong> High-specification API and ANSI standards compliance, long-lead items, stringent material traceability requirements, offshore logistics complexity.</p>
+      <p><strong>Solutions:</strong> Pre-qualification of certified suppliers, full material test report documentation, dedicated expediting team, chartered freight logistics.</p>
+      <p><strong>Technologies/Equipment:</strong> API 600 gate valves, ball valves, control valves, pressure transmitters, temperature gauges, spectacle blinds, pipe spools.</p>
+      <p><strong>Stakeholders:</strong> Angola LNG project management team, EPC contractor, international valve manufacturers, Angola customs authority.</p>
+      <p><strong>Budget:</strong> $11.4M (supply package)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Contributed to safe and efficient LNG production supporting Angola's energy export sector and national revenue generation.</p>
+      <p><strong>Key Achievements:</strong> Zero non-conformance reports on delivered equipment, all critical long-lead items delivered ahead of schedule, 100% material traceability documentation provided.</p>
+      <p><strong>Lessons Learned:</strong> Investment in dedicated expediting for long-lead items in oil and gas projects prevents costly schedule overruns.</p>
+    </div>
+  </div>
+
+  <!-- Project 17 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Uganda National Irrigation Scheme – Doho Phase II</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>East Africa</span>
+      <span>Gravity Irrigation</span>
+    </div>
+    <p>BALSIRA GROUP supplied bulk irrigation pipelines, offtake control structures, and water distribution equipment for Phase II of the Doho Rice Irrigation Scheme in Eastern Uganda.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Ministry of Water and Environment, Uganda</p>
+      <p><strong>Duration:</strong> Aug 2022 – Jul 2024</p>
+      <p><strong>Challenges:</strong> Waterlogged terrain complicating pipeline installation, coordination with active farming operations, seasonal rainfall disrupting construction windows.</p>
+      <p><strong>Solutions:</strong> Floating excavation equipment for waterlogged zones, night-shift construction during dry periods, farmer consultation on field-level layout.</p>
+      <p><strong>Technologies/Equipment:</strong> uPVC gravity mains, concrete offtake structures, sluice gates, division boxes, V-notch weirs, field-level pipe risers.</p>
+      <p><strong>Stakeholders:</strong> Ministry of Water, District Irrigation Department, farmer cooperatives, civil construction teams.</p>
+      <p><strong>Budget:</strong> $9.2M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Irrigation coverage extended to 2,800 hectares, rice production doubled, food security improved for 12,000 farming households.</p>
+      <p><strong>Key Achievements:</strong> Phase II connected seamlessly to Phase I infrastructure, irrigation distribution uniformity improved, scheme management transferred to farmers association.</p>
+      <p><strong>Lessons Learned:</strong> Involving farmers in design of field distribution layouts dramatically improves water use efficiency at field level.</p>
+    </div>
+  </div>
+
+  <!-- Project 18 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Senegal Solar Pumping for Municipal Water Supply</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>West Africa</span>
+      <span>Solar Energy</span>
+    </div>
+    <p>BALSIRA GROUP designed and supplied solar-powered pumping systems to replace diesel pumps at 30 municipal water supply boreholes across rural Senegal, reducing operational costs significantly.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> ONAS – Office National de l'Assainissement du Senegal</p>
+      <p><strong>Duration:</strong> Jan 2023 – Aug 2023</p>
+      <p><strong>Challenges:</strong> Diesel fuel availability and cost volatility, pump house structural upgrades required, varying borehole depth and yield across sites.</p>
+      <p><strong>Solutions:</strong> Variable-frequency solar pump controllers matched to site yields, battery backup for overnight supply, modular panel structures for rapid installation.</p>
+      <p><strong>Technologies/Equipment:</strong> Solar PV arrays, MPPT controllers, submersible solar pumps, battery storage systems, elevated tanks, float-controlled delivery.</p>
+      <p><strong>Stakeholders:</strong> ONAS, municipal councils, local NGOs, borehole maintenance teams.</p>
+      <p><strong>Budget:</strong> $3.4M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Diesel fuel costs eliminated at 30 sites, CO2 emissions reduced by 2,400 tonnes annually, improved supply reliability to 95,000 residents.</p>
+      <p><strong>Key Achievements:</strong> All 30 systems operational within 8-month schedule, average daily supply hours increased from 6 to 20, payback period of 3.5 years projected.</p>
+      <p><strong>Lessons Learned:</strong> Battery sizing must account for multiple consecutive cloudy days in Sahelian climates to avoid supply interruption.</p>
+    </div>
+  </div>
+
+  <!-- Project 19 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>DRC Copper Mine Process Water Recycling System</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Mining &amp; Industrial</span>
+      <span>Central Africa</span>
+      <span>Process Water</span>
+    </div>
+    <p>BALSIRA GROUP supplied a closed-loop process water recycling system for a copper concentrator plant in Katanga Province, significantly reducing freshwater abstraction from local water bodies.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Glencore Katanga Mining</p>
+      <p><strong>Duration:</strong> Nov 2022 – Oct 2023</p>
+      <p><strong>Challenges:</strong> Acidic process water with high suspended solids, demanding environmental licence conditions, remote site supply logistics.</p>
+      <p><strong>Solutions:</strong> High-density thickeners, acid-resistant pump materials, polishing filters, automated water balance monitoring systems.</p>
+      <p><strong>Technologies/Equipment:</strong> Rubber-lined slurry pumps, paste thickeners, sand filters, acid-resistant valves, online turbidity and pH monitors, reclaim water tanks.</p>
+      <p><strong>Stakeholders:</strong> Glencore environmental team, DRC Mines Ministry, local community liaison representatives, equipment OEMs.</p>
+      <p><strong>Budget:</strong> $8.1M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Freshwater abstraction reduced by 65%, compliance with DRC environmental permit conditions, reduced downstream contamination risk for local communities.</p>
+      <p><strong>Key Achievements:</strong> Water recycling rate of 80% achieved, zero licence exceedances in first 12 months, operational cost savings of $2.3M per year in freshwater procurement.</p>
+      <p><strong>Lessons Learned:</strong> Acid-resistant material selection at the design stage prevents premature equipment failure and costly replacement in highly corrosive process environments.</p>
+    </div>
+  </div>
+
+  <!-- Project 20 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Nigeria Industrial Park Electrical Infrastructure Package</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>West Africa</span>
+      <span>Electrical Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied transformers, medium voltage switchgear, cabling, and backup generators for the complete electrical infrastructure package of a new industrial park in Lagos State.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Lagos State Industrial Development Corporation</p>
+      <p><strong>Duration:</strong> Mar 2022 – Feb 2023</p>
+      <p><strong>Challenges:</strong> Unreliable national grid supply, high fault levels from multiple industrial loads, phased park occupancy requiring flexible power distribution design.</p>
+      <p><strong>Solutions:</strong> Ring main unit distribution design, automatic transfer switches for generator backup, modular switchgear rooms allowing future capacity addition.</p>
+      <p><strong>Technologies/Equipment:</strong> 11kV/415V transformers, MV ring main units, LV distribution boards, armoured cables, 1 MVA diesel generators, automatic transfer switches.</p>
+      <p><strong>Stakeholders:</strong> Industrial Development Corporation, Eko Electricity Distribution Company, industrial tenants, electrical engineering contractor.</p>
+      <p><strong>Budget:</strong> $9.8M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Reliable power for 85 industrial tenants, 2,200 direct and indirect jobs supported, reduced reliance on individual tenant generators.</p>
+      <p><strong>Key Achievements:</strong> Full electrical infrastructure commissioned on schedule, supply reliability of 99.2% achieved in first year, park fully occupied within 18 months of opening.</p>
+      <p><strong>Lessons Learned:</strong> Ring main distribution designs offer significantly better fault isolation and supply reliability than radial designs in industrial park environments.</p>
+    </div>
+  </div>
+
+  <!-- Project 21 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Rwanda Eco-Tourism Resort Water &amp; Energy Systems</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>Energy &amp; Power</span>
+      <span>East Africa</span>
+    </div>
+    <p>BALSIRA GROUP provided an integrated off-grid water treatment and solar energy system for a high-end eco-tourism resort in Volcanoes National Park, ensuring sustainable operations in a sensitive ecosystem.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Wilderness Safaris Rwanda</p>
+      <p><strong>Duration:</strong> Jun 2023 – Dec 2023</p>
+      <p><strong>Challenges:</strong> Zero environmental footprint requirement, UNESCO protected area proximity, no grid power or municipal water connection, aesthetic integration with natural surroundings.</p>
+      <p><strong>Solutions:</strong> Concealed solar array design, packaged membrane bioreactor for wastewater, rainwater harvesting systems, ultra-compact equipment footprint.</p>
+      <p><strong>Technologies/Equipment:</strong> Solar PV and lithium battery storage, membrane bioreactor wastewater unit, UV water treatment, rainwater collection tanks, low-flow plumbing fixtures.</p>
+      <p><strong>Stakeholders:</strong> Resort operator, Rwanda Development Board, Rwanda Environment Management Authority, local construction teams.</p>
+      <p><strong>Budget:</strong> $1.4M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Carbon-neutral operations, zero wastewater discharge to natural environment, 100% renewable energy supply, model project for sustainable tourism in Africa.</p>
+      <p><strong>Key Achievements:</strong> Achieved full off-grid status, wastewater treated to reuse standard for garden irrigation, project awarded Rwanda Green Building Award 2024.</p>
+      <p><strong>Lessons Learned:</strong> Compact integrated systems designed from the outset for off-grid operation outperform retrofitted solutions in both cost and reliability.</p>
+    </div>
+  </div>
+
+  <!-- Project 22 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Swaziland (Eswatini) Sugar Mill Boiler &amp; Steam System Upgrade</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>Southern Africa</span>
+      <span>Industrial Processing</span>
+    </div>
+    <p>BALSIRA GROUP supplied industrial boiler components, steam valves, and instrumentation for the upgrade of bagasse-fired boiler and steam distribution systems at a major sugar processing mill.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Royal Swazi Sugar Corporation</p>
+      <p><strong>Duration:</strong> Dec 2022 – Jul 2023</p>
+      <p><strong>Challenges:</strong> Critical path installation during off-season maintenance window, high-pressure steam system safety requirements, specialised component sourcing.</p>
+      <p><strong>Solutions:</strong> Pre-shutdown engineering and procurement, certified pressure vessel components, dedicated commissioning engineer, extended warranty agreements.</p>
+      <p><strong>Technologies/Equipment:</strong> High-pressure steam valves, pressure safety valves, steam traps, turbine bypass valves, boiler feed water pumps, pressure and temperature instrumentation.</p>
+      <p><strong>Stakeholders:</strong> Royal Swazi Sugar management, boiler inspection authority, insurance assessors, commissioning engineers.</p>
+      <p><strong>Budget:</strong> $4.2M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Improved thermal efficiency reduced bagasse consumption, contributing to better energy yield from biomass, supporting 3,400 mill employees' job security.</p>
+      <p><strong>Key Achievements:</strong> Boiler efficiency improved from 72% to 84%, steam pressure stability improved, mill ready for crushing season ahead of schedule.</p>
+      <p><strong>Lessons Learned:</strong> Procurement of long-lead pressure vessel components should begin 18 months before planned shutdown for complex industrial boiler upgrades.</p>
+    </div>
+  </div>
+
+  <!-- Project 23 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Cameroon Potable Water Treatment Plant – Yaounde Expansion</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water Infrastructure</span>
+      <span>Central Africa</span>
+      <span>Water Treatment</span>
+    </div>
+    <p>BALSIRA GROUP supplied chemical dosing systems, filtration media, and process instrumentation for the capacity expansion of the main potable water treatment plant serving the capital, Yaounde.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Cameroon Water Utilities Corporation (CAMWATER)</p>
+      <p><strong>Duration:</strong> Sep 2021 – Aug 2022</p>
+      <p><strong>Challenges:</strong> High seasonal turbidity in source water, expanding urban population demand, operating alongside existing active treatment process.</p>
+      <p><strong>Solutions:</strong> Polymer-assisted coagulation for high turbidity events, parallel process stream design for continuous operation, automated turbidity-controlled chemical dosing.</p>
+      <p><strong>Technologies/Equipment:</strong> Alum and polymer dosing systems, rapid sand filters, filter media, turbidimeters, chemical storage tanks, SCADA integration.</p>
+      <p><strong>Stakeholders:</strong> CAMWATER, Ministry of Water Resources, French Development Agency (AFD), civil engineering contractor.</p>
+      <p><strong>Budget:</strong> $6.7M (supply package)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Treatment capacity increased from 80,000 to 135,000 m3/day, water quality compliance improved to WHO standards, 400,000 additional residents served.</p>
+      <p><strong>Key Achievements:</strong> Expansion commissioned without interruption to existing supply, turbidity removal efficiency improved to 99.8%, operational training programme delivered to plant staff.</p>
+      <p><strong>Lessons Learned:</strong> Polymer-coagulant systems should be sized for peak turbidity events rather than average conditions to prevent treatment failures during heavy rainfall.</p>
+    </div>
+  </div>
+
+  <!-- Project 24 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Mauritius Desalination Plant Equipment Supply</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water Infrastructure</span>
+      <span>Indian Ocean</span>
+      <span>Desalination</span>
+    </div>
+    <p>BALSIRA GROUP supplied high-pressure pump systems, energy recovery devices, and membrane housings for a seawater reverse osmosis desalination plant expanding freshwater supply to the island's northern region.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Central Water Authority, Mauritius</p>
+      <p><strong>Duration:</strong> Apr 2023 – Mar 2024</p>
+      <p><strong>Challenges:</strong> Highly corrosive marine environment, precise high-pressure pump tolerances required, integration with existing water distribution network.</p>
+      <p><strong>Solutions:</strong> Duplex stainless steel and super-duplex pump materials, energy recovery devices reducing power consumption, pre-treatment system for biofouling control.</p>
+      <p><strong>Technologies/Equipment:</strong> High-pressure SWRO pumps, energy recovery devices, RO membrane housings, pre-treatment cartridge filters, CIP systems, corrosion-resistant pipework.</p>
+      <p><strong>Stakeholders:</strong> Central Water Authority, Mauritius environment ministry, desalination plant operator, civil engineering contractor.</p>
+      <p><strong>Budget:</strong> $5.1M (supply package)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> 15,000 m3/day additional freshwater production, reduced dependence on rainfall-dependent surface water sources, strategic water security for the island nation.</p>
+      <p><strong>Key Achievements:</strong> Plant operational within projected schedule, specific energy consumption of 3.2 kWh/m3 achieved, brine discharge system awarded environmental compliance certification.</p>
+      <p><strong>Lessons Learned:</strong> Energy recovery devices are non-negotiable for cost-effective SWRO operations and should be incorporated at initial design, not added retrospectively.</p>
+    </div>
+  </div>
+
+  <!-- Project 25 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Sudan Irrigation Rehabilitation – Gezira Scheme Pumping Stations</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>North Africa</span>
+      <span>Pump Rehabilitation</span>
+    </div>
+    <p>BALSIRA GROUP supplied replacement pump sets, motors, and electrical controls for the rehabilitation of five pumping stations serving the Gezira Irrigation Scheme, one of the world's largest irrigated areas.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Sudan Gezira Board</p>
+      <p><strong>Duration:</strong> May 2021 – Apr 2022</p>
+      <p><strong>Challenges:</strong> Decades-old infrastructure, high silt content in Nile water, extremely high pumping volumes, supply chain delays due to sanctions environment.</p>
+      <p><strong>Solutions:</strong> Heavy-duty abrasion-resistant pump materials, pre-season procurement planning, alternative supply routes, pump testing prior to site delivery.</p>
+      <p><strong>Technologies/Equipment:</strong> Large-bore centrifugal pumps, abrasion-resistant impellers, HV motors, soft-starters, switchgear, pump control panels, vibration monitoring sensors.</p>
+      <p><strong>Stakeholders:</strong> Gezira Board management, Ministry of Irrigation, FAO, pump OEM representatives, electrical contractors.</p>
+      <p><strong>Budget:</strong> $7.8M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Restored irrigation supply to 400,000 hectares, food production security for 2 million farming families, reduced crop losses from inadequate water supply.</p>
+      <p><strong>Key Achievements:</strong> All 5 pumping stations rehabilitated and operational before irrigation season, pumping capacity fully restored, energy efficiency improved by 22%.</p>
+      <p><strong>Lessons Learned:</strong> In complex geopolitical supply environments, multi-route procurement strategies are essential to project schedule protection.</p>
+    </div>
+  </div>
+
+  <!-- Project 26 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>South Africa Platinum Mine Compressed Air System Upgrade</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Mining &amp; Industrial</span>
+      <span>Southern Africa</span>
+      <span>Compressed Air Systems</span>
+    </div>
+    <p>BALSIRA GROUP supplied high-efficiency compressors, air dryers, and distribution pipework for the upgrade of a compressed air network serving multiple shaft levels at a deep-level platinum mine.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Impala Platinum Holdings</p>
+      <p><strong>Duration:</strong> Feb 2022 – Nov 2022</p>
+      <p><strong>Challenges:</strong> High depth and pressure requirements, excessive leakage in aging distribution network, critical service continuity requirement for underground drilling operations.</p>
+      <p><strong>Solutions:</strong> Oil-free screw compressors with variable speed drives, network leak survey and repair programme, stage-by-stage switchover to new distribution network.</p>
+      <p><strong>Technologies/Equipment:</strong> Atlas Copco oil-free compressors, refrigerant air dryers, carbon steel distribution mains, solenoid isolation valves, pressure drop monitoring systems.</p>
+      <p><strong>Stakeholders:</strong> Mine engineering team, underground operations management, health and safety department, electrical contractor.</p>
+      <p><strong>Budget:</strong> $5.5M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Energy consumption reduced by 28%, reduced noise pollution in compressor house, improved underground drilling productivity supporting mine employment.</p>
+      <p><strong>Key Achievements:</strong> Compressed air leakage reduced from 35% to 8%, annual energy saving of $1.8M, compressed air pressure reliability improved to 99.5% of scheduled operating time.</p>
+      <p><strong>Lessons Learned:</strong> Leak surveys before compressor upgrades reveal network losses that, when addressed, can reduce compressor capacity requirements and capital cost.</p>
+    </div>
+  </div>
+
+  <!-- Project 27 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Madagascar Vanilla Farming Micro-Irrigation Programme</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>Indian Ocean</span>
+      <span>Micro-Irrigation</span>
+    </div>
+    <p>BALSIRA GROUP supplied micro-irrigation systems for smallholder vanilla and spice farmers in the SAVA region, improving yield consistency and reducing crop losses from water stress during dry seasons.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> GIZ Madagascar – Rural Development Programme</p>
+      <p><strong>Duration:</strong> Jul 2023 – Feb 2024</p>
+      <p><strong>Challenges:</strong> Very low farmer incomes requiring affordable systems, varied micro-topography, limited technical literacy, need for minimal maintenance design.</p>
+      <p><strong>Solutions:</strong> Gravity-fed micro-irrigation from elevated tanks, simple drip kits with pre-installed emitters, farmer cooperatives for shared water source management.</p>
+      <p><strong>Technologies/Equipment:</strong> Polyethylene drip kits, gravity-feed distribution tanks, manual filters, low-cost rain gauges, drip tape lateral lines.</p>
+      <p><strong>Stakeholders:</strong> GIZ, vanilla cooperatives, regional agricultural office, local NGO field teams.</p>
+      <p><strong>Budget:</strong> $0.9M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Yield stability improved for 2,400 vanilla farming households, 30% increase in vanilla productivity, reduced crop loss in dry years, improved farmer income and livelihood security.</p>
+      <p><strong>Key Achievements:</strong> 2,400 hectares equipped with gravity drip systems, system still 90% functional 18 months post-installation, model adopted by regional agricultural office for expansion.</p>
+      <p><strong>Lessons Learned:</strong> Simple, low-cost gravity systems with minimal moving parts achieve far better long-term functionality in smallholder contexts than technically sophisticated systems.</p>
+    </div>
+  </div>
+
+  <!-- Project 28 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>South Africa Hospital HVAC &amp; Plumbing Refurbishment</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Construction Materials</span>
+      <span>Southern Africa</span>
+      <span>Building Services</span>
+    </div>
+    <p>BALSIRA GROUP supplied HVAC equipment, medical gas pipework, and sanitary plumbing fixtures for the complete refurbishment of mechanical and plumbing services in a 450-bed regional hospital.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Limpopo Department of Health</p>
+      <p><strong>Duration:</strong> Jan 2023 – Dec 2023</p>
+      <p><strong>Challenges:</strong> Active hospital environment requiring phased works with zero disruption to clinical areas, infection control during construction, medical-grade material specifications.</p>
+      <p><strong>Solutions:</strong> Ward-by-ward phased refurbishment schedule, sealed construction zones with negative air pressure, HTM-compliant material selections.</p>
+      <p><strong>Technologies/Equipment:</strong> Medical-grade copper pipework, HTHW fan coil units, centrif ugal chillers, medical gas outlets, sensor-operated sanitaryware, backflow prevention valves.</p>
+      <p><strong>Stakeholders:</strong> Limpopo Health Department, hospital management, infection control team, mechanical engineering contractor, Department of Public Works.</p>
+      <p><strong>Budget:</strong> $7.6M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Improved hospital patient environment, infection risk reduction, energy efficiency improved through modern HVAC systems, supporting quality healthcare delivery.</p>
+      <p><strong>Key Achievements:</strong> All 18 ward blocks refurbished without clinical operations disruption, energy consumption reduced by 31%, hospital received CSIR commendation for project delivery approach.</p>
+      <p><strong>Lessons Learned:</strong> Infection control and operational continuity planning must be embedded in mechanical contracts for healthcare facility refurbishments from project inception.</p>
+    </div>
+  </div>
+
+  <!-- Project 29 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Zambia Urban Sanitation &amp; Sewerage Network Expansion</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Water &amp; Sanitation</span>
+      <span>East Africa</span>
+      <span>Sewerage Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied sewer pipes, manholes, pump station equipment, and sewage treatment plant components for a major urban sanitation network expansion in Lusaka's peri-urban zones.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Lusaka Water and Sewerage Company</p>
+      <p><strong>Duration:</strong> Oct 2020 – Sep 2022</p>
+      <p><strong>Challenges:</strong> High population density with informal housing, uneven terrain requiring multiple lift pump stations, limited existing sewerage infrastructure to connect to.</p>
+      <p><strong>Solutions:</strong> Gravity sewer design maximising natural gradient, 4 new sewage pump stations, package treatment plant at zone boundary, pre-cast manhole sections for speed of installation.</p>
+      <p><strong>Technologies/Equipment:</strong> UPVC sewer pipes, pre-cast concrete manholes, submersible sewage pumps, non-return valves, package biological treatment plant, sludge drying beds.</p>
+      <p><strong>Stakeholders:</strong> Lusaka Water Company, World Bank, Lusaka City Council, civil engineering contractor, community health teams.</p>
+      <p><strong>Budget:</strong> $16.5M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> 95,000 peri-urban residents connected to sewerage for the first time, elimination of open defecation in 6 zones, cholera incidence reduced by 78% in target areas.</p>
+      <p><strong>Key Achievements:</strong> 120 km of sewer installed, 4 pump stations operational, treatment plant achieving National Environmental Management Authority discharge standards.</p>
+      <p><strong>Lessons Learned:</strong> Package treatment plants offer the fastest path to compliance in peri-urban expansion zones where centralised treatment plant connection is not yet feasible.</p>
+    </div>
+  </div>
+
+  <!-- Project 30 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Côte d'Ivoire Cocoa Processing Factory Utilities Package</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>West Africa</span>
+      <span>Industrial Utilities</span>
+    </div>
+    <p>BALSIRA GROUP supplied the complete utilities package — power distribution, steam generation, compressed air, and water treatment — for a new cocoa butter and powder processing factory in Abidjan.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Olam International – Cote d'Ivoire Operations</p>
+      <p><strong>Duration:</strong> May 2022 – Mar 2023</p>
+      <p><strong>Challenges:</strong> Tight construction-to-production timeline, food-grade process water requirements, high ambient temperature affecting electrical equipment ratings, multiple utility interdependencies.</p>
+      <p><strong>Solutions:</strong> Integrated utilities design coordinating all systems from single engineering interface, food-grade reverse osmosis water system, tropical-rated electrical equipment.</p>
+      <p><strong>Technologies/Equipment:</strong> 11kV/LV transformer and switchgear, steam boilers, air compressors, RO water purification, cooling towers, plant-wide SCADA monitoring.</p>
+      <p><strong>Stakeholders:</strong> Olam project management, factory engineering team, local electrical authority, food safety certification body.</p>
+      <p><strong>Budget:</strong> $10.3M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Factory employs 1,200 workers, adds value to Ivorian cocoa domestically rather than exporting raw beans, reducing carbon footprint of global cocoa supply chain.</p>
+      <p><strong>Key Achievements:</strong> Full utilities commissioning completed 2 weeks ahead of first production target, food-grade water certification achieved on first assessment, SCADA integration delivered real-time energy dashboards for factory management.</p>
+      <p><strong>Lessons Learned:</strong> Integrated utilities engineering from a single supplier significantly reduces interface management risk and commissioning delays in greenfield food processing facilities.</p>
+    </div>
+  </div>
+
+  <!-- Project 31 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Egypt Agricultural Drainage Rehabilitation – Nile Delta</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Agriculture &amp; Irrigation</span>
+      <span>North Africa</span>
+      <span>Drainage Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied drainage pumps, pipes, and control systems for the rehabilitation of agricultural drainage networks across 15,000 hectares of Nile Delta farmland suffering from waterlogging and soil salinity.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Egyptian Drainage Authority</p>
+      <p><strong>Duration:</strong> Feb 2021 – Jan 2023</p>
+      <p><strong>Challenges:</strong> Severe soil salinity, complex drainage network spanning multiple districts, aging pump stations requiring full replacement, coordination with active farming operations.</p>
+      <p><strong>Solutions:</strong> Corrosion-resistant pump materials for saline drainage water, automated pump station controls, drainage network mapping using GIS before rehabilitation design.</p>
+      <p><strong>Technologies/Equipment:</strong> Stainless steel drainage pumps, PVC drainage pipes, automated pump control panels, GIS network mapping, salinity sensors, water level monitors.</p>
+      <p><strong>Stakeholders:</strong> Egyptian Drainage Authority, Ministry of Agriculture, World Bank, irrigation district engineers, farmer associations.</p>
+      <p><strong>Budget:</strong> $19.5M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Waterlogging eliminated across 15,000 hectares, soil salinity reduced enabling recultivation of previously abandoned land, crop productivity increased by 40%.</p>
+      <p><strong>Key Achievements:</strong> 28 pump stations rehabilitated, 180 km of drainage pipes replaced, 6,000 hectares of previously unproductive land returned to cultivation.</p>
+      <p><strong>Lessons Learned:</strong> GIS-based drainage network mapping before rehabilitation design prevents costly mid-project design revisions and optimises pump station placement.</p>
+    </div>
+  </div>
+
+  <!-- Project 32 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Namibia Desalination Plant – Coastal Mining Water Supply</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Mining &amp; Industrial</span>
+      <span>Southern Africa</span>
+      <span>Water Supply</span>
+    </div>
+    <p>BALSIRA GROUP supplied a seawater desalination plant and associated distribution infrastructure to provide process and potable water to a coastal diamond mining operation with no access to freshwater sources.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> Namdeb Diamond Corporation</p>
+      <p><strong>Duration:</strong> Jun 2022 – May 2023</p>
+      <p><strong>Challenges:</strong> Extremely arid coastal environment, no freshwater within 200 km, harsh wind-blown sand affecting mechanical equipment, remote construction logistics.</p>
+      <p><strong>Solutions:</strong> Containerized SWRO desalination plant for rapid deployment, sand-proof equipment enclosures, solar-assisted pre-heating to reduce energy consumption.</p>
+      <p><strong>Technologies/Equipment:</strong> Containerised SWRO desalination plant, pre-treatment filters, energy recovery turbines, insulated distribution pipes, diesel-solar hybrid power supply.</p>
+      <p><strong>Stakeholders:</strong> Namdeb mining management, Namibia Water Corporation, Department of Environment, remote site logistics team.</p>
+      <p><strong>Budget:</strong> $6.4M</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Self-sufficient water supply for 1,200 mine workers, elimination of expensive long-distance water trucking, controlled brine return to sea in compliance with environmental permit.</p>
+      <p><strong>Key Achievements:</strong> Water supply independence achieved within 11 months, trucking costs eliminated saving $1.4M annually, plant operating at 95% availability after first year.</p>
+      <p><strong>Lessons Learned:</strong> Containerised SWRO plants are ideal for remote mining applications where speed of deployment and equipment portability are critical factors.</p>
+    </div>
+  </div>
+
+  <!-- Project 33 -->
+  <div class="case-study">
+    <div class="clickable-area">
+      <h2>Mozambique Natural Gas Gathering Pipeline Supply</h2>
+      <span class="arrow">&#9660;</span>
+    </div>
+    <div class="meta">
+      <span>Energy &amp; Power</span>
+      <span>East Africa</span>
+      <span>Oil &amp; Gas Infrastructure</span>
+    </div>
+    <p>BALSIRA GROUP supplied carbon steel line pipe, fittings, flanges, and valves for an onshore natural gas gathering pipeline network in the Rovuma Basin gas development programme.</p>
+    <div class="more-info">
+      <p><strong>Client:</strong> ENI Mozambique LNG Development</p>
+      <p><strong>Duration:</strong> Aug 2023 – Jun 2024</p>
+      <p><strong>Challenges:</strong> High-specification API 5L pipeline material requirements, security challenges in Cabo Delgado Province, difficult tropical terrain and river crossings.</p>
+      <p><strong>Solutions:</strong> Pre-qualified API-certified pipe mills, armoured logistics convoys for supply chain security, horizontal directional drilling for river crossings.</p>
+      <p><strong>Technologies/Equipment:</strong> API 5L X65 line pipe, forged fittings, ball valves, flange assemblies, cathodic protection systems, pipeline coating materials.</p>
+      <p><strong>Stakeholders:</strong> ENI project team, government of Mozambique, pipeline construction contractor, security services.</p>
+      <p><strong>Budget:</strong> $14.7M (materials supply)</p>
+      <p><strong>Environmental &amp; Social Impact:</strong> Supports Mozambique's gas monetisation programme, national revenue generation potential, temporary construction employment for local workers.</p>
+      <p><strong>Key Achievements:</strong> All materials delivered to site within security-constrained schedule, zero API non-conformance on delivered pipe, river crossings completed without environmental incidents.</p>
+      <p><strong>Lessons Learned:</strong> Security risk management must be fully integrated into supply chain logistics planning from project inception in conflict-affected zones.</p>
     </div>
   </div>
 
@@ -359,12 +1113,12 @@ footer a:hover{color:var(--text);}
   </div>
   <div>
     <h4>Legal</h4>
-    <a href="terms.html">Terms & Conditions</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="anti-corruption.html">Anti-Corruption Policy</a>
   </div>
   <div class="copyright">
-    © 2026 BALSIRA GROUP. All rights reserved.
+    &copy; 2026 BALSIRA GROUP. All rights reserved.
   </div>
 </footer>
 
@@ -374,15 +1128,12 @@ function toggleMenu(){
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Expand/Collapse case studies
 const cards = document.querySelectorAll('.case-study');
-
 cards.forEach(card => {
   const area = card.querySelector('.clickable-area');
   const moreInfo = card.querySelector('.more-info');
 
   area.addEventListener('click', () => {
-    // Close others
     document.querySelectorAll('.case-study.open').forEach(openCard => {
       if(openCard !== card){
         openCard.classList.remove('open');
@@ -390,7 +1141,6 @@ cards.forEach(card => {
       }
     });
 
-    // Toggle current
     if(card.classList.contains('open')){
       moreInfo.style.maxHeight = null;
       card.classList.remove('open');
