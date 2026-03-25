@@ -233,7 +233,7 @@ footer{
 
 <div class="hero">
   <h1>Open Equipment Tenders</h1>
-  <p>Explore tenders issued by BALSIRA GROUP for equipment and supplies in water, energy, mining, construction, and agriculture sectors.</p>
+  <p>Explore tenders issued by BALSIRA GROUP for equipment and supplies in water, energy, mining, construction, and agriculture sectors across Africa.</p>
 </div>
 
 <div id="filterBar">
@@ -289,117 +289,136 @@ const tenderTitles = [
 
 const types = ["Government", "Private"];
 
-// --- EXPANDED & DIVERSE INTERNATIONAL LOCATIONS ---
+// --- AFRICAN LOCATIONS ONLY (20%+ in Tanzania) ---
 const locations = [
-  // Africa - Southern
+  // Tanzania (21 locations = 20% of 105 total)
+  "Dar es Salaam, Tanzania",
+  "Dodoma, Tanzania",
+  "Arusha, Tanzania",
+  "Mwanza, Tanzania",
+  "Mbeya, Tanzania",
+  "Tanga, Tanzania",
+  "Morogoro, Tanzania",
+  "Kigoma, Tanzania",
+  "Moshi, Tanzania",
+  "Zanzibar City, Tanzania",
+  "Iringa, Tanzania",
+  "Songea, Tanzania",
+  "Sumbawanga, Tanzania",
+  "Shinyanga, Tanzania",
+  "Bukoba, Tanzania",
+  "Lindi, Tanzania",
+  "Mtwara, Tanzania",
+  "Kigoma, Tanzania",
+  "Tabora, Tanzania",
+  "Singida, Tanzania",
+  "Manyara, Tanzania",
+  // South Africa
   "Johannesburg, South Africa",
   "Cape Town, South Africa",
   "Durban, South Africa",
   "Pretoria, South Africa",
-  "Gaborone, Botswana",
-  "Windhoek, Namibia",
-  "Lusaka, Zambia",
-  "Harare, Zimbabwe",
-  "Blantyre, Malawi",
-  "Maputo, Mozambique",
-  "Mbabane, Eswatini",
-  "Maseru, Lesotho",
-  // Africa - East
+  "Port Elizabeth, South Africa",
+  "Bloemfontein, South Africa",
+  "Nelspruit, South Africa",
+  "Polokwane, South Africa",
+  "Kimberley, South Africa",
+  "Rustenburg, South Africa",
+  // Kenya
   "Nairobi, Kenya",
-  "Dar es Salaam, Tanzania",
+  "Mombasa, Kenya",
+  "Kisumu, Kenya",
+  "Nakuru, Kenya",
+  "Eldoret, Kenya",
+  // Uganda
   "Kampala, Uganda",
+  "Entebbe, Uganda",
+  "Jinja, Uganda",
+  "Mbarara, Uganda",
+  "Gulu, Uganda",
+  // Rwanda
   "Kigali, Rwanda",
+  "Butare, Rwanda",
+  "Ruhengeri, Rwanda",
+  // Ethiopia
   "Addis Ababa, Ethiopia",
-  "Djibouti City, Djibouti",
-  "Mogadishu, Somalia",
-  "Bujumbura, Burundi",
-  "Asmara, Eritrea",
-  // Africa - West
+  "Dire Dawa, Ethiopia",
+  "Bahir Dar, Ethiopia",
+  "Mekelle, Ethiopia",
+  // Ghana
   "Accra, Ghana",
+  "Kumasi, Ghana",
+  "Tamale, Ghana",
+  "Takoradi, Ghana",
+  // Nigeria
   "Lagos, Nigeria",
   "Abuja, Nigeria",
+  "Kano, Nigeria",
+  "Ibadan, Nigeria",
+  "Port Harcourt, Nigeria",
+  // Senegal
   "Dakar, Senegal",
+  "Touba, Senegal",
+  "Thies, Senegal",
+  // Cote d'Ivoire
   "Abidjan, Cote d'Ivoire",
-  "Bamako, Mali",
-  "Ouagadougou, Burkina Faso",
-  "Lome, Togo",
-  "Cotonou, Benin",
-  "Freetown, Sierra Leone",
-  "Conakry, Guinea",
-  "Monrovia, Liberia",
-  "Banjul, Gambia",
-  // Africa - North & Central
-  "Cairo, Egypt",
-  "Casablanca, Morocco",
-  "Tunis, Tunisia",
-  "Algiers, Algeria",
-  "Tripoli, Libya",
-  "Khartoum, Sudan",
-  "Kinshasa, DR Congo",
-  "Brazzaville, Republic of Congo",
-  "Yaounde, Cameroon",
-  "Libreville, Gabon",
+  "Yamoussoukro, Cote d'Ivoire",
+  "Bouake, Cote d'Ivoire",
+  // Zambia
+  "Lusaka, Zambia",
+  "Kitwe, Zambia",
+  "Ndola, Zambia",
+  "Livingstone, Zambia",
+  // Zimbabwe
+  "Harare, Zimbabwe",
+  "Bulawayo, Zimbabwe",
+  "Mutare, Zimbabwe",
+  // Botswana
+  "Gaborone, Botswana",
+  "Francistown, Botswana",
+  "Maun, Botswana",
+  // Namibia
+  "Windhoek, Namibia",
+  "Walvis Bay, Namibia",
+  "Swakopmund, Namibia",
+  // Mozambique
+  "Maputo, Mozambique",
+  "Beira, Mozambique",
+  "Nampula, Mozambique",
+  // Malawi
+  "Lilongwe, Malawi",
+  "Blantyre, Malawi",
+  "Mzuzu, Malawi",
+  // Angola
   "Luanda, Angola",
-  // Middle East
-  "Dubai, UAE",
-  "Abu Dhabi, UAE",
-  "Riyadh, Saudi Arabia",
-  "Doha, Qatar",
-  "Muscat, Oman",
-  "Kuwait City, Kuwait",
-  "Amman, Jordan",
-  "Beirut, Lebanon",
-  "Baghdad, Iraq",
-  "Tehran, Iran",
-  // Asia - South & Southeast
-  "Mumbai, India",
-  "Delhi, India",
-  "Dhaka, Bangladesh",
-  "Karachi, Pakistan",
-  "Colombo, Sri Lanka",
-  "Kathmandu, Nepal",
-  "Kuala Lumpur, Malaysia",
-  "Jakarta, Indonesia",
-  "Manila, Philippines",
-  "Bangkok, Thailand",
-  "Ho Chi Minh City, Vietnam",
-  "Yangon, Myanmar",
-  "Phnom Penh, Cambodia",
-  // Asia - East & Central
-  "Shanghai, China",
-  "Beijing, China",
-  "Tokyo, Japan",
-  "Seoul, South Korea",
-  "Singapore, Singapore",
-  "Tashkent, Uzbekistan",
-  "Almaty, Kazakhstan",
-  // Europe
-  "Istanbul, Turkey",
-  "Warsaw, Poland",
-  "Bucharest, Romania",
-  "Sofia, Bulgaria",
-  "Athens, Greece",
-  "Lisbon, Portugal",
-  "Madrid, Spain",
-  "Milan, Italy",
-  "Rotterdam, Netherlands",
-  "Hamburg, Germany",
-  // Americas
-  "Houston, USA",
-  "Miami, USA",
-  "Toronto, Canada",
-  "Mexico City, Mexico",
-  "Bogota, Colombia",
-  "Lima, Peru",
-  "Santiago, Chile",
-  "Buenos Aires, Argentina",
-  "Sao Paulo, Brazil",
-  "Caracas, Venezuela",
-  // Oceania
-  "Perth, Australia",
-  "Brisbane, Australia",
-  "Auckland, New Zealand",
-  "Port Moresby, Papua New Guinea"
+  "Lobito, Angola",
+  "Huambo, Angola",
+  // DRC
+  "Kinshasa, DR Congo",
+  "Lubumbashi, DR Congo",
+  "Goma, DR Congo",
+  // Cameroon
+  "Yaounde, Cameroon",
+  "Douala, Cameroon",
+  "Bamenda, Cameroon",
+  // Egypt
+  "Cairo, Egypt",
+  "Alexandria, Egypt",
+  "Giza, Egypt",
+  "Sharm El Sheikh, Egypt",
+  // Morocco
+  "Casablanca, Morocco",
+  "Rabat, Morocco",
+  "Marrakech, Morocco",
+  "Fez, Morocco",
+  // Tunisia
+  "Tunis, Tunisia",
+  "Sfax, Tunisia",
+  "Sousse, Tunisia",
+  // Algeria
+  "Algiers, Algeria",
+  "Oran, Algeria",
+  "Constantine, Algeria"
 ];
 
 const descriptions = [
@@ -424,16 +443,19 @@ function shuffledLocations(count) {
 
 const assignedLocations = shuffledLocations(100);
 
-// Generate 100 tenders
+// Generate 100 tenders with 40% increased budget amounts
 for(let i = 0; i < 100; i++){
   let sector      = sectors[i % sectors.length];
   let title       = tenderTitles[i % tenderTitles.length];
   let description = descriptions[i % descriptions.length];
-  let country     = assignedLocations[i]; // unique, non-repetitive random location
+  let country     = assignedLocations[i];
   let tenderType  = types[i % types.length];
 
-  let minBudget = Math.floor(Math.random() * 50 + 10) * 1000;
-  let maxBudget = minBudget + Math.floor(Math.random() * 100 + 50) * 1000;
+  // Budget increased by 40% (multiplied by 1.4)
+  // Original: minBudget = Math.floor(Math.random() * 50 + 10) * 1000 (10k-60k)
+  // New: multiplied by 1400 instead of 1000
+  let minBudget = Math.floor(Math.random() * 50 + 10) * 1400;
+  let maxBudget = minBudget + Math.floor(Math.random() * 100 + 50) * 1400;
   let budget = `USD ${minBudget.toLocaleString()} - USD ${maxBudget.toLocaleString()}`;
 
   let daysAhead = Math.floor(Math.random() * 30) + 2;
@@ -448,7 +470,7 @@ for(let i = 0; i < 100; i++){
     title, description, sector, type: tenderType, closing, daysRemaining: daysAhead,
     location: country, budget,
     eligibility: "Company registration, Tax compliance, ISO certification, Minimum 3 years project experience",
-    contact: "tenders@balsiragroup.com", tenderNumber, specialConditions
+    contact: "tenders@balsiragroup.africa", tenderNumber, specialConditions
   });
 }
 
