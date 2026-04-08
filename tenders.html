@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tenders | BALSIRA</title>
 <link rel="icon" type="image/png" href="logo.png">
-
 <style>
 :root {
   --bg:#0b0b0d;
@@ -22,8 +21,6 @@ body{
   color:var(--text);
   line-height:1.6;
 }
-
-/* HEADER */
 header{
   display:flex;
   align-items:center;
@@ -41,8 +38,6 @@ header img{height:60px;}
   font-weight:500;
 }
 .desktop-nav a:hover{color:var(--text);}
-
-/* HAMBURGER */
 .hamburger{
   display:none;
   flex-direction:column;
@@ -54,8 +49,6 @@ header img{height:60px;}
   background:var(--text);
   margin:4px 0;
 }
-
-/* MOBILE NAV */
 .mobile-nav{
   display:none;
   flex-direction:column;
@@ -68,8 +61,6 @@ header img{height:60px;}
   text-decoration:none;
 }
 .mobile-nav a:hover{color:var(--text);}
-
-/* HERO */
 .hero{
   padding:120px 60px;
   text-align:center;
@@ -86,8 +77,6 @@ header img{height:60px;}
   margin:auto;
   font-size:1.2rem;
 }
-
-/* FILTER */
 #filterBar{
   max-width:1200px;
   margin:20px auto;
@@ -111,17 +100,14 @@ header img{height:60px;}
   color:#000;
   border-color:var(--accent);
 }
-
-/* GRID */
 #tenderList{
   max-width:1200px;
   margin:20px auto 20px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
   gap:20px;
+  padding:0 20px;
 }
-
-/* CARD */
 .tender-card{
   background:var(--panel);
   padding:20px;
@@ -131,41 +117,91 @@ header img{height:60px;}
 .tender-header{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
   cursor:pointer;
+  gap:10px;
 }
-.tender-header h3{color:var(--accent);}
-.tender-header span{transition:0.3s;}
+.tender-header h3{color:var(--accent); margin:0; font-size:0.97rem; line-height:1.4;}
+.tender-header span{transition:0.3s; flex-shrink:0; margin-top:2px;}
 .tender-card.open .tender-header span{transform:rotate(180deg);}
+.tender-meta{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
+.badge{
+  padding:3px 10px;
+  border-radius:20px;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+}
+.badge-gov{background:#1a2a1a; color:#6dbf6d; border:1px solid #2a4a2a;}
+.badge-priv{background:#1a1a2a; color:#6d9dbf; border:1px solid #2a2a4a;}
+.badge-sector{background:#1f1a0a; color:#c9a24d; border:1px solid #3a2a0a;}
+.tender-closing{font-size:0.82rem; color:var(--muted); margin-top:8px;}
+.tender-closing strong{color:#e07070;}
 .tender-extra{
   max-height:0;
   overflow:hidden;
   transition:max-height 0.4s ease;
 }
 .tender-card.open .tender-extra{
-  max-height:1000px;
+  max-height:1200px;
   margin-top:15px;
 }
-.tender-extra p{color:var(--muted);margin:6px 0;}
-.contact-link{
-  margin-top:12px;
-  padding-top:10px;
+.tender-extra-inner{
   border-top:1px solid #1f1f25;
+  padding-top:14px;
 }
-.contact-link a{
+.detail-row{
+  display:flex;
+  gap:8px;
+  margin:5px 0;
+  font-size:0.85rem;
+}
+.detail-label{color:var(--muted); flex-shrink:0; min-width:130px;}
+.detail-val{color:var(--text);}
+.scope-block{
+  background:#0d0d10;
+  border:1px solid #1f1f25;
+  border-radius:6px;
+  padding:12px;
+  margin:10px 0;
+  font-size:0.83rem;
+  color:#c0c0c0;
+  line-height:1.6;
+}
+.conditions-block{
+  background:#0f0d0a;
+  border:1px solid #2a1f0a;
+  border-radius:6px;
+  padding:10px 12px;
+  margin:10px 0;
+  font-size:0.82rem;
+  color:#b89060;
+}
+.contact-actions{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid #1f1f25;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.contact-actions a{
   color:var(--accent);
-  text-decoration:underline;
-  font-weight:500;
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.85rem;
+  border:1px solid #3a2a0a;
+  padding:6px 14px;
+  border-radius:5px;
 }
-
-/* PAGINATION */
+.contact-actions a:hover{background:#c9a24d22;}
 #pagination{
   max-width:1200px;
   margin:20px auto 60px;
   text-align:center;
 }
 .page-btn{
-  margin:0 5px;
+  margin:0 4px;
   padding:6px 12px;
   border-radius:4px;
   border:1px solid var(--muted);
@@ -179,8 +215,6 @@ header img{height:60px;}
   color:#000;
   border-color:var(--accent);
 }
-
-/* FOOTER */
 footer{
   padding:60px;
   background:#070709;
@@ -188,17 +222,19 @@ footer{
   text-align:center;
   color:var(--muted);
 }
-
-/* RESPONSIVE */
 @media(max-width:900px){
   .desktop-nav{display:none;}
   .hamburger{display:flex;}
   header img{height:50px;}
+  header{padding:16px 20px;}
+  .hero{padding:80px 20px;}
+  .hero h1{font-size:2rem;}
+  #tenderList{padding:0 10px;}
+  .detail-label{min-width:110px;}
 }
 </style>
 <base target="_blank">
 </head>
-
 <body>
 
 <header>
@@ -253,289 +289,448 @@ footer{
 </footer>
 
 <script>
-// --- MOBILE MENU ---
 function toggleMenu(){
   const nav = document.getElementById('mobileNav');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// --- TENDERS SCRIPT ---
+// ─── DATA POOLS ───────────────────────────────────────────────
+
+const issuingOrgs = {
+  "Water & Sanitation Equipment": [
+    "Tanzania Rural Water Supply and Sanitation Agency (RUWASA)",
+    "Kenya Water Towers Agency (KWTA)",
+    "South Africa Department of Water and Sanitation",
+    "Uganda National Water and Sewerage Corporation (NWSC)",
+    "Zambia Water Supply and Sanitation Council (NWASCO)",
+    "Rwanda Water and Forestry Authority (RWFA)",
+    "Ethiopia Water Works Construction Enterprise (WWCE)",
+    "Ghana Water Company Limited (GWCL)",
+    "Mozambique National Directorate of Water (DNA)",
+    "Malawi Water Boards Consortium",
+    "Zimbabwe National Water Authority (ZINWA)",
+    "Nigeria Federal Ministry of Water Resources",
+    "Botswana Water Utilities Corporation (WUC)",
+    "Namibia Water Corporation (NamWater)",
+    "United Nations Development Programme – WASH Programme Africa",
+    "African Development Bank – Water Infrastructure Fund",
+    "World Bank-Funded Lake Victoria Water Supply Programme",
+    "UNICEF WASH Division – East Africa Regional Office",
+    "Dar es Salaam Water and Sewerage Authority (DAWASA)",
+    "Mwanza Urban Water Supply and Sanitation Authority (MWAUWASA)"
+  ],
+  "Energy & Power Systems": [
+    "Tanzania Electric Supply Company (TANESCO)",
+    "Kenya Power and Lighting Company (KPLC)",
+    "Eskom Distribution – South Africa",
+    "Uganda Electricity Distribution Company (UEDCL)",
+    "ZESCO Limited – Zambia",
+    "Rwanda Energy Group (REG)",
+    "Ethiopian Electric Power Corporation (EEP)",
+    "Electricity Company of Ghana (ECG)",
+    "Mozambique Electricidade de Moçambique (EDM)",
+    "ESCOM – Malawi Electricity Supply Corporation",
+    "Zimbabwe Electricity Supply Authority (ZESA)",
+    "Enugu Electricity Distribution Company – Nigeria",
+    "BPC Botswana Power Corporation",
+    "NamPower – Namibia",
+    "African Union – Energy for All Initiative",
+    "IRENA African Renewable Energy Fund",
+    "Rural Electrification Agency – Tanzania",
+    "East African Power Pool (EAPP)",
+    "ECOWAS Centre for Renewable Energy and Energy Efficiency (ECREEE)",
+    "World Bank Scaling Solar Programme – Southern Africa"
+  ],
+  "Mining & Industrial Supplies": [
+    "Tanzania Minerals Audit Agency (TMAA)",
+    "Kenya Department of Mines and Geology",
+    "South Africa Minerals Council",
+    "Chamber of Mines – Zambia",
+    "Zimbabwe Miners Federation (ZMF)",
+    "Rwanda Geology and Mines Authority (RMA)",
+    "Ethiopian Institute of Geological Survey (EIGS)",
+    "Ghana Chamber of Mines",
+    "Tete Mining Consortium – Mozambique",
+    "Kayelekera Mine Operations – Malawi",
+    "Anglo American Platinum – Southern Africa Division",
+    "Glencore Mining Operations – DRC & Zambia",
+    "AngloGold Ashanti – West Africa Cluster",
+    "Barrick Gold Africa Regional Procurement",
+    "Randgold Resources – Tanzania Operations",
+    "Caledonia Mining Corporation – Zimbabwe",
+    "African Barrick Gold – North Mara Mine",
+    "Centamin PLC – North Africa Operations",
+    "Ivanhoe Mines – Kamoa-Kakula, DRC",
+    "First Quantum Minerals – Zambia Copper Division"
+  ],
+  "Construction Materials": [
+    "Tanzania National Roads Agency (TANROADS)",
+    "Kenya National Highways Authority (KeNHA)",
+    "South African National Roads Agency (SANRAL)",
+    "Uganda National Roads Authority (UNRA)",
+    "Road Development Agency – Zambia",
+    "Rwanda Transport Development Agency (RTDA)",
+    "Ethiopian Roads Authority (ERA)",
+    "Ghana Highway Authority (GHA)",
+    "Mozambique Roads Administration (ANE)",
+    "Malawi Roads Authority (MRA)",
+    "Zimbabwe National Roads Administration (ZINARA)",
+    "Federal Roads Maintenance Agency – Nigeria",
+    "Department of Roads and Transport – Botswana",
+    "Roads Authority Namibia (RA)",
+    "African Development Bank – Infrastructure Loan Programme",
+    "World Bank Urban Mobility Project – East Africa",
+    "UN-Habitat Slum Upgrading Programme – Nairobi",
+    "Dar es Salaam Metropolitan Development Project (DMDP)",
+    "Kampala Capital City Authority (KCCA) Infrastructure Division",
+    "Kigali Special Economic Zone Development Authority"
+  ],
+  "Agriculture & Irrigation": [
+    "Tanzania Agricultural Development Bank (TADB)",
+    "Kenya National Irrigation Authority (NIA)",
+    "South Africa Department of Agriculture, Land Reform and Rural Development",
+    "Uganda Irrigation Master Plan Secretariat",
+    "Zambia Agriculture Development Support Programme (ADSP)",
+    "Rwanda Agriculture Board (RAB)",
+    "Ethiopian Agricultural Transformation Agency (ATA)",
+    "Ghana Irrigation Development Authority (GIDA)",
+    "Mozambique National Irrigation Institute (INIR)",
+    "Malawi Irrigation, Water and Climate Change Department",
+    "Zimbabwe Irrigation Authority",
+    "Fadama III Irrigation Programme – Nigeria",
+    "Botswana Integrated Support Programme for Arable Agriculture Development (ISPAAD)",
+    "Namibia Directorate of Agriculture",
+    "Food and Agriculture Organisation (FAO) – Africa Irrigation Hub",
+    "International Fund for Agricultural Development (IFAD) – East Africa",
+    "African Development Bank – Feed Africa Programme",
+    "World Food Programme – Resilience and Livelihoods Division",
+    "Kilimo Trust – East Africa Agri-Finance Programme",
+    "Pangani Basin Water Office – Irrigation Expansion Project"
+  ]
+};
+
+const tenderTitles = {
+  "Water & Sanitation Equipment": [
+    "Supply and Delivery of Submersible Borehole Pumps (75mm – 200mm dia.)",
+    "Procurement of HDPE Pipes, Fittings and Accessories (PN 16 & PN 10)",
+    "Supply of Solar-Powered Water Pumping Systems for Rural Schemes",
+    "Provision of Water Treatment Chemicals (Chlorine, Alum, Lime)",
+    "Supply of Water Storage Tanks (Polyethylene and GRP, 1,000L – 50,000L)",
+    "Procurement of Mechanical Flow Meters and Pressure Gauges",
+    "Supply of Gate Valves, Ball Valves and Non-Return Valves (DN50–DN400)",
+    "Installation of Package Water Treatment Plant (200 m³/day Capacity)",
+    "Supply of PVC Pressure Pipes and Couplings for Distribution Network",
+    "Procurement of Water Quality Testing Equipment and Field Kits",
+    "Supply and Installation of Ground-Mounted Water Towers (10,000L – 100,000L)",
+    "Provision of Sewage Pumping Station Equipment (Submersible Sewage Pumps)",
+    "Supply of Waterworks Fittings: Tees, Elbows, Reducers and Flanges",
+    "Procurement of Portable Water Purification Units for Emergency Response",
+    "Supply of Industrial Centrifugal Pumps for Water Abstraction"
+  ],
+  "Energy & Power Systems": [
+    "Supply and Installation of 100kVA–1,000kVA Diesel Generator Sets",
+    "Procurement of Photovoltaic Solar Panels (300W–550W Monocrystalline)",
+    "Supply of Distribution Transformers (11kV/415V, 25kVA–500kVA)",
+    "Provision of Hybrid Solar-Battery Storage Systems for Off-Grid Communities",
+    "Supply of Medium Voltage Underground and Overhead Cables (11kV–33kV)",
+    "Procurement of Automatic Voltage Regulators (AVR) and Stabilisers",
+    "Supply of Battery Energy Storage Systems (BESS, 100kWh–1MWh)",
+    "Installation of Grid-Tied Solar PV Systems for Commercial Premises",
+    "Supply of Electrical Switchgear: LV/MV Panels and Breaker Assemblies",
+    "Procurement of Street Lighting Poles and LED Luminaires (40W–150W)",
+    "Supply of Power Factor Correction Capacitor Banks",
+    "Provision of Backup UPS Systems for Critical Infrastructure",
+    "Supply of Armoured Power Cables (16mm²–300mm² Cu and Al)",
+    "Procurement of Solar Water Heaters for Institutional and Commercial Use",
+    "Supply and Installation of Biogas Digester Systems for Institutions"
+  ],
+  "Mining & Industrial Supplies": [
+    "Supply of Personal Protective Equipment (PPE): Hard Hats, Boots, Gloves, Overalls",
+    "Procurement of Industrial Drilling Equipment and Drill Bits",
+    "Supply of Pneumatic Tools: Jack Hammers, Air Compressors, Impact Wrenches",
+    "Provision of Conveyor Belts and Conveyor System Components",
+    "Supply of Industrial Safety Signage, Barriers and Marking Systems",
+    "Procurement of Mine Ventilation Fans and Ducting Systems",
+    "Supply of Hydraulic Hoses, Couplings and Fittings (High-Pressure Range)",
+    "Provision of Industrial Lubricants, Greases and Hydraulic Fluids",
+    "Supply of Welding Equipment and Consumables (MIG, TIG, Arc)",
+    "Procurement of Crushing and Screening Plant Spare Parts",
+    "Supply of Explosion-Proof Lighting Fixtures for Underground Operations",
+    "Provision of Environmental Monitoring Equipment (Dust, Gas, Noise)",
+    "Supply of Industrial Pumps for Dewatering Operations",
+    "Procurement of Load Cells, Weighbridges and Industrial Scales",
+    "Supply of Steel Wire Rope, Shackles and Rigging Equipment"
+  ],
+  "Construction Materials": [
+    "Supply of Ordinary Portland Cement (OPC 42.5N) – Bulk and Bagged",
+    "Procurement of Structural Steel: H-Beams, I-Beams, Angle Iron, RHS",
+    "Supply of Reinforcement Steel Bars (Y8–Y32, Grade 500B)",
+    "Provision of Ready-Mix Concrete (C25–C40) for Foundation and Slab Works",
+    "Supply of Interlocking Paving Blocks and Kerb Stones",
+    "Procurement of Shuttering Timber and Plywood Formwork Systems",
+    "Supply of Roofing Sheets: IBR and Corrugated Galvanised Iron (0.47mm–0.58mm)",
+    "Provision of Bitumen and Bituminous Emulsion for Road Construction",
+    "Supply of Stone Aggregates: 19mm, 13.2mm and G5 Crushed Stone",
+    "Procurement of PVC and uPVC Conduit Systems for Electrical Installations",
+    "Supply of Waterproofing Membranes and Bituminous Coatings",
+    "Provision of Scaffold Systems: Ringlock and Cuplock (Hire and Supply)",
+    "Supply of Electrical Infrastructure Materials: MDB Boards and Trunking",
+    "Procurement of Door Frames, Windows and Glazing for Social Housing Projects",
+    "Supply of Sanitary Ware: Toilets, Basins, Cisterns for Municipal Housing"
+  ],
+  "Agriculture & Irrigation": [
+    "Supply and Installation of Centre-Pivot Irrigation Systems",
+    "Procurement of Drip Irrigation Kits for Smallholder Farmers (0.5–5 Ha)",
+    "Supply of Agricultural Water Pumps: Petrol, Diesel and Solar-Powered",
+    "Provision of Irrigation Mainlines and Laterals (HDPE and Lay-Flat Hose)",
+    "Supply of Sprinkler Heads, Micro-Jets and Micro-Sprinklers",
+    "Procurement of Water Storage Tanks for Farm Dams (5,000L – 200,000L)",
+    "Supply of Fertigation Equipment and Fertiliser Injection Systems",
+    "Provision of Soil Moisture Sensors and Irrigation Controllers",
+    "Supply of Agricultural Tractors and Tractor-Mounted Implements",
+    "Procurement of Post-Harvest Equipment: Threshers, Grain Dryers, Shellers",
+    "Supply of Greenhouses and Shade Net Structures",
+    "Provision of Agricultural Chemical Sprayers (Knapsack and Tractor-Mounted)",
+    "Supply of Cold-Chain Storage Equipment for Perishable Produce",
+    "Procurement of Borehole Drilling Equipment for Farm Water Supply",
+    "Supply of Water Canals, Sluice Gates and Irrigation Canal Liners"
+  ]
+};
+
+const scopeDescriptions = {
+  "Water & Sanitation Equipment": [
+    "The scope covers ex-works supply, inland freight to project site, offloading assistance, and submission of product data sheets, test certificates and country-of-origin documentation. All items must conform to ISO 4427, ISO 1452 or relevant SABS/KEBS/TBS standards as applicable. Warranty of not less than 24 months from commissioning date is mandatory.",
+    "The contractor shall supply, deliver and commission all specified equipment complete with operation and maintenance manuals in English. Items shall be new, unused and of current manufacture. Factory acceptance test (FAT) reports shall be submitted prior to dispatch. The client reserves the right to inspect goods at point of manufacture.",
+    "Scope includes design, supply, delivery, installation, testing, commissioning and operator training. A 12-month defects liability period applies from the date of practical completion. The contractor shall provide a performance bond of 10% of contract value and an advance payment guarantee where applicable.",
+    "Supply shall include all ancillary fittings, gaskets, fasteners and jointing materials required for a complete, functional installation. As-built drawings and O&M manuals in hard copy and digital format (PDF and DWG) are required on completion. Spare parts for a 2-year operational period shall be included in the bid price."
+  ],
+  "Energy & Power Systems": [
+    "The scope covers the supply, delivery, installation, testing and commissioning of all specified electrical and power generation equipment. All works must comply with IEC 60364, IEC 62305 (lightning protection) and applicable national electrical regulations. A licensed electrical contractor registration is mandatory.",
+    "Bidder shall supply equipment complete with technical documentation: single-line diagrams, protection coordination study, load schedule and test certificates. All transformers and switchgear shall carry SANS/IEC type-test certificates. Commissioning shall be witnessed by the client's engineer. A 5-year performance guarantee is required for solar PV components.",
+    "Scope includes supply, delivery to site, civil and mechanical installation, grid interconnection, SAT testing and final commissioning. The contractor shall train not less than two (2) client-designated operators on system operation, maintenance and fault-finding. Warranty: 24 months on electrical components, 10 years on PV modules."
+  ],
+  "Mining & Industrial Supplies": [
+    "Supply shall be in accordance with the material and dimensional specifications provided in the tender schedule. All PPE must carry CE marking or SABS certification. Safety data sheets (SDS) are required for all chemical and lubricant items. Delivery to site or central warehouse as specified; the contractor shall arrange export documentation where applicable.",
+    "The scope covers supply, delivery and where specified, installation and commissioning of equipment. Bidders shall demonstrate proven experience supplying to active mining operations and must provide reference letters from at least three (3) comparable contracts in the past five years. An after-sales technical support plan is required.",
+    "All mechanical equipment shall be new and accompanied by OEM certification, bill of materials, spare parts schedule and recommended service intervals. Factory warranty applies. Where equipment requires specialist installation, the OEM or authorised agent shall commission and certify the installation. A performance retention of 5% applies."
+  ],
+  "Construction Materials": [
+    "All materials shall comply with the standards referenced in the project specification and bills of quantities. Cement must carry current SABS/TBS/KEBS or equivalent mark of conformity. Structural steel to ASTM A36 or equivalent. Reinforcement bars to BS 4449:2005 or EN 10080. Mill certificates and material test reports (MTRs) are required on delivery.",
+    "Supply includes delivery to site in the quantities and phasing specified in the delivery schedule. The contractor shall maintain a minimum buffer stock to prevent site stoppages. All materials shall be accompanied by delivery notes, material test reports and certificates of conformity. Rejected materials shall be removed from site within 48 hours.",
+    "Scope covers manufacture or sourcing, quality testing, delivery and off-loading. The employer shall inspect and test materials at source or upon delivery at their discretion. Costs of testing are borne by the contractor. Payment is against certified delivery notes approved by the resident engineer."
+  ],
+  "Agriculture & Irrigation": [
+    "Scope includes supply, delivery to district distribution points, installation, commissioning and farmer training. All irrigation equipment must be compatible with locally available water quality (turbid water operation capability required). The contractor shall provide a 24-month warranty and an after-sales technical support contract for the first operational season.",
+    "The scope covers design, supply, delivery and installation of a complete turnkey irrigation system. The contractor shall carry out an agronomic survey and submit an irrigation design report for client approval prior to equipment procurement. As-built drawings, system commissioning certificate and operator training are included in the contract scope.",
+    "Supply includes all mainline, sub-mainlines, laterals, emitters, filters, fertigation units and control valves required for a fully functional system. The contractor shall demonstrate a minimum of five (5) comparable installations. After-sales spare parts availability within the country of installation is a mandatory requirement."
+  ]
+};
+
+const eligibilityMatrix = {
+  "Government": [
+    "Valid company/business registration certificate; current tax compliance certificate (TCC); VAT registration; audited financial statements for last 3 years; PPRA/AGPO/CSD supplier registration; ISO 9001:2015 certification; minimum 3 completed contracts of similar value in last 5 years; joint ventures permitted with lead partner holding ≥51% stake.",
+    "Certificate of incorporation; current tax clearance; proof of relevant sector experience (minimum 5 years); satisfactory bank reference letter; bid security of 2% of bid price in acceptable form; CIDB grading or equivalent; no blacklisting from public sector procurement.",
+    "Current business licence; tax compliance certificate; NSSF/PAYE registration; relevant professional membership (EAK, CESA, IQSK, ECSA or equivalent); minimum annual turnover of 1.5× contract value; at least three (3) certified reference projects; signed declaration of non-collusion."
+  ],
+  "Private": [
+    "Company registration and tax compliance; ISO 9001:2015 and ISO 14001:2015 certification; evidence of adequate insurance (public liability, product liability, professional indemnity); minimum 3 years demonstrable experience in the sector; bank guarantee or corporate suretyship as performance security.",
+    "Proof of legal entity registration; track record in supply of equivalent equipment to regional markets; INCOTERMS 2020-compliant quotation (CIF, DAP or DDP as specified); product warranty certificates; OEM authorisation letter where equipment is resold; performance bond of 10% of contract value.",
+    "Valid trading licence; income tax and VAT clearance; minimum USD 500,000 annual turnover; product liability insurance; local content commitment of ≥30% (materials, labour or sub-contracting); letter of intent from manufacturer/OEM confirming supply agreement."
+  ]
+};
+
+const locationPool = [
+  // Tanzania ~22%
+  "Dar es Salaam, Tanzania","Dodoma, Tanzania","Arusha, Tanzania","Mwanza, Tanzania",
+  "Mbeya, Tanzania","Tanga, Tanzania","Morogoro, Tanzania","Kigoma, Tanzania",
+  "Moshi, Tanzania","Zanzibar City, Tanzania","Iringa, Tanzania","Songea, Tanzania",
+  "Sumbawanga, Tanzania","Shinyanga, Tanzania","Bukoba, Tanzania","Lindi, Tanzania",
+  "Mtwara, Tanzania","Tabora, Tanzania","Singida, Tanzania","Manyara, Tanzania",
+  "Musoma, Tanzania","Babati, Tanzania",
+  // Rest of Africa
+  "Johannesburg, South Africa","Cape Town, South Africa","Durban, South Africa",
+  "Pretoria, South Africa","Port Elizabeth, South Africa","Bloemfontein, South Africa",
+  "Nelspruit, South Africa","Polokwane, South Africa","Kimberley, South Africa","Rustenburg, South Africa",
+  "Nairobi, Kenya","Mombasa, Kenya","Kisumu, Kenya","Nakuru, Kenya","Eldoret, Kenya",
+  "Kampala, Uganda","Entebbe, Uganda","Jinja, Uganda","Mbarara, Uganda","Gulu, Uganda",
+  "Kigali, Rwanda","Butare, Rwanda","Musanze, Rwanda",
+  "Addis Ababa, Ethiopia","Dire Dawa, Ethiopia","Bahir Dar, Ethiopia","Mekelle, Ethiopia",
+  "Accra, Ghana","Kumasi, Ghana","Tamale, Ghana","Takoradi, Ghana",
+  "Lagos, Nigeria","Abuja, Nigeria","Kano, Nigeria","Ibadan, Nigeria","Port Harcourt, Nigeria",
+  "Dakar, Senegal","Touba, Senegal","Thies, Senegal",
+  "Abidjan, Côte d'Ivoire","Yamoussoukro, Côte d'Ivoire","Bouaké, Côte d'Ivoire",
+  "Lusaka, Zambia","Kitwe, Zambia","Ndola, Zambia","Livingstone, Zambia",
+  "Harare, Zimbabwe","Bulawayo, Zimbabwe","Mutare, Zimbabwe",
+  "Gaborone, Botswana","Francistown, Botswana","Maun, Botswana",
+  "Windhoek, Namibia","Walvis Bay, Namibia","Swakopmund, Namibia",
+  "Maputo, Mozambique","Beira, Mozambique","Nampula, Mozambique",
+  "Lilongwe, Malawi","Blantyre, Malawi","Mzuzu, Malawi",
+  "Luanda, Angola","Lobito, Angola","Huambo, Angola",
+  "Kinshasa, DR Congo","Lubumbashi, DR Congo","Goma, DR Congo",
+  "Yaoundé, Cameroon","Douala, Cameroon","Bamenda, Cameroon",
+  "Cairo, Egypt","Alexandria, Egypt","Sharm El-Sheikh, Egypt",
+  "Casablanca, Morocco","Rabat, Morocco","Marrakech, Morocco","Fez, Morocco",
+  "Tunis, Tunisia","Sfax, Tunisia","Sousse, Tunisia",
+  "Algiers, Algeria","Oran, Algeria","Constantine, Algeria"
+];
+
+const deliveryTerms = [
+  "DDP – Delivered Duty Paid to project site",
+  "DAP – Delivered at Place (named site)",
+  "CIF – Cost, Insurance and Freight to nearest port",
+  "Ex-Works with contractor-arranged freight to site",
+  "FCA – Free Carrier at supplier's warehouse"
+];
+
+const paymentTerms = [
+  "30% advance on contract signing; 60% on delivery and inspection; 10% on commissioning sign-off",
+  "20% mobilisation advance; 70% on delivery against certified invoices; 10% retained for 12 months",
+  "50% on delivery; 40% on commissioning and acceptance; 10% retention released after defects liability period",
+  "Monthly progress payments against certified delivery notes; 5% retention withheld until practical completion",
+  "100% against irrevocable Letter of Credit (LC at sight) – applicable to international suppliers"
+];
+
+const specialConditions = [
+  "All equipment must be sourced through BALSIRA GROUP as the authorised regional supply intermediary. Refer to the Products page for the full approved catalogue and manufacturer list.",
+  "Bidders must confirm sourcing through BALSIRA GROUP's approved supply chain. Equipment not appearing in the BALSIRA product catalogue will not be considered for evaluation.",
+  "BALSIRA GROUP is the nominated procurement intermediary for this package. All manufacturer warranties and OEM certificates must be routed through BALSIRA GROUP to the end client.",
+  "Local content requirement: minimum 30% of contract value must be sourced or assembled within the host country. BALSIRA GROUP can facilitate local supply partnerships upon request.",
+  "Equipment demonstrated at the BALSIRA GROUP product exhibition prior to contract award will receive a 5-point technical evaluation preference. Contact tenders@balsiragroup.com to schedule."
+];
+
+const tenderPrefixes = [
+  "BALSIRA/TDR","SCMP","PROC","RFQ","ICB","NCB","ITT","RFP"
+];
+
+// ─── TENDER GENERATION ────────────────────────────────────────
+
+const sectors = Object.keys(tenderTitles);
 const tenders = [];
 
-const sectors = [
-  "Water & Sanitation Equipment",
-  "Energy & Power Systems",
-  "Mining & Industrial Supplies",
-  "Construction Materials",
-  "Agriculture & Irrigation"
-];
+function rnd(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function rndInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
 
-const tenderTitles = [
-  "Supply of Industrial Water Pumps and Valves",
-  "Procurement of HDPE Piping Systems",
-  "Installation and Commissioning of Water Treatment Plant",
-  "Supply of Storage Tanks",
-  "Procurement of Generators and Backup Energy Systems",
-  "Supply of Transformers and Solar Inverters",
-  "Electrical Cabling and Accessories",
-  "Purchase of Mining PPE and Safety Gear",
-  "Procurement of Industrial Tools and Mechanical Components",
-  "Structural Steel Supply for Civil Works",
-  "Cement and Aggregates for Road Construction",
-  "Formwork Systems for Building Projects",
-  "Irrigation Pumps and Systems for Agriculture",
-  "Storage Solutions for Farming Infrastructure"
-];
+// Shuffle locations with Tanzania weighted
+const locPool = [];
+for(let i=0;i<22;i++) locPool.push(locationPool[i]); // Tanzania x22
+for(let i=22;i<locationPool.length;i++) locPool.push(locationPool[i]);
 
-const types = ["Government", "Private"];
-
-// --- AFRICAN LOCATIONS ONLY (20%+ in Tanzania) ---
-const locations = [
-  // Tanzania (21 locations = 20% of 105 total)
-  "Dar es Salaam, Tanzania",
-  "Dodoma, Tanzania",
-  "Arusha, Tanzania",
-  "Mwanza, Tanzania",
-  "Mbeya, Tanzania",
-  "Tanga, Tanzania",
-  "Morogoro, Tanzania",
-  "Kigoma, Tanzania",
-  "Moshi, Tanzania",
-  "Zanzibar City, Tanzania",
-  "Iringa, Tanzania",
-  "Songea, Tanzania",
-  "Sumbawanga, Tanzania",
-  "Shinyanga, Tanzania",
-  "Bukoba, Tanzania",
-  "Lindi, Tanzania",
-  "Mtwara, Tanzania",
-  "Kigoma, Tanzania",
-  "Tabora, Tanzania",
-  "Singida, Tanzania",
-  "Manyara, Tanzania",
-  // South Africa
-  "Johannesburg, South Africa",
-  "Cape Town, South Africa",
-  "Durban, South Africa",
-  "Pretoria, South Africa",
-  "Port Elizabeth, South Africa",
-  "Bloemfontein, South Africa",
-  "Nelspruit, South Africa",
-  "Polokwane, South Africa",
-  "Kimberley, South Africa",
-  "Rustenburg, South Africa",
-  // Kenya
-  "Nairobi, Kenya",
-  "Mombasa, Kenya",
-  "Kisumu, Kenya",
-  "Nakuru, Kenya",
-  "Eldoret, Kenya",
-  // Uganda
-  "Kampala, Uganda",
-  "Entebbe, Uganda",
-  "Jinja, Uganda",
-  "Mbarara, Uganda",
-  "Gulu, Uganda",
-  // Rwanda
-  "Kigali, Rwanda",
-  "Butare, Rwanda",
-  "Ruhengeri, Rwanda",
-  // Ethiopia
-  "Addis Ababa, Ethiopia",
-  "Dire Dawa, Ethiopia",
-  "Bahir Dar, Ethiopia",
-  "Mekelle, Ethiopia",
-  // Ghana
-  "Accra, Ghana",
-  "Kumasi, Ghana",
-  "Tamale, Ghana",
-  "Takoradi, Ghana",
-  // Nigeria
-  "Lagos, Nigeria",
-  "Abuja, Nigeria",
-  "Kano, Nigeria",
-  "Ibadan, Nigeria",
-  "Port Harcourt, Nigeria",
-  // Senegal
-  "Dakar, Senegal",
-  "Touba, Senegal",
-  "Thies, Senegal",
-  // Cote d'Ivoire
-  "Abidjan, Cote d'Ivoire",
-  "Yamoussoukro, Cote d'Ivoire",
-  "Bouake, Cote d'Ivoire",
-  // Zambia
-  "Lusaka, Zambia",
-  "Kitwe, Zambia",
-  "Ndola, Zambia",
-  "Livingstone, Zambia",
-  // Zimbabwe
-  "Harare, Zimbabwe",
-  "Bulawayo, Zimbabwe",
-  "Mutare, Zimbabwe",
-  // Botswana
-  "Gaborone, Botswana",
-  "Francistown, Botswana",
-  "Maun, Botswana",
-  // Namibia
-  "Windhoek, Namibia",
-  "Walvis Bay, Namibia",
-  "Swakopmund, Namibia",
-  // Mozambique
-  "Maputo, Mozambique",
-  "Beira, Mozambique",
-  "Nampula, Mozambique",
-  // Malawi
-  "Lilongwe, Malawi",
-  "Blantyre, Malawi",
-  "Mzuzu, Malawi",
-  // Angola
-  "Luanda, Angola",
-  "Lobito, Angola",
-  "Huambo, Angola",
-  // DRC
-  "Kinshasa, DR Congo",
-  "Lubumbashi, DR Congo",
-  "Goma, DR Congo",
-  // Cameroon
-  "Yaounde, Cameroon",
-  "Douala, Cameroon",
-  "Bamenda, Cameroon",
-  // Egypt
-  "Cairo, Egypt",
-  "Alexandria, Egypt",
-  "Giza, Egypt",
-  "Sharm El Sheikh, Egypt",
-  // Morocco
-  "Casablanca, Morocco",
-  "Rabat, Morocco",
-  "Marrakech, Morocco",
-  "Fez, Morocco",
-  // Tunisia
-  "Tunis, Tunisia",
-  "Sfax, Tunisia",
-  "Sousse, Tunisia",
-  // Algeria
-  "Algiers, Algeria",
-  "Oran, Algeria",
-  "Constantine, Algeria"
-];
-
-const descriptions = [
-  "This tender covers supply, installation, and maintenance of equipment, ensuring compliance with industry standards and quality assurance.",
-  "The project requires experienced contractors with proven capabilities in delivering similar equipment and operational support.",
-  "Successful bidders will be responsible for delivery, installation, commissioning, and providing ongoing technical support.",
-  "Bidders must ensure adherence to safety regulations, environmental compliance, and provide documentation for all delivered equipment.",
-  "The scope includes supply, logistics, installation, testing, and after-sales support as required by the project specifications."
-];
-
-// Shuffle helper to avoid clustering same location
-function shuffledLocations(count) {
-  const pool = [...locations];
-  const result = [];
-  for (let i = 0; i < count; i++) {
-    if (pool.length === 0) pool.push(...locations);
-    const idx = Math.floor(Math.random() * pool.length);
-    result.push(pool.splice(idx, 1)[0]);
-  }
-  return result;
+function pickLocation(usedSet){
+  const pool = locPool.filter(l=>!usedSet.has(l));
+  if(!pool.length) return rnd(locPool);
+  const loc = rnd(pool);
+  usedSet.add(loc);
+  return loc;
 }
 
-const assignedLocations = shuffledLocations(100);
+const usedLocs = new Set();
 
-// Generate 100 tenders with 40% increased budget amounts
-for(let i = 0; i < 100; i++){
-  let sector      = sectors[i % sectors.length];
-  let title       = tenderTitles[i % tenderTitles.length];
-  let description = descriptions[i % descriptions.length];
-  let country     = assignedLocations[i];
-  let tenderType  = types[i % types.length];
+for(let i=0;i<100;i++){
+  const sector = sectors[i % sectors.length];
+  const type = i%2===0 ? "Government" : "Private";
+  const org = rnd(issuingOrgs[sector]);
+  const title = tenderTitles[sector][i % tenderTitles[sector].length];
+  const scope = rnd(scopeDescriptions[sector]);
+  const eligibility = rnd(eligibilityMatrix[type]);
+  const location = pickLocation(usedLocs);
+  const delivery = rnd(deliveryTerms);
+  const payment = rnd(paymentTerms);
+  const condition = specialConditions[i % specialConditions.length];
 
-  // Budget increased by 40% (multiplied by 1.4)
-  // Original: minBudget = Math.floor(Math.random() * 50 + 10) * 1000 (10k-60k)
-  // New: multiplied by 1400 instead of 1000
-  let minBudget = Math.floor(Math.random() * 50 + 10) * 1400;
-  let maxBudget = minBudget + Math.floor(Math.random() * 100 + 50) * 1400;
-  let budget = `USD ${minBudget.toLocaleString()} - USD ${maxBudget.toLocaleString()}`;
+  // Budget
+  const minB = rndInt(14000, 84000);
+  const maxB = minB + rndInt(70000, 420000);
+  const budget = `USD ${minB.toLocaleString()} – USD ${maxB.toLocaleString()}`;
 
-  let daysAhead = Math.floor(Math.random() * 30) + 2;
-  let closingDate = new Date();
-  closingDate.setDate(closingDate.getDate() + daysAhead);
-  let closing = closingDate.toISOString().split('T')[0];
+  // Closing
+  const days = rndInt(4, 45);
+  const closing = new Date();
+  closing.setDate(closing.getDate()+days);
+  const closingStr = closing.toISOString().split('T')[0];
 
-  let tenderNumber = `SCMP 29/08/02R-${String(i + 1).padStart(3, '0')}`;
-  let specialConditions = "Bidders must purchase equipment from BALSIRA; full product catalog available in Products page.";
+  // Tender ref
+  const prefix = tenderPrefixes[i % tenderPrefixes.length];
+  const year = "2026";
+  const ref = `${prefix}/${year}/${String(i+1).padStart(3,'0')}`;
 
-  tenders.push({
-    title, description, sector, type: tenderType, closing, daysRemaining: daysAhead,
-    location: country, budget,
-    eligibility: "Company registration, Tax compliance, ISO certification, Minimum 3 years project experience",
-    contact: "tenders@balsiragroup.com", tenderNumber, specialConditions
-  });
+  tenders.push({ title, org, sector, type, scope, eligibility, location,
+    delivery, payment, condition, budget, days, closing: closingStr, ref });
 }
 
-// --- PAGINATION ---
+// ─── RENDER ───────────────────────────────────────────────────
+
 let currentPage = 1;
-const itemsPerPage = 20;
+const PER_PAGE = 12;
 let activeFilter = "all";
 
-function displayPage(page = 1, filter = activeFilter){
+function displayPage(page=1, filter=activeFilter){
   currentPage = page;
   activeFilter = filter;
-  const filtered = tenders.filter(t => filter === "all" || t.sector === filter);
-  const start = (page - 1) * itemsPerPage;
-  const pageItems = filtered.slice(start, start + itemsPerPage);
+
+  const filtered = tenders.filter(t => filter==="all" || t.sector===filter);
+  const start = (page-1)*PER_PAGE;
+  const items = filtered.slice(start, start+PER_PAGE);
   const list = document.getElementById("tenderList");
 
-  list.innerHTML = pageItems.map(t => `
+  list.innerHTML = items.map((t,idx)=>{
+    const urgency = t.days <= 7 ? `<strong style="color:#e07070">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
+                  : t.days <= 14 ? `<strong style="color:#c9a24d">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
+                  : `Closes ${new Date(t.closing).toLocaleDateString('en-GB')} &nbsp;·&nbsp; ${t.days} days remaining`;
+    return `
     <div class="tender-card">
       <div class="tender-header" onclick="this.parentElement.classList.toggle('open')">
         <h3>${t.title}</h3>
         <span>&#9660;</span>
       </div>
-      <p>${t.description}</p>
-      <p><strong>Closing Date:</strong> ${new Date(t.closing).toLocaleDateString('en-GB')}</p>
-      <p><strong>Days Remaining:</strong> in ${t.daysRemaining} days</p>
+      <div class="tender-meta">
+        <span class="badge ${t.type==='Government'?'badge-gov':'badge-priv'}">${t.type}</span>
+        <span class="badge badge-sector">${t.sector}</span>
+      </div>
+      <div class="tender-closing">${urgency}</div>
       <div class="tender-extra">
-        <p><strong>Tender Number:</strong> ${t.tenderNumber}</p>
-        <p><strong>Sector:</strong> ${t.sector}</p>
-        <p><strong>Type:</strong> ${t.type}</p>
-        <p><strong>Project Location:</strong> ${t.location}</p>
-        <p><strong>Estimated Budget:</strong> ${t.budget}</p>
-        <p><strong>Eligibility:</strong> ${t.eligibility}</p>
-        <p><strong>Special Conditions:</strong> ${t.specialConditions}</p>
-        <p><strong>Contact:</strong> ${t.contact}</p>
-        <div class="contact-link">
-          <a href="contact.html">Contact for Quote</a><br>
-          <a href="products.html">View Products</a>
+        <div class="tender-extra-inner">
+          <div class="detail-row"><span class="detail-label">Tender Ref.</span><span class="detail-val">${t.ref}</span></div>
+          <div class="detail-row"><span class="detail-label">Issuing Authority</span><span class="detail-val">${t.org}</span></div>
+          <div class="detail-row"><span class="detail-label">Project Location</span><span class="detail-val">${t.location}</span></div>
+          <div class="detail-row"><span class="detail-label">Estimated Budget</span><span class="detail-val">${t.budget}</span></div>
+          <div class="detail-row"><span class="detail-label">Delivery Terms</span><span class="detail-val">${t.delivery}</span></div>
+          <div class="detail-row"><span class="detail-label">Payment Terms</span><span class="detail-val">${t.payment}</span></div>
+          <div class="scope-block"><strong style="color:var(--text);font-size:0.8rem;display:block;margin-bottom:6px;">Scope of Works</strong>${t.scope}</div>
+          <div class="detail-row"><span class="detail-label">Eligibility</span><span class="detail-val">${t.eligibility}</span></div>
+          <div class="conditions-block"><strong style="display:block;margin-bottom:4px;">Special Conditions</strong>${t.condition}</div>
+          <div class="contact-actions">
+            <a href="contact.html">Submit Expression of Interest</a>
+            <a href="products.html">View Product Catalogue</a>
+          </div>
         </div>
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
 
   renderPagination(filtered.length, page);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function renderPagination(totalItems, page){
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const container = document.getElementById("pagination");
-  let html = `<button class="page-btn" onclick="displayPage(1,'${activeFilter}')">First</button>`;
-  for(let i = 1; i <= totalPages; i++){
-    if(i <= 3 || i > totalPages - 2 || (i >= page - 1 && i <= page + 1)){
-      html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="displayPage(${i},'${activeFilter}')">${i}</button>`;
-    } else if(i === 4 && page > 5){
-      html += `&hellip;`;
-    } else if(i === totalPages - 3 && page < totalPages - 4){
-      html += `&hellip;`;
+function renderPagination(total, page){
+  const totalPages = Math.ceil(total/PER_PAGE);
+  const el = document.getElementById("pagination");
+  let html = `<button class="page-btn" onclick="displayPage(1,'${activeFilter}')">« First</button>`;
+  for(let i=1;i<=totalPages;i++){
+    if(i<=2 || i>totalPages-1 || (i>=page-1&&i<=page+1)){
+      html+=`<button class="page-btn ${i===page?'active':''}" onclick="displayPage(${i},'${activeFilter}')">${i}</button>`;
+    } else if(i===3&&page>4){
+      html+=`<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
+    } else if(i===totalPages-2&&page<totalPages-3){
+      html+=`<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
     }
   }
-  html += `<button class="page-btn" onclick="displayPage(${totalPages},'${activeFilter}')">Last</button>`;
-  container.innerHTML = html;
+  html+=`<button class="page-btn" onclick="displayPage(${totalPages},'${activeFilter}')">Last »</button>`;
+  el.innerHTML = html;
 }
 
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
     displayPage(1, btn.dataset.sector);
   };
@@ -543,6 +738,5 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
 
 displayPage();
 </script>
-
 </body>
 </html>
