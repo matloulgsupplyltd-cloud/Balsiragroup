@@ -77,13 +77,226 @@ header img{height:60px;}
   margin:auto;
   font-size:1.2rem;
 }
+
+/* ─── TENDER REVEAL SECTION ─── */
+
+/* Wrapper that holds the button + stats bar */
+#tenderRevealSection {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 20px;
+}
+
+/* Stats strip shown above the toggle button */
+.tender-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.stat-item {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: statFadeIn 0.5s ease forwards;
+}
+.stat-item:nth-child(1){ animation-delay: 0.1s; }
+.stat-item:nth-child(2){ animation-delay: 0.2s; }
+.stat-item:nth-child(3){ animation-delay: 0.3s; }
+.stat-item:nth-child(4){ animation-delay: 0.4s; }
+.stat-item:nth-child(5){ animation-delay: 0.5s; }
+@keyframes statFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Divider line with shimmer */
+.reveal-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.reveal-divider::before,
+.reveal-divider::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background: linear-gradient(90deg, transparent, #c9a24d44, #c9a24d, #c9a24d44, transparent);
+  background-size: 200% 100%;
+  animation: shimmerLine 3s linear infinite;
+}
+@keyframes shimmerLine {
+  0%   { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px #c9a24d88;
+}
+
+/* ─── VIEW TENDERS BUTTON ─── */
+.btn-reveal-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+#viewTendersBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 44px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b0b0d;
+  background: linear-gradient(135deg, #c9a24d 0%, #e8c87a 50%, #c9a24d 100%);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  transition: background-position 0.6s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px #c9a24d33, 0 0 0 0 #c9a24d44;
+}
+#viewTendersBtn:hover {
+  background-position: 100% 100%;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px #c9a24d55, 0 0 0 4px #c9a24d22;
+}
+#viewTendersBtn:active {
+  transform: translateY(0);
+}
+#viewTendersBtn:focus-visible {
+  outline: 3px solid #c9a24d;
+  outline-offset: 4px;
+}
+
+/* Ripple effect on click */
+#viewTendersBtn .btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Arrow icon inside button */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+#viewTendersBtn.open .btn-arrow {
+  transform: rotate(180deg);
+}
+
+/* Pulsing glow ring (idle animation) */
+#viewTendersBtn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c9a24d, #e8c87a, #c9a24d);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+#viewTendersBtn:hover::before { opacity: 0.3; }
+
+/* Particle burst container */
+#particleBurst {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+.particle {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: particleFly 0.8s ease-out forwards;
+  opacity: 1;
+}
+@keyframes particleFly {
+  0%   { transform: translate(0,0) scale(1); opacity:1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity:0; }
+}
+
+/* ─── COLLAPSIBLE TENDERS WRAPPER ─── */
+#tendersCollapsible {
+  /* JS drives height via max-height trick with clip */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* We use a JS-applied class to trigger the transition */
+  transition:
+    max-height 0.55s cubic-bezier(0.16,1,0.3,1),
+    opacity    0.45s ease 0.05s;
+  will-change: max-height, opacity;
+}
+#tendersCollapsible.is-open {
+  max-height: 999999px; /* effectively unlimited */
+  opacity: 1;
+}
+
+/* Staggered card entrance when revealed */
+#tendersCollapsible.is-open .tender-card {
+  animation: cardEntrance 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+/* Each card gets a delay via inline style set by JS */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ─── FILTER BAR ─── */
 #filterBar{
   max-width:1200px;
-  margin:20px auto;
+  margin:28px auto 0;
   display:flex;
   gap:12px;
   flex-wrap:wrap;
   justify-content:center;
+  padding: 0 20px;
 }
 .filter-btn{
   padding:10px 20px;
@@ -93,13 +306,17 @@ header img{height:60px;}
   color:var(--text);
   cursor:pointer;
   font-weight:500;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.15s;
 }
+.filter-btn:hover { transform: translateY(-1px); }
 .filter-btn.active,
 .filter-btn:hover{
   background:var(--accent);
   color:#000;
   border-color:var(--accent);
 }
+
+/* ─── TENDER CARDS ─── */
 #tenderList{
   max-width:1200px;
   margin:20px auto 20px;
@@ -113,6 +330,12 @@ header img{height:60px;}
   padding:20px;
   border-radius:10px;
   border:1px solid #1f1f25;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.tender-card:hover {
+  border-color: #c9a24d44;
+  box-shadow: 0 0 0 1px #c9a24d22, 0 8px 32px #00000055;
+  transform: translateY(-2px);
 }
 .tender-header{
   display:flex;
@@ -195,6 +418,8 @@ header img{height:60px;}
   border-radius:5px;
 }
 .contact-actions a:hover{background:#c9a24d22;}
+
+/* ─── PAGINATION ─── */
 #pagination{
   max-width:1200px;
   margin:20px auto 60px;
@@ -208,6 +433,7 @@ header img{height:60px;}
   background:transparent;
   color:var(--text);
   cursor:pointer;
+  transition: background 0.2s, color 0.2s;
 }
 .page-btn.active,
 .page-btn:hover{
@@ -222,6 +448,8 @@ footer{
   text-align:center;
   color:var(--muted);
 }
+
+/* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   .desktop-nav{display:none;}
   .hamburger{display:flex;}
@@ -231,11 +459,16 @@ footer{
   .hero h1{font-size:2rem;}
   #tenderList{padding:0 10px;}
   .detail-label{min-width:110px;}
+  .tender-stats { gap: 24px; }
+  .stat-number { font-size: 1.5rem; }
 }
 </style>
 <base target="_blank">
 </head>
 <body>
+
+<!-- ─── PARTICLE BURST LAYER ─── -->
+<div id="particleBurst" aria-hidden="true"></div>
 
 <header>
   <img src="logo.png" alt="BALSIRA GROUP Logo">
@@ -272,30 +505,96 @@ footer{
   <p>Explore tenders issued by BALSIRA GROUP for equipment and supplies in water, energy, mining, construction, and agriculture sectors across Africa.</p>
 </div>
 
-<div id="filterBar">
-  <button class="filter-btn active" data-sector="all">All</button>
-  <button class="filter-btn" data-sector="Water & Sanitation Equipment">Water & Sanitation</button>
-  <button class="filter-btn" data-sector="Energy & Power Systems">Energy & Power</button>
-  <button class="filter-btn" data-sector="Mining & Industrial Supplies">Mining & Industrial</button>
-  <button class="filter-btn" data-sector="Construction Materials">Construction</button>
-  <button class="filter-btn" data-sector="Agriculture & Irrigation">Agriculture & Irrigation</button>
-</div>
+<!-- ═══════════════════════════════════════════════
+     TENDER REVEAL SECTION — stats + toggle button
+     ═══════════════════════════════════════════════ -->
+<section id="tenderRevealSection" aria-label="Tender listings">
 
-<div id="tenderList"></div>
-<div id="pagination"></div>
+  <!-- Live stats strip -->
+  <div class="tender-stats" aria-label="Tender summary statistics">
+    <div class="stat-item">
+      <span class="stat-number" id="statTotal">100</span>
+      <span class="stat-label">Open Tenders</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Sectors</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="statCountries">30+</span>
+      <span class="stat-label">Countries</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="statUrgent">—</span>
+      <span class="stat-label">Closing ≤ 7 Days</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">USD</span>
+      <span class="stat-label">Denomination</span>
+    </div>
+  </div>
+
+  <!-- Shimmer divider -->
+  <div class="reveal-divider" aria-hidden="true">
+    <div class="divider-diamond"></div>
+  </div>
+
+  <!-- Toggle button -->
+  <div class="btn-reveal-wrap">
+    <button
+      id="viewTendersBtn"
+      aria-expanded="false"
+      aria-controls="tendersCollapsible"
+      onclick="toggleTenders(event)"
+    >
+      <span class="btn-label">View Tenders</span>
+      <!-- Down-arrow SVG -->
+      <span class="btn-arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6.5L9 11.5L14 6.5" stroke="#0b0b0d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COLLAPSIBLE WRAPPER — hidden by default
+       ═══════════════════════════════════════════ -->
+  <div id="tendersCollapsible" role="region" aria-label="Tender listings">
+
+    <!-- Filter bar lives inside the collapsible -->
+    <div id="filterBar">
+      <button class="filter-btn active" data-sector="all">All</button>
+      <button class="filter-btn" data-sector="Water &amp; Sanitation Equipment">Water &amp; Sanitation</button>
+      <button class="filter-btn" data-sector="Energy &amp; Power Systems">Energy &amp; Power</button>
+      <button class="filter-btn" data-sector="Mining &amp; Industrial Supplies">Mining &amp; Industrial</button>
+      <button class="filter-btn" data-sector="Construction Materials">Construction</button>
+      <button class="filter-btn" data-sector="Agriculture &amp; Irrigation">Agriculture &amp; Irrigation</button>
+    </div>
+
+    <div id="tenderList"></div>
+    <div id="pagination"></div>
+
+  </div><!-- /tendersCollapsible -->
+
+</section>
 
 <footer>
   &copy; 2026 BALSIRA GROUP. All rights reserved.
 </footer>
 
 <script>
+/* ─────────────────────────────────────────────────────────────
+   NAV – unchanged hamburger toggle
+───────────────────────────────────────────────────────────── */
 function toggleMenu(){
   const nav = document.getElementById('mobileNav');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// ─── DATA POOLS ───────────────────────────────────────────────
-
+/* ─────────────────────────────────────────────────────────────
+   DATA POOLS (unchanged from original)
+───────────────────────────────────────────────────────────── */
 const issuingOrgs = {
   "Water & Sanitation Equipment": [
     "Tanzania Rural Water Supply and Sanitation Agency (RUWASA)",
@@ -540,14 +839,12 @@ const eligibilityMatrix = {
 };
 
 const locationPool = [
-  // Tanzania ~22%
   "Dar es Salaam, Tanzania","Dodoma, Tanzania","Arusha, Tanzania","Mwanza, Tanzania",
   "Mbeya, Tanzania","Tanga, Tanzania","Morogoro, Tanzania","Kigoma, Tanzania",
   "Moshi, Tanzania","Zanzibar City, Tanzania","Iringa, Tanzania","Songea, Tanzania",
   "Sumbawanga, Tanzania","Shinyanga, Tanzania","Bukoba, Tanzania","Lindi, Tanzania",
   "Mtwara, Tanzania","Tabora, Tanzania","Singida, Tanzania","Manyara, Tanzania",
   "Musoma, Tanzania","Babati, Tanzania",
-  // Rest of Africa
   "Johannesburg, South Africa","Cape Town, South Africa","Durban, South Africa",
   "Pretoria, South Africa","Port Elizabeth, South Africa","Bloemfontein, South Africa",
   "Nelspruit, South Africa","Polokwane, South Africa","Kimberley, South Africa","Rustenburg, South Africa",
@@ -602,19 +899,20 @@ const tenderPrefixes = [
   "BALSIRA/TDR","SCMP","PROC","RFQ","ICB","NCB","ITT","RFP"
 ];
 
-// ─── TENDER GENERATION ────────────────────────────────────────
-
+/* ─────────────────────────────────────────────────────────────
+   TENDER GENERATION
+───────────────────────────────────────────────────────────── */
 const sectors = Object.keys(tenderTitles);
 const tenders = [];
 
 function rnd(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 function rndInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
 
-// Shuffle locations with Tanzania weighted
 const locPool = [];
-for(let i=0;i<22;i++) locPool.push(locationPool[i]); // Tanzania x22
+for(let i=0;i<22;i++) locPool.push(locationPool[i]);
 for(let i=22;i<locationPool.length;i++) locPool.push(locationPool[i]);
 
+const usedLocs = new Set();
 function pickLocation(usedSet){
   const pool = locPool.filter(l=>!usedSet.has(l));
   if(!pool.length) return rnd(locPool);
@@ -623,61 +921,150 @@ function pickLocation(usedSet){
   return loc;
 }
 
-const usedLocs = new Set();
-
 for(let i=0;i<100;i++){
   const sector = sectors[i % sectors.length];
-  const type = i%2===0 ? "Government" : "Private";
-  const org = rnd(issuingOrgs[sector]);
-  const title = tenderTitles[sector][i % tenderTitles[sector].length];
-  const scope = rnd(scopeDescriptions[sector]);
+  const type   = i%2===0 ? "Government" : "Private";
+  const org    = rnd(issuingOrgs[sector]);
+  const title  = tenderTitles[sector][i % tenderTitles[sector].length];
+  const scope  = rnd(scopeDescriptions[sector]);
   const eligibility = rnd(eligibilityMatrix[type]);
-  const location = pickLocation(usedLocs);
-  const delivery = rnd(deliveryTerms);
-  const payment = rnd(paymentTerms);
-  const condition = specialConditions[i % specialConditions.length];
+  const location    = pickLocation(usedLocs);
+  const delivery    = rnd(deliveryTerms);
+  const payment     = rnd(paymentTerms);
+  const condition   = specialConditions[i % specialConditions.length];
 
-  // Budget
-  const minB = rndInt(14000, 84000);
-  const maxB = minB + rndInt(70000, 420000);
+  const minB   = rndInt(14000, 84000);
+  const maxB   = minB + rndInt(70000, 420000);
   const budget = `USD ${minB.toLocaleString()} – USD ${maxB.toLocaleString()}`;
 
-  // Closing
-  const days = rndInt(4, 45);
+  const days    = rndInt(4, 45);
   const closing = new Date();
   closing.setDate(closing.getDate()+days);
   const closingStr = closing.toISOString().split('T')[0];
 
-  // Tender ref
   const prefix = tenderPrefixes[i % tenderPrefixes.length];
-  const year = "2026";
-  const ref = `${prefix}/${year}/${String(i+1).padStart(3,'0')}`;
+  const ref    = `${prefix}/2026/${String(i+1).padStart(3,'0')}`;
 
   tenders.push({ title, org, sector, type, scope, eligibility, location,
     delivery, payment, condition, budget, days, closing: closingStr, ref });
 }
 
-// ─── RENDER ───────────────────────────────────────────────────
+/* ─── Update live stats ─── */
+const urgentCount = tenders.filter(t => t.days <= 7).length;
+document.getElementById('statTotal').textContent   = tenders.length;
+document.getElementById('statUrgent').textContent  = urgentCount;
 
+/* ─────────────────────────────────────────────────────────────
+   TOGGLE — reveal / hide tenders
+───────────────────────────────────────────────────────────── */
+let tendersRevealed = false;
+let firstOpen = true; /* render cards only on first open */
+
+function toggleTenders(event) {
+  const btn        = document.getElementById('viewTendersBtn');
+  const collapsible = document.getElementById('tendersCollapsible');
+  const label      = btn.querySelector('.btn-label');
+
+  tendersRevealed = !tendersRevealed;
+
+  /* ── Ripple effect ── */
+  const rect = btn.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const ripple = document.createElement('span');
+  ripple.className = 'btn-ripple';
+  ripple.style.cssText = `left:${x}px;top:${y}px;width:${rect.width*2}px;height:${rect.width*2}px;margin-left:-${rect.width}px;margin-top:-${rect.width}px;`;
+  btn.appendChild(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove());
+
+  if(tendersRevealed) {
+    /* ── Open ── */
+    label.textContent = 'Hide Tenders';
+    btn.setAttribute('aria-expanded', 'true');
+    btn.classList.add('open');
+
+    /* Render cards once */
+    if(firstOpen) {
+      firstOpen = false;
+      displayPage(1, 'all');
+    }
+
+    /* Trigger particle burst */
+    burstParticles(event.clientX, event.clientY, 18);
+
+    /* Slide open */
+    collapsible.classList.add('is-open');
+
+    /* Auto-scroll to section smoothly */
+    setTimeout(() => {
+      document.getElementById('tenderRevealSection').scrollIntoView({
+        behavior: 'smooth', block: 'start'
+      });
+    }, 80);
+
+  } else {
+    /* ── Close ── */
+    label.textContent = 'View Tenders';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.classList.remove('open');
+    collapsible.classList.remove('is-open');
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PARTICLE BURST
+───────────────────────────────────────────────────────────── */
+function burstParticles(cx, cy, count) {
+  const burst = document.getElementById('particleBurst');
+  const colors = ['#c9a24d','#e8c87a','#f5e0a0','#ffffff'];
+  for(let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const angle = (Math.PI * 2 / count) * i;
+    const dist  = rndInt(60, 130);
+    const tx = Math.cos(angle) * dist;
+    const ty = Math.sin(angle) * dist;
+    p.style.cssText = `
+      left:${cx}px; top:${cy}px;
+      background:${colors[i % colors.length]};
+      width:${rndInt(4,9)}px; height:${rndInt(4,9)}px;
+      --tx:${tx}px; --ty:${ty}px;
+      animation-duration:${rndInt(500,900)}ms;
+      animation-delay:${rndInt(0,80)}ms;
+    `;
+    burst.appendChild(p);
+    p.addEventListener('animationend', () => p.remove());
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RENDER TENDERS
+───────────────────────────────────────────────────────────── */
 let currentPage = 1;
-const PER_PAGE = 12;
-let activeFilter = "all";
+const PER_PAGE  = 12;
+let activeFilter = 'all';
 
-function displayPage(page=1, filter=activeFilter){
-  currentPage = page;
+function displayPage(page = 1, filter = activeFilter) {
+  currentPage  = page;
   activeFilter = filter;
 
-  const filtered = tenders.filter(t => filter==="all" || t.sector===filter);
-  const start = (page-1)*PER_PAGE;
-  const items = filtered.slice(start, start+PER_PAGE);
-  const list = document.getElementById("tenderList");
+  const filtered = tenders.filter(t => filter === 'all' || t.sector === filter);
+  const start    = (page - 1) * PER_PAGE;
+  const items    = filtered.slice(start, start + PER_PAGE);
+  const list     = document.getElementById('tenderList');
 
-  list.innerHTML = items.map((t,idx)=>{
-    const urgency = t.days <= 7 ? `<strong style="color:#e07070">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
-                  : t.days <= 14 ? `<strong style="color:#c9a24d">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
-                  : `Closes ${new Date(t.closing).toLocaleDateString('en-GB')} &nbsp;·&nbsp; ${t.days} days remaining`;
+  list.innerHTML = items.map((t, idx) => {
+    const urgency = t.days <= 7
+      ? `<strong style="color:#e07070">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
+      : t.days <= 14
+        ? `<strong style="color:#c9a24d">Closes ${new Date(t.closing).toLocaleDateString('en-GB')} (${t.days} days)</strong>`
+        : `Closes ${new Date(t.closing).toLocaleDateString('en-GB')} &nbsp;·&nbsp; ${t.days} days remaining`;
+
+    /* Staggered entrance delay for each visible card */
+    const delay = Math.min(idx * 45, 400);
+
     return `
-    <div class="tender-card">
+    <div class="tender-card" style="animation-delay:${delay}ms">
       <div class="tender-header" onclick="this.parentElement.classList.toggle('open')">
         <h3>${t.title}</h3>
         <span>&#9660;</span>
@@ -705,38 +1092,41 @@ function displayPage(page=1, filter=activeFilter){
         </div>
       </div>
     </div>`;
-  }).join("");
+  }).join('');
 
   renderPagination(filtered.length, page);
-  window.scrollTo({top:0,behavior:'smooth'});
+
+  /* Scroll to top of list only on page-change (not first open) */
+  if(!firstOpen) {
+    document.getElementById('tenderList').scrollIntoView({behavior:'smooth', block:'start'});
+  }
 }
 
 function renderPagination(total, page){
-  const totalPages = Math.ceil(total/PER_PAGE);
-  const el = document.getElementById("pagination");
+  const totalPages = Math.ceil(total / PER_PAGE);
+  const el = document.getElementById('pagination');
   let html = `<button class="page-btn" onclick="displayPage(1,'${activeFilter}')">« First</button>`;
-  for(let i=1;i<=totalPages;i++){
+  for(let i = 1; i <= totalPages; i++){
     if(i<=2 || i>totalPages-1 || (i>=page-1&&i<=page+1)){
-      html+=`<button class="page-btn ${i===page?'active':''}" onclick="displayPage(${i},'${activeFilter}')">${i}</button>`;
-    } else if(i===3&&page>4){
-      html+=`<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
-    } else if(i===totalPages-2&&page<totalPages-3){
-      html+=`<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
+      html += `<button class="page-btn ${i===page?'active':''}" onclick="displayPage(${i},'${activeFilter}')">${i}</button>`;
+    } else if(i===3 && page>4){
+      html += `<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
+    } else if(i===totalPages-2 && page<totalPages-3){
+      html += `<span style="color:var(--muted);padding:0 4px">&hellip;</span>`;
     }
   }
-  html+=`<button class="page-btn" onclick="displayPage(${totalPages},'${activeFilter}')">Last »</button>`;
+  html += `<button class="page-btn" onclick="displayPage(${totalPages},'${activeFilter}')">Last »</button>`;
   el.innerHTML = html;
 }
 
-document.querySelectorAll(".filter-btn").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
+/* Filter buttons */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
     displayPage(1, btn.dataset.sector);
   };
 });
-
-displayPage();
 </script>
 </body>
 </html>
