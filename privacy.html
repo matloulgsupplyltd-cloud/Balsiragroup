@@ -1,83 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | LG Supply Ltd</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | BALSIRA GROUP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
+:root {
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
+}
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
+
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
+
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
+}
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
+}
+
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
+}
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
+
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
+
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
+}
+
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+</style>
+<style>
+.page-hero { --hero-img: url('https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg'); }
+.legal-body { max-width:860px; margin:0 auto; padding:80px 52px; }
+.legal-body h2 { font-family:'Barlow Condensed',sans-serif; font-size:24px; font-weight:800; text-transform:uppercase; color:var(--accent); margin:36px 0 12px; }
+.legal-body p, .legal-body li { font-size:14px; color:var(--mid-grey); line-height:1.85; margin-bottom:10px; }
+.legal-body ul { padding-left:20px; margin-bottom:16px; }
+@media(max-width:1024px){ .legal-body{ padding:60px 24px; } }
+</style>
+</head>
+<body class="page-body">
 <header>
-  <div class="logo-menu">
-    <img src="logo.png" class="logo" alt="DemandCo Logo">
-    <button id="hamburger" class="hamburger">&#9776;</button>
-  </div>
-  <nav id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="BALSIRA GROUP" class="nav-logo-img">BALSIRA<span>.</span></a>
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+    <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <a href="tenders.html" class="nav-cta">Tender Access</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </header>
-
-<section class="hero">
-  <h1>Privacy Policy</h1>
-  <p>How we collect, use, and protect your information</p>
-</section>
-
-<section style="max-width:900px;margin:auto;padding:40px;line-height:1.8;color:var(--muted);">
-  
-  <h2>1. Information We Collect</h2>
-  <p>
-    We collect personal and business information submitted through our website,
-    including names, email addresses, phone numbers, and company details.
-  </p>
-
-  <h2>2. How We Use Your Information</h2>
-  <p>
-    Information is used to manage tenders, communicate with suppliers and clients,
-    process subscriptions, and comply with legal requirements.
-  </p>
-
-  <h2>3. Data Protection</h2>
-  <p>
-    We implement reasonable technical and organizational measures to protect
-    your data against unauthorized access, loss, or misuse.
-  </p>
-
-  <h2>4. Third-Party Services</h2>
-  <p>
-    We may share limited data with trusted third parties such as payment processors
-    (e.g. PayFast) strictly for service delivery.
-  </p>
-
-  <h2>5. Your Rights</h2>
-  <p>
-    You have the right to request access, correction, or deletion of your personal data.
-    Requests can be sent to our official contact email.
-  </p>
-
-  <h2>6. Policy Updates</h2>
-  <p>
-    This Privacy Policy may be updated from time to time. Continued use of the
-    website constitutes acceptance of any changes.
-  </p>
-
-</section>
-
-<footer>
-  <div class="copyright">
-    © 2026 LG Supply Ltd. All rights reserved.
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+  <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a><a href="tenders.html">Tender Access</a>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy<br>Policy</h1>
+    <p>How BALSIRA GROUP collects, uses, and protects your information.</p>
   </div>
+</div>
+<div class="legal-body">
+  <h2>1. Information We Collect</h2>
+  <p>We collect personal and business information submitted through our website and portal, including names, email addresses, phone numbers, company details, and supplier registration information.</p>
+  <h2>2. How We Use Your Information</h2>
+  <p>Information is used to manage procurement enquiries, communicate with suppliers and clients, process portal access requests, and comply with applicable legal requirements.</p>
+  <h2>3. Data Protection</h2>
+  <p>We implement reasonable technical and organisational measures to protect your data against unauthorised access, loss, or misuse in accordance with applicable South African (POPIA) and UK data protection laws.</p>
+  <h2>4. Third-Party Services</h2>
+  <p>We may share limited data with trusted third parties strictly for service delivery purposes. We do not sell personal data to third parties.</p>
+  <h2>5. Your Rights</h2>
+  <p>You have the right to request access, correction, or deletion of your personal data. Requests can be sent to <a href="mailto:info@balsira.co.za" style="color:var(--accent);">info@balsira.co.za</a></p>
+  <h2>6. Policy Updates</h2>
+  <p>This Privacy Policy may be updated from time to time. Continued use of the website constitutes acceptance of any changes. Last updated: 2026.</p>
+</div>
+<footer>
+  <div class="footer-brand"><a href="index.html" class="footer-logo"><img src="logo.png" alt="BALSIRA GROUP" class="footer-logo-img">BALSIRA<span>.</span></a><p>Developing industrial procurement in mining and railway engineering solutions across Africa.</p></div>
+  <div><h4>Navigation</h4><a href="about.html">About Us</a><a href="products.html">Products</a><a href="suppliers.html">Suppliers</a><a href="contact.html">Contact</a></div>
+  <div><h4>Contact</h4><a href="mailto:sales@balsira.co.za">sales@balsira.co.za</a><a href="mailto:info@balsira.co.za">info@balsira.co.za</a><a href="mailto:brilliant@balsira.co.za">brilliant@balsira.co.za</a></div>
+  <div><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a><a href="anti-corruption.html">Anti-Corruption Policy</a><a href="compliance.html">Compliance</a></div>
+  <div class="footer-bottom"><p>© 2026 BALSIRA GROUP. All rights reserved.</p><p>Johannesburg, South Africa</p></div>
 </footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('navLinks');
-  hamburger.onclick = () => nav.classList.toggle('show');
-</script>
-
-</body>
-</html>
+<script>document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('show'));</script>
+</body></html>
