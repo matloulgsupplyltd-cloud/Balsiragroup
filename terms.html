@@ -1,220 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms & Conditions | Balsira Group</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions | BALSIRA GROUP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
+:root {
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
+}
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
+
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
+
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
+}
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
+}
+
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
+}
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
+
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
+
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
+}
+
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+</style>
+<style>
+.page-hero { --hero-img: url('https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg'); }
+.legal-body { max-width:860px; margin:0 auto; padding:80px 52px; }
+.legal-body h2 { font-family:'Barlow Condensed',sans-serif; font-size:24px; font-weight:800; text-transform:uppercase; color:var(--accent); margin:36px 0 12px; }
+.legal-body p, .legal-body li { font-size:14px; color:var(--mid-grey); line-height:1.85; margin-bottom:10px; }
+.legal-body ul { padding-left:20px; margin-bottom:16px; }
+@media(max-width:1024px){ .legal-body{ padding:60px 24px; } }
+</style>
+</head>
+<body class="page-body">
 <header>
-  <div class="logo-menu">
-    <img src="logo.png" class="logo" alt="Balsira Group Logo">
-    <button id="hamburger" class="hamburger">&#9776;</button>
-  </div>
-  <nav id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="tenders.html">Tenders</a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="BALSIRA GROUP" class="nav-logo-img">BALSIRA<span>.</span></a>
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+    <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <a href="tenders.html" class="nav-cta">Tender Access</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </header>
-
-<section class="hero">
-  <h1>Terms & Conditions</h1>
-  <p>Last updated: March 17, 2026</p>
-</section>
-
-<section style="max-width:900px;margin:auto;padding:40px;color:var(--muted);line-height:1.8">
-
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+  <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a><a href="tenders.html">Tender Access</a>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Legal</div>
+    <h1>Terms &amp;<br>Conditions</h1>
+    <p>Terms governing use of the BALSIRA GROUP website, services, and procurement portal. Last updated: 2026.</p>
+  </div>
+</div>
+<div class="legal-body">
   <h2>1. Introduction</h2>
-  <p>
-    These Terms and Conditions ("Terms") govern your access to and use of the Balsira Group website, 
-    procurement platform, and related services ("Services"). By accessing or using our Services, you 
-    agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.
-  </p>
-  <p>
-    Balsira Group ("we," "us," or "our") operates as a demand aggregation and procurement company 
-    supporting infrastructure development across Africa.
-  </p>
-
-  <h2>2. Definitions</h2>
-  <p>
-    <strong>"Platform"</strong> refers to the Balsira Group website and any associated procurement portals.<br>
-    <strong>"User"</strong> refers to any individual or entity accessing our Services.<br>
-    <strong>"Supplier"</strong> refers to vendors, contractors, or service providers registered on our Platform.<br>
-    <strong>"Buyer"</strong> refers to organizations issuing tenders or procurement requests through our Platform.
-  </p>
-
-  <h2>3. Use of Services</h2>
-  <p>
-    3.1. <strong>Eligibility:</strong> You must be at least 18 years old and have the legal capacity to enter 
-    into binding contracts to use our Services.
-  </p>
-  <p>
-    3.2. <strong>Account Registration:</strong> Users must provide accurate, current, and complete information 
-    during registration. You are responsible for maintaining the confidentiality of your account credentials.
-  </p>
-  <p>
-    3.3. <strong>Prohibited Activities:</strong> Users may not use the Platform for unlawful purposes, 
-    transmit malware, attempt unauthorized access, or engage in fraudulent activities.
-  </p>
-
-  <h2>4. Services Description</h2>
-  <p>
-    4.1. Balsira Group acts as an intermediary demand aggregator connecting suppliers with buyers across 
-    African infrastructure projects.
-  </p>
-  <p>
-    4.2. We do not manufacture, sell, or take ownership of any equipment, materials, or services listed 
-    on the Platform. All transactions are conducted directly between Buyers and Suppliers.
-  </p>
-  <p>
-    4.3. We reserve the right to modify, suspend, or discontinue any aspect of our Services at any time 
-    with reasonable notice.
-  </p>
-
-  <h2>5. Supplier Responsibilities</h2>
-  <p>
-    5.1. Suppliers must provide accurate, truthful, and up-to-date information regarding their company, 
-    products, services, and capabilities.
-  </p>
-  <p>
-    5.2. Suppliers must comply with all applicable laws, regulations, and industry standards in their 
-    respective jurisdictions.
-  </p>
-  <p>
-    5.3. Suppliers are responsible for the quality, safety, and delivery of their products and services.
-  </p>
-  <p>
-    5.4. Suppliers must maintain appropriate licenses, certifications, and insurance as required by law 
-    and specific tender requirements.
-  </p>
-
-  <h2>6. Buyer Responsibilities</h2>
-  <p>
-    6.1. Buyers must provide clear, accurate, and complete tender specifications and requirements.
-  </p>
-  <p>
-    6.2. Buyers are responsible for evaluating supplier proposals and conducting due diligence.
-  </p>
-  <p>
-    6.3. Buyers must honor payment terms agreed upon with suppliers for awarded contracts.
-  </p>
-
-  <h2>7. Fees and Payments</h2>
-  <p>
-    7.1. <strong>Subscription Fees:</strong> Certain features of the Platform may require payment of 
-    subscription fees. All fees are quoted in USD unless otherwise specified.
-  </p>
-  <p>
-    7.2. <strong>Payment Terms:</strong> Fees are due as specified in your subscription agreement. 
-    Failure to pay may result in suspension of Services.
-  </p>
-  <p>
-    7.3. <strong>Refunds:</strong> Subscription fees are generally non-refundable unless required by 
-    applicable law or at our sole discretion in exceptional circumstances.
-  </p>
-  <p>
-    7.4. <strong>Transaction Fees:</strong> Balsira Group may charge transaction fees for successful 
-    procurement matches, as detailed in our fee schedule.
-  </p>
-
-  <h2>8. Intellectual Property</h2>
-  <p>
-    8.1. All content on the Platform, including text, graphics, logos, and software, is the property 
-    of Balsira Group or its licensors and is protected by intellectual property laws.
-  </p>
-  <p>
-    8.2. Users may not reproduce, distribute, modify, or create derivative works from our content 
-    without express written permission.
-  </p>
-
-  <h2>9. Confidentiality and Data Protection</h2>
-  <p>
-    9.1. Users agree to maintain the confidentiality of any proprietary or sensitive information 
-    accessed through the Platform.
-  </p>
-  <p>
-    9.2. Our collection and use of personal data is governed by our Privacy Policy and applicable 
-    data protection laws, including POPIA (South Africa) and similar regulations in other jurisdictions.
-  </p>
-
-  <h2>10. Limitation of Liability</h2>
-  <p>
-    10.1. To the maximum extent permitted by law, Balsira Group shall not be liable for any indirect, 
-    incidental, special, consequential, or punitive damages arising from your use of the Services.
-  </p>
-  <p>
-    10.2. Our total liability for any claims arising under these Terms shall not exceed the amount 
-    paid by you to Balsira Group in the 12 months preceding the claim.
-  </p>
-  <p>
-    10.3. We do not guarantee continuous, uninterrupted access to the Platform and shall not be liable 
-    for any downtime or technical issues.
-  </p>
-
-  <h2>11. Indemnification</h2>
-  <p>
-    You agree to indemnify and hold harmless Balsira Group, its affiliates, officers, and employees 
-    from any claims, damages, or expenses arising from your use of the Services or violation of these Terms.
-  </p>
-
-  <h2>12. Termination</h2>
-  <p>
-    12.1. We may suspend or terminate your access to the Services immediately for any violation of these Terms.
-  </p>
-  <p>
-    12.2. Upon termination, all licenses granted to you shall cease, and you must cease all use of the Platform.
-  </p>
-  <p>
-    12.3. Provisions regarding intellectual property, confidentiality, limitation of liability, and 
-    indemnification shall survive termination.
-  </p>
-
-  <h2>13. Dispute Resolution</h2>
-  <p>
-    13.1. Any disputes arising from these Terms shall first be attempted to be resolved through good-faith negotiation.
-  </p>
-  <p>
-    13.2. If negotiation fails, disputes shall be resolved through mediation or arbitration in 
-    Johannesburg, South Africa, in accordance with the Arbitration Foundation of Southern Africa rules.
-  </p>
-
-  <h2>14. Governing Law</h2>
-  <p>
-    These Terms shall be governed by and construed in accordance with the laws of the Republic of South Africa, 
-    without regard to conflict of law principles. For users based in East Africa, the laws of Tanzania shall 
-    apply as a secondary jurisdiction where appropriate.
-  </p>
-
-  <h2>15. Amendments</h2>
-  <p>
-    We reserve the right to modify these Terms at any time. Material changes will be notified via email 
-    or Platform notice. Continued use of the Services after changes constitutes acceptance of the revised Terms.
-  </p>
-
-  <h2>16. Contact Information</h2>
-  <p>
-    For questions regarding these Terms, please contact us at:<br>
-    <strong>Email:</strong> legal@balsiragroup.com<br>
-    <strong>Address:</strong> 12 Hay Hill, Mayfair, London, W1J8NR<br>
-    <strong>Phone:</strong> +44 7506 347826
-  </p>
-
-</section>
-
+  <p>These Terms govern the use of BALSIRA GROUP's website, services, supplier registration, and tender portal access. By using our website or submitting any registration form, you agree to these Terms.</p>
+  <h2>2. Services</h2>
+  <p>BALSIRA GROUP acts as an industrial procurement facilitator, agency, and distributor partner in the mining and railway engineering sectors. We do not manufacture equipment. We facilitate sourcing, procurement, and supply chain delivery services.</p>
+  <h2>3. Supplier Responsibilities</h2>
+  <p>Registered suppliers must provide accurate, current information and maintain compliance with all applicable regulatory, quality, and export requirements. Balsira reserves the right to suspend or remove suppliers who fail to maintain compliance standards.</p>
+  <h2>4. Portal Access</h2>
+  <p>Tender and procurement portal access is granted at Balsira's discretion to verified organisations only. Access may be revoked at any time if usage terms are breached.</p>
+  <h2>5. Intellectual Property</h2>
+  <p>All content on this website is the property of BALSIRA GROUP. No content may be reproduced, distributed, or used without prior written consent.</p>
+  <h2>6. Limitation of Liability</h2>
+  <p>BALSIRA GROUP is not liable for indirect, consequential, or incidental losses arising from use of this website or reliance on information provided. Procurement decisions remain the responsibility of the contracting parties.</p>
+  <h2>7. Governing Law</h2>
+  <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes will be subject to the jurisdiction of South African courts.</p>
+</div>
 <footer>
-  <div class="copyright">© 2026 Balsira Group. All rights reserved.</div>
+  <div class="footer-brand"><a href="index.html" class="footer-logo"><img src="logo.png" alt="BALSIRA GROUP" class="footer-logo-img">BALSIRA<span>.</span></a><p>Developing industrial procurement in mining and railway engineering solutions across Africa.</p></div>
+  <div><h4>Navigation</h4><a href="about.html">About Us</a><a href="products.html">Products</a><a href="suppliers.html">Suppliers</a><a href="contact.html">Contact</a></div>
+  <div><h4>Contact</h4><a href="mailto:sales@balsira.co.za">sales@balsira.co.za</a><a href="mailto:info@balsira.co.za">info@balsira.co.za</a><a href="mailto:brilliant@balsira.co.za">brilliant@balsira.co.za</a></div>
+  <div><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a><a href="anti-corruption.html">Anti-Corruption Policy</a><a href="compliance.html">Compliance</a></div>
+  <div class="footer-bottom"><p>© 2026 BALSIRA GROUP. All rights reserved.</p><p>Johannesburg, South Africa</p></div>
 </footer>
-
-<script>
-const h=document.getElementById('hamburger');
-const n=document.getElementById('navLinks');
-h.onclick=()=>n.classList.toggle('show');
-</script>
-
-</body>
-</html>
+<script>document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('show'));</script>
+</body></html>
