@@ -2,349 +2,555 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | BALSIRA</title>
-<link rel="icon" href="logo.png">
-
+<title>Products | BALSIRA GROUP</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  --bg:#0b0b0d;
-  --panel:#121217;
-  --accent:#c9a24d;
-  --text:#eaeaea;
-  --muted:#9a9a9a;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Inter','Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
 }
 
-/* HEADER */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 60px;
-  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
-  border-bottom:1px solid #1f1f25;
-  position:relative;
-}
-header img{height:40px;}
-
-.desktop-nav{display:flex;}
-.desktop-nav a{
-  margin-left:28px;
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:500;
-}
-.desktop-nav a:hover{color:var(--text);}
-
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
-}
-.hamburger span{
-  width:25px;
-  height:3px;
-  background:var(--text);
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.mobile-nav{
-  display:none;
-  flex-direction:column;
-  position:absolute;
-  top:100%;
-  left:0;
-  width:100%;
-  background:var(--panel);
-  border-top:1px solid #1f1f25;
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
 }
-.mobile-nav a{
-  padding:12px 20px;
-  color:var(--text);
-  text-decoration:none;
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
 }
-.mobile-nav a:hover{background:#1f1f25;}
-.mobile-nav.show{display:flex;}
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
 
-@media (max-width:1024px){
-  .desktop-nav{display:none;}
-  .hamburger{display:flex;}
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
 }
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
 
-/* HERO */
-.hero{
-  padding:70px 24px;
-  text-align:center;
-  max-width:1000px;
-  margin:auto;
-}
-.hero h1{font-size:2.4rem;}
-.hero p{color:var(--muted);}
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
 
-/* SECTIONS */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 24px;
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
 }
-h2{
-  color:var(--accent);
-  text-align:center;
-  margin-bottom:30px;
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
 }
-
-/* PRODUCT GRID */
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
 }
-.product-card{
-  background:var(--panel);
-  border:1px solid #1f1f25;
-  border-radius:12px;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform 0.2s;
-  text-decoration:none;
-  color:inherit;
-}
-.product-card:hover{
-  transform:scale(1.03);
-}
-.product-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-.product-card .content{
-  padding:22px;
-}
-.product-card h3{color:var(--accent); margin-top:0;}
-.product-card p{color:var(--muted);}
-.product-card ul{
-  padding-left:18px;
-  color:var(--muted);
-  font-size:0.9rem;
-}
-.product-grid a {
-  text-decoration:none;
-  color:inherit;
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
 }
 
-/* PARTNERS */
-.partner-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
 }
-.partner-card{
-  background:var(--panel);
-  border:1px solid #1f1f25;
-  border-radius:12px;
-  padding:30px;
-  text-align:center;
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
 }
-.partner-card img{
-  height:55px;
-  margin-bottom:18px;
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
 }
-.partner-card p{color:var(--muted);}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
 
-/* FOOTER */
-footer{
-  padding:60px;
-  background:#070709;
-  border-top:1px solid #1f1f25;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-footer h4{margin-bottom:12px;}
-footer p{color:var(--muted);}
-footer a{color:var(--muted); text-decoration:none;}
-footer a:hover{color:var(--text);}
-.copyright{
-  grid-column:1/-1;
-  text-align:center;
-  margin-top:20px;
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
+
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
+}
+
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+</style>
+<style>
+.page-hero { --hero-img: url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg'); }
+.cat-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; flex-wrap: wrap; }
+.cat-tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 14px 32px; color: var(--mid-grey); cursor: pointer;
+  border-bottom: 2px solid transparent; background: none; border-top: none; border-left: none; border-right: none;
+  transition: all 0.2s;
+}
+.cat-tab.active, .cat-tab:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.cat-panel { display: none; }
+.cat-panel.active { display: block; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+.cat-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.cat-intro-text { background: var(--surface2); padding: 52px; }
+.cat-intro-text h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 40px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); line-height: 1; margin-bottom: 16px;
+}
+.cat-intro-text p { font-size: 15px; color: var(--mid-grey); line-height: 1.75; }
+.cat-intro-img { height: 300px; object-fit: cover; display: block; width: 100%; filter: brightness(0.7); }
+.pcard { background: var(--surface2); padding: 32px; }
+.pcard h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+}
+.pcard p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.partner-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
+.partner-card { background: var(--surface2); padding: 36px; text-align: center; }
+.partner-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 8px;
+}
+.partner-card p { font-size: 13px; color: var(--mid-grey); }
+@media (max-width: 1024px) {
+  .cat-intro { grid-template-columns: 1fr; }
+  .partner-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
-
-<body>
+<body class="page-body">
 
 <header>
-  <img src="logo.png" alt="LG Supply Ltd Logo">
-
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="BALSIRA GROUP" class="nav-logo-img">BALSIRA<span>.</span></a>
   <nav class="desktop-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
+    <a href="products.html" class="active">Products</a>
     <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
+    <a href="compliance.html">Compliance</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <a href="tenders.html" class="nav-cta">Tender Access</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="products.html">Products</a>
+  <a href="suppliers.html">Suppliers</a>
+  <a href="compliance.html">Compliance</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="tenders.html">Tender Access</a>
+</nav>
 
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Product Categories</div>
+    <h1>Mining &amp; Railway<br>Supply Catalogue</h1>
+    <p>Engineering-grade equipment and industrial supplies sourced from globally recognised manufacturers. Balsira facilitates procurement across two primary sectors.</p>
+  </div>
+</div>
+
+<div class="section">
+  <!-- TABS -->
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="switchTab('mining', this)">Mining Equipment</button>
+    <button class="cat-tab" onclick="switchTab('railway', this)">Railway Engineering</button>
+    <button class="cat-tab" onclick="switchTab('metals', this)">Metals Supply</button>
+    <button class="cat-tab" onclick="switchTab('procurement', this)">Industrial Procurement</button>
   </div>
 
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- MINING -->
+  <div class="cat-panel active" id="panel-mining">
+    <div class="cat-intro">
+      <div class="cat-intro-text">
+        <div class="section-eyebrow">Primary Sector</div>
+        <h2>Mining Equipment</h2>
+        <div class="divider"></div>
+        <p>Balsira sources and procures heavy-duty mining equipment for open-pit and underground operations across Africa. From earthmoving machinery to processing plants and safety equipment — we connect buyers with verified suppliers.</p>
+        <br>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Request a Quote</a>
+      </div>
+      <img class="cat-intro-img" src="https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg" alt="Mining">
+    </div>
+    <div class="product-grid">
+      <div class="pcard"><h3>Earthmoving Equipment</h3><p>Excavators, bulldozers, dump trucks, and motor graders for surface and underground mining operations.</p></div>
+      <div class="pcard"><h3>Crushing &amp; Screening</h3><p>Jaw crushers, cone crushers, vibrating screens, and mobile crushing plants for mineral processing.</p></div>
+      <div class="pcard"><h3>Processing Plants</h3><p>Complete mineral processing systems including ball mills, flotation cells, and gravity separation equipment.</p></div>
+      <div class="pcard"><h3>Conveyor Systems</h3><p>Bulk material handling systems — belt conveyors, bucket elevators, and transfer stations for mining and processing.</p></div>
+      <div class="pcard"><h3>Pumps &amp; Valves</h3><p>Slurry pumps, dewatering pumps, process valves, and fluid control systems for demanding mining environments.</p></div>
+      <div class="pcard"><h3>PPE &amp; Safety Equipment</h3><p>Industrial PPE, gas detection, emergency response equipment, and site safety systems.</p></div>
+      <div class="pcard"><h3>Mining Consumables</h3><p>Wear parts, drill bits, grinding media, lubricants, and operational consumables for continuous mining operations.</p></div>
+      <div class="pcard"><h3>Underground Equipment</h3><p>Underground loaders, drilling jumbos, roof support systems, and ventilation equipment.</p></div>
+    </div>
+  </div>
 
-<div class="hero">
-  <h1>Products & Supply Categories</h1>
-  <p>Engineering-grade equipment sourced from globally recognised manufacturers.</p>
+  <!-- RAILWAY -->
+  <div class="cat-panel" id="panel-railway">
+    <div class="cat-intro">
+      <div class="cat-intro-text">
+        <div class="section-eyebrow">Primary Sector</div>
+        <h2>Railway Engineering</h2>
+        <div class="divider"></div>
+        <p>Balsira facilitates procurement of railway infrastructure components, locomotive equipment, and track maintenance systems. Supporting freight rail and passenger rail infrastructure across the African continent.</p>
+        <br>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Request a Quote</a>
+      </div>
+      <img class="cat-intro-img" src="https://images.pexels.com/photos/248159/pexels-photo-248159.jpeg" alt="Railway">
+    </div>
+    <div class="product-grid">
+      <div class="pcard"><h3>Track Components</h3><p>Rail sections, sleepers (wooden, concrete, composite), fishplates, rail clips, and track fastening systems.</p></div>
+      <div class="pcard"><h3>Rail Maintenance Equipment</h3><p>Rail grinders, tamping machines, track geometry measurement systems, and maintenance-of-way vehicles.</p></div>
+      <div class="pcard"><h3>Locomotive Components</h3><p>Traction motors, bogies, couplings, braking systems, and locomotive spare parts for diesel and electric fleets.</p></div>
+      <div class="pcard"><h3>Signalling Equipment</h3><p>Interlocking systems, level crossing equipment, track circuits, and point machines for railway safety.</p></div>
+      <div class="pcard"><h3>Overhead Line Equipment</h3><p>Catenary systems, contact wire, OLE fittings, and pantograph components for electrified rail lines.</p></div>
+      <div class="pcard"><h3>Rail Infrastructure Materials</h3><p>Ballast, geotextiles, drainage systems, bridge components, and civil engineering materials for rail construction.</p></div>
+      <div class="pcard"><h3>Freight Rail Systems</h3><p>Wagon components, freight car parts, coupling systems, and container handling equipment for freight operations.</p></div>
+      <div class="pcard"><h3>Railway Tools &amp; Workshop</h3><p>Rail drilling machines, fishplate bolt torque tools, track gauges, and specialised railway workshop equipment.</p></div>
+    </div>
+  </div>
+
+  <!-- METALS -->
+  <div class="cat-panel" id="panel-metals">
+    <div class="cat-intro">
+      <div class="cat-intro-text">
+        <div class="section-eyebrow">Commodity Supply</div>
+        <h2>Metals Supply</h2>
+        <div class="divider"></div>
+        <p>Industrial metals sourcing and cross-border commodity procurement across Southern and East Africa. Supporting mining operations, construction projects, and manufacturing with reliable metals supply.</p>
+        <br>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Request a Quote</a>
+      </div>
+      <img class="cat-intro-img" src="https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg" alt="Metals">
+    </div>
+    <div class="product-grid">
+      <div class="pcard"><h3>Structural Steel</h3><p>Beams, columns, angles, channels, and fabricated structural steel for industrial and infrastructure projects.</p></div>
+      <div class="pcard"><h3>Reinforcing Steel</h3><p>High-strength rebar and mesh for concrete reinforcement in civil engineering and construction projects.</p></div>
+      <div class="pcard"><h3>Flat Products</h3><p>Hot-rolled and cold-rolled steel plates, coils, and sheets for manufacturing and fabrication applications.</p></div>
+      <div class="pcard"><h3>Pipes &amp; Tubes</h3><p>Seamless and welded steel pipes for industrial, mining, and infrastructure applications across various specifications.</p></div>
+      <div class="pcard"><h3>Wear-Resistant Steel</h3><p>Abrasion-resistant steel plates and wear liners for mining equipment and material handling systems.</p></div>
+      <div class="pcard"><h3>Non-Ferrous Metals</h3><p>Copper, aluminium, and speciality alloys sourced for electrical, manufacturing, and engineering applications.</p></div>
+    </div>
+  </div>
+
+  <!-- PROCUREMENT SERVICES -->
+  <div class="cat-panel" id="panel-procurement">
+    <div class="cat-intro">
+      <div class="cat-intro-text">
+        <div class="section-eyebrow">Core Service</div>
+        <h2>Industrial Procurement</h2>
+        <div class="divider"></div>
+        <p>Balsira manages full industrial procurement cycles — from requirement analysis through supplier sourcing, qualification, negotiation, and cross-border delivery coordination across Africa.</p>
+        <br>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:8px;">Discuss Your Requirements</a>
+      </div>
+      <img class="cat-intro-img" src="https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg" alt="Procurement">
+    </div>
+    <div class="product-grid">
+      <div class="pcard"><h3>Supplier Sourcing</h3><p>Identifying and qualifying suppliers from our growing network of manufacturers and distributors across Africa and internationally.</p></div>
+      <div class="pcard"><h3>Procurement Management</h3><p>End-to-end management of procurement processes including RFQ, evaluation, negotiation, and order placement.</p></div>
+      <div class="pcard"><h3>Cross-Border Logistics</h3><p>Coordination of cross-border supply chain delivery across Southern and East Africa with compliance documentation.</p></div>
+      <div class="pcard"><h3>Compliance &amp; Quality</h3><p>Supplier compliance verification, product certification checks, and quality assurance coordination.</p></div>
+      <div class="pcard"><h3>Distributor Partnerships</h3><p>Building and managing distributor agreements to ensure reliable supply of mining and railway equipment to clients.</p></div>
+      <div class="pcard"><h3>Market Intelligence</h3><p>Insights into supplier markets, pricing trends, and product availability across mining and railway equipment sectors.</p></div>
+    </div>
+  </div>
+
+  <!-- PARTNERS -->
+  <div style="margin-top: 60px; padding-top: 60px; border-top: 1px solid var(--border);">
+    <div class="section-eyebrow">Strategic Partnerships</div>
+    <div class="section-title" style="margin-bottom:40px;">Engineering Partners</div>
+    <div class="partner-row">
+      <div class="partner-card">
+        <div class="partner-name">Caterpillar (CAT)</div>
+        <p>Global leader in construction and mining equipment — earthmoving, material handling, and underground machinery.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Siemens</div>
+        <p>Electrical, automation, and railway engineering systems — including signalling, traction, and power distribution.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Grundfos</div>
+        <p>World-leading pump and water solutions — industrial pumps, slurry systems, and dewatering for mining applications.</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-<section>
-<h2>Key Supply Categories</h2>
-
-<div class="product-grid">
-
-<a href="water.html" class="product-card">
-<img src="water.jpg" alt="Water & Sanitation Equipment">
-<div class="content">
-<h3>Water & Sanitation Equipment</h3>
-<p>Complete solutions for municipal and industrial water infrastructure.</p>
-<ul>
-<li>Pumps & valves</li>
-<li>HDPE piping systems</li>
-<li>Water treatment plants</li>
-<li>Storage tanks</li>
-</ul>
-</div>
-</a>
-
-<a href="energy.html" class="product-card">
-<img src="energy.jpg" alt="Energy & Power Systems">
-<div class="content">
-<h3>Energy & Power Systems</h3>
-<p>Reliable equipment for grid, backup, and renewable energy projects.</p>
-<ul>
-<li>Generators</li>
-<li>Transformers</li>
-<li>Solar & inverters</li>
-<li>Electrical cabling</li>
-</ul>
-</div>
-</a>
-
-<a href="mining.html" class="product-card">
-<img src="mining.jpg" alt="Mining & Industrial Supplies">
-<div class="content">
-<h3>Mining & Industrial Supplies</h3>
-<p>Heavy-duty equipment designed for harsh operating environments.</p>
-<ul>
-<li>Mining machinery</li>
-<li>PPE & safety gear</li>
-<li>Industrial tools</li>
-<li>Mechanical components</li>
-</ul>
-</div>
-</a>
-
-<a href="construction.html" class="product-card">
-<img src="construction.jpeg" alt="Construction Materials">
-<div class="content">
-<h3>Construction Materials</h3>
-<p>Certified materials supporting major civil works.</p>
-<ul>
-<li>Structural steel</li>
-<li>Cement & aggregates</li>
-<li>Formwork systems</li>
-<li>Road construction materials</li>
-</ul>
-</div>
-</a>
-
-<a href="agriculture.html" class="product-card">
-<img src="agriculture.jpg" alt="Agriculture & Irrigation">
-<div class="content">
-<h3>Agriculture & Irrigation</h3>
-<p>Solutions improving efficiency and sustainability in agriculture.</p>
-<ul>
-<li>Irrigation systems</li>
-<li>Water pumps</li>
-<li>Farming infrastructure</li>
-<li>Storage solutions</li>
-</ul>
-</div>
-</a>
-
-</div>
-</section>
-
-<section>
-<h2>Strategic Engineering Partners</h2>
-
-<div class="partner-grid">
-
-<div class="partner-card">
-<img src="cat.png" alt="Caterpillar Logo">
-<p><strong>Caterpillar (CAT)</strong><br>Global leader in construction and mining equipment.</p>
-</div>
-
-<div class="partner-card">
-<img src="siemens.png" alt="Siemens Logo">
-<p><strong>Siemens</strong><br>Electrical, automation, and energy systems.</p>
-</div>
-
-<div class="partner-card">
-<img src="grundfos.png" alt="Grundfos Logo">
-<p><strong>Grundfos</strong><br>World-leading pump and water solutions supplier.</p>
-</div>
-
-</div>
-</section>
 
 <footer>
-  <div>
-    <h4>BALSIRA GROUP</h4>
-    <p>Engineering & Infrastructure Supply</p>
-    <p>Southern & East Africa</p>
+  <div class="footer-brand">
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="BALSIRA GROUP" class="footer-logo-img">BALSIRA<span>.</span></a>
+    <p>Developing industrial procurement in mining and railway engineering solutions across Africa.</p>
   </div>
-
   <div>
-    <h4>UK Head Office</h4>
-    <p>12 Hay Hill, Mayfair, London, W1J 8NR</p>
-    <p>WhatsApp: <a href="https://wa.me/447506347826" target="_blank">+44 7506 347826</a></p>
-    <p>Email: Sales@Balsiragroup.com</p>
+    <h4>Navigation</h4>
+    <a href="about.html">About Us</a>
+    <a href="products.html">Products</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
   </div>
-
   <div>
-    <h4>South Africa Office</h4>
-    <p>The Link, 173 Oxford Road, Rosebank, Johannesburg, South Africa</p>
-    <p>WhatsApp: +27 68 152 0018</p>
-    <p>Email: Tenders@Balsiragroup.com, Customer.care@Balsiragroup.com</p>
+    <h4>Contact</h4>
+    <a href="mailto:sales@balsira.co.za">sales@balsira.co.za</a>
+    <a href="mailto:info@balsira.co.za">info@balsira.co.za</a>
+    <a href="mailto:brilliant@balsira.co.za">brilliant@balsira.co.za</a>
   </div>
-
-  <div class="copyright">
-    © 2026 Balsira Group Pty Ltd. All rights reserved.
+  <div>
+    <h4>Legal</h4>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="anti-corruption.html">Anti-Corruption Policy</a>
+    <a href="compliance.html">Compliance</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BALSIRA GROUP. All rights reserved.</p>
+    <p>Johannesburg, South Africa</p>
   </div>
 </footer>
 
 <script>
-document.getElementById('hamburger').onclick = () =>
-document.getElementById('mobile-nav').classList.toggle('show');
-</script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => mobileNav.classList.toggle('show'));
 
+  function switchTab(id, btn) {
+    document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
 </body>
 </html>
