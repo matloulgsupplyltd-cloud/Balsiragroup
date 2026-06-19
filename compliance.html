@@ -2,192 +2,427 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compliance | BALSIRA </title>
-<link rel="icon" href="logo.png" type="image/png">
+<title>Compliance | BALSIRA GROUP</title>
 <style>
-  :root {
-    --bg:#0b0b0d;
-    --panel:#121217;
-    --accent:#c9a24d;
-    --text:#eaeaea;
-    --muted:#9a9a9a;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
-  /* Header */
-  header{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background: linear-gradient(180deg,#0b0b0d,#0e0e12);border-bottom:1px solid #1f1f25;}
-  header img{height:60px;}
+:root {
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
+}
 
-  /* Desktop nav */
-  nav.desktop-nav { display:flex; align-items:center; }
-  nav.desktop-nav a{margin-left:28px;color:var(--muted);text-decoration:none;font-weight:500;}
-  nav.desktop-nav a:hover{color:var(--text);}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  /* Hamburger menu */
-  .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-  .hamburger span { display:block; height:3px; width:25px; background:var(--text); border-radius:2px; }
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
 
-  /* Mobile nav */
-  nav.mobile-nav { display:none; flex-direction:column; position:absolute; top:80px; left:0; width:100%; background:var(--panel); padding:20px 0; border-top:1px solid #1f1f25; }
-  nav.mobile-nav a{padding:10px 20px; color:var(--text); text-decoration:none; font-weight:500;}
-  nav.mobile-nav a:hover{background:#1f1f25;}
-  nav.mobile-nav.show { display:flex; }
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
+}
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
 
-  /* Hero */
-  .hero{
-    padding:120px 60px;
-    max-width:1200px;
-    margin:auto;
-    text-align:center;
-    background:url('https://images.unsplash.com/photo-1573495612937-5c2f4f0a8235?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5fDB8MXxyYW5kb218MHx8Y29tcGxpYW5jZXxlbnwwfHx8fDE2NzU5OTk3OTk&ixlib=rb-4.0.3&q=80&w=1600') center/cover no-repeat;
-    border-radius:12px;
-    color:#fff;
-  }
-  .hero h1{font-size:3rem;font-weight:700;margin-bottom:20px;text-shadow:1px 1px 5px rgba(0,0,0,0.7);}
-  .hero p{color:#f0f0f0;font-size:1.2rem;max-width:700px;margin:auto;text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
 
-  /* Section */
-  section{padding:80px 60px;max-width:1200px;margin:auto;}
-  h2{font-size:2rem;margin-bottom:30px;text-align:center;}
-  .grid{display:grid;grid-template-columns: repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-  .card{background:var(--panel);border:1px solid #1f1f25;padding:25px;border-radius:10px;display:flex;flex-direction:column;align-items:center;text-align:center;}
-  .card img{height:60px;margin-bottom:15px;}
-  .card h3{margin-top:0;}
-  .card p{color:var(--muted);}
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
+}
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
+}
 
-  /* Footer */
-  footer{padding:60px;background:#070709;border-top:1px solid #1f1f25;display:grid;grid-template-columns: repeat(auto-fit,minmax(200px,1fr));gap:40px;}
-  footer h4{margin-bottom:12px;}
-  footer a{display:block;color:var(--muted);text-decoration:none;margin-bottom:8px;}
-  footer a:hover{color:var(--text);}
-  .copyright{grid-column:1/-1;color:var(--muted);font-size:0.9rem;margin-top:20px;text-align:center;}
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
+}
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
 
-  /* Responsive */
-  @media (max-width:1024px){
-    nav.desktop-nav { display:none; }
-    .hamburger { display:flex; }
-    header img { height:50px; }
-  }
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
+
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
+}
+
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+</style>
+<style>
+.page-hero { --hero-img: url('https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg'); }
+.route-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.route-card { background:var(--surface2); padding:40px; position:relative; }
+.route-num { font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:rgba(255,255,255,0.15); line-height:1; margin-bottom:12px; }
+.route-card h3 { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:800; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.route-card p { font-size:13px; color:var(--mid-grey); line-height:1.7; }
+.req-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2px; }
+.req-card { background:var(--surface2); padding:36px; }
+.req-icon { font-size:26px; margin-bottom:12px; }
+.req-card h4 { font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; color:var(--off-white); margin-bottom:8px; }
+.req-card p { font-size:13px; color:var(--mid-grey); line-height:1.65; }
+.standards-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2px; }
+.std-card { background:var(--surface2); padding:28px; text-align:center; }
+.std-name { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:800; color:var(--accent); margin-bottom:6px; }
+.std-desc { font-size:12px; color:var(--mid-grey); line-height:1.6; }
+@media(max-width:1024px){ .route-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
-<body>
+<body class="page-body">
 
 <header>
-  <img src="logo.png" alt="BALSIRA GROUP Logo" />
-
-  <!-- Desktop nav -->
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="BALSIRA GROUP" class="nav-logo-img">BALSIRA<span>.</span></a>
   <nav class="desktop-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
-    <a href="compliance.html">Compliance</a>
-    <a href="market-insights.html">Market Insights</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+    <a href="compliance.html" class="active">Compliance</a>
+    <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
   </nav>
-
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Mobile nav -->
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
-    <a href="compliance.html">Compliance</a>
-    <a href="market-insights.html">Market Insights</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <a href="tenders.html" class="nav-cta">Tender Access</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+  <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a><a href="tenders.html">Tender Access</a>
+</nav>
 
-<div class="hero">
-  <h1>Compliance & Standards</h1>
-  <p>BALSIRA GROUP ensures all tenders meet Tanzanian Bureau of Standards (TBS) regulations, PVoC routes, and ethical procurement guidelines.</p>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Standards &amp; Compliance</div>
+    <h1>Compliance &amp;<br>Procurement Standards</h1>
+    <p>Balsira ensures all procurement activities meet applicable regulatory frameworks including TBS, PVoC, EAC, and ethical procurement guidelines across all African markets we operate in.</p>
+  </div>
 </div>
 
-<section>
-  <h2>TBS & PVoC Compliance</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Route A">
-      <h3>Route A</h3>
-      <p>For occasional shipments: inspection and testing required before customs clearance.</p>
+<!-- TBS / PVoC -->
+<div class="section">
+  <div class="section-eyebrow">Tanzania Bureau of Standards</div>
+  <div class="section-title">TBS &amp; PVoC Compliance Routes</div>
+  <p class="section-desc">All equipment procured for Tanzania-bound projects must comply with TBS Pre-Export Verification of Conformity (PVoC) requirements. Balsira manages compliance documentation for all applicable supply routes.</p>
+  <div class="route-grid">
+    <div class="route-card">
+      <div class="route-num">A</div>
+      <h3>Route A — Occasional Shipments</h3>
+      <p>For non-regular or one-off equipment shipments. Full inspection and physical testing is required at origin before customs clearance into Tanzania.</p>
     </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Route B">
-      <h3>Route B</h3>
-      <p>For registered products: frequent exporters submit certificates of conformity (CoC) via accredited bodies like Intertek.</p>
+    <div class="route-card">
+      <div class="route-num">B</div>
+      <h3>Route B — Registered Products</h3>
+      <p>For products registered with TBS. Frequent exporters submit Certificates of Conformity (CoC) issued by accredited bodies such as Intertek or Bureau Veritas.</p>
     </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Route C">
-      <h3>Route C</h3>
-      <p>High-volume licensed exporters: factory audits and full compliance checks mandatory.</p>
+    <div class="route-card">
+      <div class="route-num">C</div>
+      <h3>Route C — Licensed Exporters</h3>
+      <p>High-volume licensed exporters undergo factory audits and full compliance verification. Mandatory for bulk mining and railway equipment exports.</p>
     </div>
   </div>
-</section>
+</div>
 
-<section>
-  <h2>Supplier Requirements</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Certificates">
-      <h3>Certificates</h3>
-      <p>Bidders must provide CoC, test reports, and certificates of origin for each consignment.</p>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Local Content">
-      <h3>Local Content</h3>
-      <p>Suppliers are encouraged to comply with EAC and Tanzanian local content preferences.</p>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Ethical Standards">
-      <h3>Ethical Standards</h3>
-      <p>All tenders enforce anti-corruption and ethical bidding practices to maintain transparency.</p>
+<!-- SUPPLIER REQUIREMENTS -->
+<div class="bg-surface" style="padding:80px 0;">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
+    <div class="section-eyebrow">What Suppliers Must Provide</div>
+    <div class="section-title">Supplier Requirements</div>
+    <p class="section-desc">All suppliers registered with Balsira must maintain documentation meeting procurement compliance standards.</p>
+    <div class="req-grid">
+      <div class="req-card"><div class="req-icon"></div><h4>Certificates of Conformity</h4><p>CoC, test reports, and certificates of origin required per consignment for all regulated equipment categories.</p></div>
+      <div class="req-card"><div class="req-icon"></div><h4>Quality Certification</h4><p>ISO 9001 or equivalent quality management certification preferred. Industry-specific standards apply for mining and railway equipment.</p></div>
+      <div class="req-card"><div class="req-icon"></div><h4>Local Content Compliance</h4><p>Suppliers are encouraged to comply with EAC and Tanzanian local content preferences where applicable.</p></div>
+      <div class="req-card"><div class="req-icon"></div><h4>Anti-Corruption Standards</h4><p>All suppliers must comply with Balsira's anti-corruption policy and applicable South African, Tanzanian, and international anti-bribery regulations.</p></div>
+      <div class="req-card"><div class="req-icon"></div><h4>Product Documentation</h4><p>Technical datasheets, specifications, and test certificates must be available for all supplied equipment and materials.</p></div>
+      <div class="req-card"><div class="req-icon"></div><h4>Export Documentation</h4><p>Valid export permits, packing lists, commercial invoices, and HS code classification for all cross-border shipments.</p></div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- STANDARDS WE WORK TO -->
+<div class="section">
+  <div class="section-eyebrow">Regulatory Frameworks</div>
+  <div class="section-title">Standards We Work To</div>
+  <p class="section-desc">Balsira's procurement operations align to these regulatory and industry standards across our operating markets.</p>
+  <div class="standards-row">
+    <div class="std-card"><div class="std-name">TBS</div><div class="std-desc">Tanzania Bureau of Standards — product compliance for Tanzania-bound equipment.</div></div>
+    <div class="std-card"><div class="std-name">PVoC</div><div class="std-desc">Pre-Export Verification of Conformity for goods entering Tanzania.</div></div>
+    <div class="std-card"><div class="std-name">SABS</div><div class="std-desc">South African Bureau of Standards — South Africa originating equipment and materials.</div></div>
+    <div class="std-card"><div class="std-name">EAC</div><div class="std-desc">East African Community standards and local content preferences across the region.</div></div>
+    <div class="std-card"><div class="std-name">ISO 9001</div><div class="std-desc">Quality management systems standard preferred for all registered suppliers.</div></div>
+    <div class="std-card"><div class="std-name">UKBA</div><div class="std-desc">UK Bribery Act compliance — applicable to UK-linked procurement activities.</div></div>
+  </div>
+</div>
+
+<div style="background:var(--surface); padding:48px 52px; border-top:1px solid var(--border); text-align:center;">
+  <p style="font-size:14px; color:var(--mid-grey); margin-bottom:20px;">Questions about compliance requirements for your equipment category?</p>
+  <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
+</div>
 
 <footer>
-  <div>
-    <h4>BALSIRA GROUP</h4>
-    <a href="about.html">About Us</a>
-    <a href="careers.html">Careers</a>
-    <a href="news.html">News</a>
+  <div class="footer-brand">
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="BALSIRA GROUP" class="footer-logo-img">BALSIRA<span>.</span></a>
+    <p>Developing industrial procurement in mining and railway engineering solutions across Africa.</p>
   </div>
-  <div>
-    <h4>Suppliers</h4>
-    <a href="suppliers.html">Register</a>
-    <a href="membership.html">Membership</a>
-    <a href="compliance.html">Compliance</a>
-  </div>
-  <div>
-    <h4>Legal</h4>
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="anti-corruption.html">Anti-Corruption Policy</a>
-  </div>
-  <div class="copyright">© 2026 BALSIRA GROUP. All rights reserved.</div>
+  <div><h4>Navigation</h4><a href="about.html">About Us</a><a href="products.html">Products</a><a href="suppliers.html">Suppliers</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+  <div><h4>Contact</h4><a href="mailto:sales@balsira.co.za">sales@balsira.co.za</a><a href="mailto:info@balsira.co.za">info@balsira.co.za</a><a href="mailto:brilliant@balsira.co.za">brilliant@balsira.co.za</a></div>
+  <div><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a><a href="anti-corruption.html">Anti-Corruption Policy</a><a href="compliance.html">Compliance</a></div>
+  <div class="footer-bottom"><p>© 2026 BALSIRA GROUP. All rights reserved.</p><p>Johannesburg, South Africa</p></div>
 </footer>
-
 <script>
-  // Hamburger toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('show');
-  });
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-nav').classList.toggle('show'));
 </script>
-
 </body>
 </html>
