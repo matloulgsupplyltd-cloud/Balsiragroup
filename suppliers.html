@@ -2,157 +2,480 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suppliers | BALSIRA </title>
-<link rel="icon" href="logo.png">
-
+<title>Suppliers | BALSIRA GROUP</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  --bg:#0b0b0d;
-  --panel:#121217;
-  --accent:#c9a24d;
-  --text:#eaeaea;
-  --muted:#9a9a9a;
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
 }
-* { box-sizing: border-box; }
-body { margin:0;font-family:'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
 
-/* HEADER */
-header { display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background: linear-gradient(180deg,#0b0b0d,#0e0e12);border-bottom:1px solid #1f1f25; }
-header img { height:60px; } /* desktop logo bigger */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-nav { display:flex; gap:28px; }
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
 
-nav a { color:var(--muted); text-decoration:none; font-weight:500; }
-nav a:hover { color:var(--text); }
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
+}
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
 
-/* HAMBURGER */
-.hamburger { display:none; font-size:28px; background:none; border:none; color:var(--text); cursor:pointer; }
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
 
-/* HERO */
-.hero { padding:100px 60px; text-align:center; }
-.hero h1 { font-size:3rem; margin-bottom:20px; }
-.hero p { color:var(--muted); }
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
+}
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
+}
 
-/* FORM */
-form { max-width:600px; margin:40px auto; background:var(--panel); padding:30px; border-radius:10px; border:1px solid #1f1f25; display:grid; gap:20px; }
-input, select, textarea { padding:12px; border-radius:6px; border:1px solid #2b2b33; background:#0b0b0d; color:var(--text); width:100%; }
-textarea { resize:vertical; }
-button { padding:12px 24px; border:none; border-radius:6px; background:var(--accent); color:#000; font-weight:600; cursor:pointer; }
-button:hover { opacity:0.9; }
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
+}
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
 
-.subscribe-section { margin:60px 0; text-align:center; }
-h2 { color:var(--accent); margin-bottom:10px; }
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
 
-/* FOOTER */
-footer { padding:60px; background:#070709; border-top:1px solid #1f1f25; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:40px; }
-footer h4 { margin-bottom:12px; }
-footer a { display:block; color:var(--muted); text-decoration:none; margin-bottom:8px; }
-footer a:hover { color:var(--text); }
-footer .copyright { grid-column:1/-1; color:var(--muted); font-size:0.9rem; margin-top:20px; text-align:center; }
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  header { padding:20px; }
-  nav { position:absolute; top:80px; left:0; right:0; background:#0b0b0d; flex-direction:column; align-items:center; display:none; padding:30px 0; border-bottom:1px solid #1f1f25; }
-  nav.show { display:flex; }
-  .hamburger { display:block; }
-  header img { height:50px; } /* mobile logo */
-  .hero { padding:70px 20px; }
-  .hero h1 { font-size:2.2rem; }
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
+}
+
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+</style>
+<style>
+.page-hero { --hero-img: url('https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg'); }
+.sup-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 2px; }
+.sup-info { background: var(--steel); padding: 60px; }
+.sup-info h2 { font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:800; text-transform:uppercase; color:var(--off-white); margin-bottom:24px; }
+.sup-info p { font-size:14px; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:18px; }
+.sup-criteria { list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:28px; }
+.sup-criteria li { font-size:13px; color:rgba(255,255,255,0.7); padding-left:22px; position:relative; line-height:1.6; }
+.sup-criteria li::before { content:''; position:absolute; left:0; color:var(--accent); font-size:12px; }
+.sup-form-panel { background:var(--surface2); padding:60px; }
+.sup-form-panel h2 { font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:800; text-transform:uppercase; color:var(--off-white); margin-bottom:8px; }
+.sup-form-panel > p { font-size:14px; color:var(--mid-grey); margin-bottom:32px; }
+.sup-form { display:flex; flex-direction:column; }
+.sup-form label { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid-grey); margin-bottom:6px; display:block; }
+.sup-form input, .sup-form select, .sup-form textarea {
+  width:100%; padding:12px 16px; margin-bottom:16px;
+  background:var(--surface); border:1px solid rgba(255,255,255,0.12);
+  color:var(--off-white); font-family:'Inter',sans-serif; font-size:14px; outline:none; transition:border 0.2s;
+}
+.sup-form input:focus, .sup-form select:focus, .sup-form textarea:focus { border-color:var(--accent); }
+.sup-form select option { background:var(--surface); }
+.sup-form textarea { min-height:100px; resize:vertical; }
+.form-success { display:none; text-align:center; padding:48px 0; }
+.form-success h3 { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+.form-success p { font-size:14px; color:var(--mid-grey); }
+.categories-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2px; }
+.cat-card { background:var(--surface2); padding:32px; }
+.cat-card h4 { font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:800; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.cat-card p { font-size:13px; color:var(--mid-grey); line-height:1.65; }
+@media (max-width:1024px) {
+  .sup-layout { grid-template-columns:1fr; }
+  .sup-info, .sup-form-panel { padding:40px 24px; }
 }
 </style>
 </head>
-
-<body>
+<body class="page-body">
 
 <header>
-  <img src="logo.png" alt="BALSIRA GROUP Logo">
-
-  <button class="hamburger" id="hamburger">☰</button>
-
-  <nav id="navLinks">
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="BALSIRA GROUP" class="nav-logo-img">BALSIRA<span>.</span></a>
+  <nav class="desktop-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a> <!-- added -->
+    <a href="products.html">Products</a>
+    <a href="suppliers.html" class="active">Suppliers</a>
     <a href="compliance.html">Compliance</a>
-    <a href="market-insights.html">Market Insights</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <a href="tenders.html" class="nav-cta">Tender Access</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="products.html">Products</a><a href="suppliers.html">Suppliers</a>
+  <a href="compliance.html">Compliance</a><a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a><a href="tenders.html">Tender Access</a>
+</nav>
 
-<div class="hero">
-  <h1>Supplier Registration</h1>
-  <p>Register your company to supply engineering equipment to BALSIRA GROUP.</p>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Partner With Us</div>
+    <h1>Supplier<br>Registration</h1>
+    <p>Register your company to join Balsira's supplier network for mining equipment, railway engineering, metals, and industrial procurement across Africa.</p>
+  </div>
 </div>
 
-<form id="supplierForm">
-  <input type="text" name="company_name" placeholder="Company Name" required>
-  <input type="text" name="contact_person" placeholder="Contact Person" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="tel" name="phone" placeholder="Phone" required>
+<div class="sup-layout">
+  <div class="sup-info">
+    <h2>Who We're Looking For</h2>
+    <p>Balsira is actively building supplier partnerships with manufacturers, distributors, and traders in the mining and railway engineering sectors to support procurement projects across Southern and East Africa.</p>
+    <p>We are particularly sourcing relationships from <strong style="color:var(--accent);">Africa Rail exhibitors</strong> and mining equipment manufacturers to build a verified supplier database.</p>
+    <ul class="sup-criteria">
+      <li>Mining equipment manufacturers and distributors</li>
+      <li>Railway track, signalling, and infrastructure suppliers</li>
+      <li>Locomotive component and spare parts suppliers</li>
+      <li>Industrial metals and steel suppliers</li>
+      <li>PPE, safety, and consumables suppliers</li>
+      <li>Cross-border logistics and supply chain partners</li>
+      <li>Companies with proven African market presence</li>
+      <li>ISO-certified or equivalent quality standards</li>
+    </ul>
+    <div style="margin-top:32px; padding:20px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;">Africa Rail Network</div>
+      <p style="font-size:13px; color:rgba(255,255,255,0.6); margin:0; line-height:1.7;">Balsira is building its railway supplier database from Africa Rail exhibitors. If you exhibited or attended, we want to connect.</p>
+    </div>
+  </div>
+  <div class="sup-form-panel">
+    <div id="supFormWrap">
+      <h2>Register as a Supplier</h2>
+      <p>Complete this form and our procurement team will review your profile.</p>
+      <div class="sup-form">
+        <label>Company Name *</label>
+        <input type="text" id="s-company" placeholder="Company name" required>
+        <label>Contact Person *</label>
+        <input type="text" id="s-contact" placeholder="Full name" required>
+        <label>Business Email *</label>
+        <input type="email" id="s-email" placeholder="name@company.com" required>
+        <label>Phone / WhatsApp</label>
+        <input type="tel" id="s-phone" placeholder="+27 ...">
+        <label>Country</label>
+        <input type="text" id="s-country" placeholder="Country of operation">
+        <label>Website (if available)</label>
+        <input type="text" id="s-website" placeholder="https://...">
+        <label>Primary Sector *</label>
+        <select id="s-sector" required>
+          <option value="">Select sector</option>
+          <option>Mining Equipment</option>
+          <option>Railway Engineering</option>
+          <option>Metals Supply</option>
+          <option>Industrial Safety &amp; PPE</option>
+          <option>Logistics &amp; Supply Chain</option>
+          <option>Multiple Sectors</option>
+        </select>
+        <label>Products / Services</label>
+        <textarea id="s-products" placeholder="Briefly describe the equipment or services you supply..."></textarea>
+        <label>How did you hear about Balsira?</label>
+        <select id="s-source">
+          <option value="">Select...</option>
+          <option>Africa Rail Exhibition</option>
+          <option>Mining Expo / Conference</option>
+          <option>Referral</option>
+          <option>Online Search</option>
+          <option>LinkedIn</option>
+          <option>Other</option>
+        </select>
+        <button class="btn btn-primary" style="width:100%; margin-top:8px;" onclick="submitSupplier()">Submit Registration</button>
+      </div>
+    </div>
+    <div class="form-success" id="supFormSuccess">
+      <div style="font-size:44px; margin-bottom:16px;"></div>
+      <h3>Registration Received</h3>
+      <p>Thank you for registering. Our procurement team will review your profile and be in touch within 3 business days.</p>
+      <p style="margin-top:12px;">Questions? Email <a href="mailto:info@balsira.co.za" style="color:var(--accent);">info@balsira.co.za</a></p>
+    </div>
+  </div>
+</div>
 
-  <select name="sector" required>
-    <option value="">Select Sector</option>
-    <option value="Agriculture">Agriculture</option>
-    <option value="Mining">Mining</option>
-    <option value="Energy">Energy</option>
-    <option value="Construction">Construction</option>
-    <option value="Water">Water</option>
-  </select>
-
-  <textarea name="experience" placeholder="Experience"></textarea>
-
-  <button type="submit">Register</button>
-</form>
-
-<div class="subscribe-section">
-  <h2>Upgrade to Premium Supplier</h2>
-  <p style="color:var(--muted);">Access exclusive tenders and priority listings.</p>
-
-  <input type="email" id="premiumEmail" placeholder="Enter your registered email" style="max-width:400px;margin:10px auto;">
-  <button id="payButton">Subscribe</button>
+<div class="section">
+  <div class="section-eyebrow">Supply Categories</div>
+  <div class="section-title">We Source These Products</div>
+  <p class="section-desc">Registered suppliers are matched to active procurement requirements across these categories.</p>
+  <div class="categories-grid">
+    <div class="cat-card"><h4>Earthmoving &amp; Mining</h4><p>Excavators, bulldozers, dump trucks, drilling equipment, and underground machinery.</p></div>
+    <div class="cat-card"><h4>Crushing &amp; Processing</h4><p>Jaw crushers, ball mills, screens, flotation equipment, and processing plant components.</p></div>
+    <div class="cat-card"><h4>Rail Track Components</h4><p>Rail sections, sleepers, fasteners, fishplates, and track geometry equipment.</p></div>
+    <div class="cat-card"><h4>Locomotive &amp; Rolling Stock</h4><p>Locomotive spare parts, bogies, couplings, braking systems, and traction components.</p></div>
+    <div class="cat-card"><h4>Rail Signalling</h4><p>Interlocking systems, point machines, track circuits, and level crossing equipment.</p></div>
+    <div class="cat-card"><h4>Pumps &amp; Valves</h4><p>Slurry pumps, dewatering systems, industrial valves, and fluid control equipment.</p></div>
+    <div class="cat-card"><h4>Conveyor Systems</h4><p>Belt conveyors, bucket elevators, idlers, pulleys, and bulk handling components.</p></div>
+    <div class="cat-card"><h4>Safety &amp; PPE</h4><p>Industrial PPE, gas detection, emergency response, and site safety systems.</p></div>
+  </div>
 </div>
 
 <footer>
-  <div>
-    <h4>BALSIRA GROUP</h4>
-    <a href="about.html">About Us</a>
-    <a href="careers.html">Careers</a>
-    <a href="news.html">News</a>
+  <div class="footer-brand">
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="BALSIRA GROUP" class="footer-logo-img">BALSIRA<span>.</span></a>
+    <p>Developing industrial procurement in mining and railway engineering solutions across Africa.</p>
   </div>
-
-  <div>
-    <h4>Suppliers</h4>
-    <a href="suppliers.html">Register</a>
-    <a href="membership.html">Membership</a>
-    <a href="compliance.html">Compliance</a>
-  </div>
-
-  <div>
-    <h4>Legal</h4>
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="anti-corruption.html">Anti-Corruption Policy</a>
-  </div>
-
-  <div class="copyright">
-    © 2026 BALSIRA GROUP. All rights reserved.
-  </div>
+  <div><h4>Navigation</h4><a href="about.html">About Us</a><a href="products.html">Products</a><a href="suppliers.html">Suppliers</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+  <div><h4>Contact</h4><a href="mailto:sales@balsira.co.za">sales@balsira.co.za</a><a href="mailto:info@balsira.co.za">info@balsira.co.za</a><a href="mailto:brilliant@balsira.co.za">brilliant@balsira.co.za</a></div>
+  <div><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a><a href="anti-corruption.html">Anti-Corruption Policy</a><a href="compliance.html">Compliance</a></div>
+  <div class="footer-bottom"><p>© 2026 BALSIRA GROUP. All rights reserved.</p><p>Johannesburg, South Africa</p></div>
 </footer>
 
 <script>
-/* HAMBURGER MENU */
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('navLinks');
-
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('show');
-});
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-nav').classList.toggle('show'));
+  function submitSupplier() {
+    const email = document.getElementById('s-email').value;
+    const company = document.getElementById('s-company').value;
+    if (!email || !company) { alert('Please enter company name and email.'); return; }
+    document.getElementById('supFormWrap').style.display = 'none';
+    document.getElementById('supFormSuccess').style.display = 'block';
+  }
 </script>
-
 </body>
 </html>
