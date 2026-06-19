@@ -2,315 +2,315 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Water & Sanitation Equipment | LG Supply Ltd</title>
-<link rel="icon" href="logo.png">
+<meta http-equiv="refresh" content="0; url=products.html">
+<title>BALSIRA GROUP | Redirecting...</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  --bg:#0b0b0d;
-  --panel:#121217;
-  --accent:#c9a24d;
-  --text:#eaeaea;
-  --muted:#9a9a9a;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Inter','Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 60px;
-  background:linear-gradient(180deg,#0b0b0d,#0e0e12);
-  border-bottom:1px solid #1f1f25;
-  position:relative;
-}
-header img{height:40px;}
-
-.desktop-nav{display:flex;}
-.desktop-nav a{
-  margin-left:28px;
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:500;
-}
-.desktop-nav a:hover{color:var(--text);}
-
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
-}
-.hamburger span{
-  width:25px;
-  height:3px;
-  background:var(--text);
-}
-.mobile-nav{
-  display:none;
-  flex-direction:column;
-  position:absolute;
-  top:100%;
-  left:0;
-  width:100%;
-  background:var(--panel);
-  border-top:1px solid #1f1f25;
-}
-.mobile-nav a{
-  padding:12px 20px;
-  color:var(--text);
-  text-decoration:none;
-}
-.mobile-nav a:hover{background:#1f1f25;}
-.mobile-nav.show{display:flex;}
-
-@media (max-width:1024px){
-  .desktop-nav{display:none;}
-  .hamburger{display:flex;}
+  --charcoal: #000000;
+  --steel: #111111;
+  --accent: #FFFFFF;
+  --accent-hover: #CCCCCC;
+  --off-white: #FFFFFF;
+  --mid-grey: #888888;
+  --light-grey: #CCCCCC;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.15);
 }
 
-.hero{
-  padding:60px 24px;
-  text-align:center;
-  max-width:1000px;
-  margin:auto;
-}
-.hero h1{font-size:2.4rem;}
-.hero p{color:var(--muted);}
-
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 24px;
-}
-h2{
-  color:var(--accent);
-  text-align:center;
-  margin-bottom:30px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--charcoal);
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+/*  NAV  */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 66px;
+  background: rgba(0,0,0,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
 }
-.product-card{
-  background:var(--panel);
-  border:1px solid #1f1f25;
-  border-radius:12px;
-  overflow:hidden;
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none;
 }
-.product-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
+.nav-logo span { color: var(--accent); }
+nav.desktop-nav { display: flex; align-items: center; gap: 28px; }
+nav.desktop-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
 }
-.product-card .content{
-  padding:22px;
+nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--charcoal);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 9px 22px;
+  text-decoration: none; transition: background 0.2s;
 }
-.product-card h3{color:var(--accent); margin-top:0;}
-.product-card p{color:var(--muted);}
-.product-card ul{
-  padding-left:18px;
-  color:var(--muted);
-  font-size:0.9rem;
+.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; height: 2px; width: 24px; background: var(--off-white); transition: 0.3s; }
+nav.mobile-nav {
+  display: none; flex-direction: column;
+  position: fixed; top: 66px; left: 0; right: 0;
+  background: #000000; border-bottom: 1px solid var(--border);
+  z-index: 199; padding: 8px 0;
+}
+nav.mobile-nav.show { display: flex; }
+nav.mobile-nav a {
+  padding: 13px 28px; color: var(--mid-grey); text-decoration: none;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s, background 0.2s;
+}
+nav.mobile-nav a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
+
+/*  PAGE TOP OFFSET  */
+.page-body { padding-top: 66px; }
+
+/*  HERO BANNER (inner pages)  */
+.page-hero {
+  background: linear-gradient(105deg, rgba(0,0,0,0.96) 50%, rgba(20,20,20,0.85) 100%),
+              var(--hero-img, url('https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg')) center/cover no-repeat;
+  padding: 80px 52px 72px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 860px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--off-white); margin-bottom: 20px;
+}
+.page-hero p {
+  font-size: 15px; color: var(--mid-grey); max-width: 560px; line-height: 1.75;
 }
 
-/* REQUEST QUOTE BUTTON */
-.request-quote{
-  display:block;
-  margin:40px auto;
-  padding:15px 30px;
-  background:var(--accent);
-  color:#000;
-  text-align:center;
-  font-weight:600;
-  border-radius:6px;
-  width:200px;
-  text-decoration:none;
-  transition:0.3s;
+/*  SECTION  */
+.section { padding: 80px 52px; max-width: 1280px; margin: 0 auto; }
+.section-sm { padding: 60px 52px; max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 800;
+  text-transform: uppercase; color: var(--off-white);
+  margin-bottom: 16px; line-height: 1;
 }
-.request-quote:hover{
-  opacity:0.9;
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 15px; color: var(--mid-grey); max-width: 600px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.divider { width: 44px; height: 3px; background: var(--accent); margin: 16px 0 32px; }
+
+/*  GRID  */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+/*  CARD  */
+.card {
+  background: var(--surface2); padding: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 10px;
+}
+.card p { font-size: 14px; color: var(--mid-grey); line-height: 1.7; }
+
+/*  PRODUCT CARD  */
+.product-card {
+  background: var(--surface); overflow: hidden;
+  transition: transform 0.25s; text-decoration: none; color: inherit;
+  display: block;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.85); }
+.product-card-content { padding: 28px; }
+.product-card-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px; font-weight: 800; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.product-card-content p { font-size: 13px; color: var(--mid-grey); line-height: 1.65; }
+.product-card-content ul {
+  margin-top: 12px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.product-card-content li {
+  font-size: 12px; color: var(--light-grey); padding-left: 16px; position: relative;
+}
+.product-card-content li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/*  BUTTONS  */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 13px 30px;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--charcoal); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: var(--off-white); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  FORM  */
+.form-wrap {
+  max-width: 640px; margin: 0 auto;
+  background: var(--surface); padding: 44px;
+  border: 1px solid var(--border);
+}
+.form-wrap input,
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--off-white); font-family: 'Inter', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s; margin-bottom: 16px; display: block;
+}
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus { border-color: var(--accent); }
+.form-wrap select option { background: var(--surface2); }
+.form-wrap textarea { resize: vertical; min-height: 120px; }
+.form-wrap label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid-grey); display: block; margin-bottom: 6px;
+}
+.form-message {
+  font-size: 13px; padding: 10px; text-align: center; margin-top: 8px;
+  display: none;
+}
+.form-message.success { background: rgba(74,183,74,0.15); color: #6fcf6f; display: block; }
+.form-message.error { background: rgba(255,76,76,0.15); color: #ff8080; display: block; }
+
+/*  FOOTER  */
+footer {
+  background: #000000;
+  border-top: 1px solid var(--border);
+  padding: 60px 52px 36px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.12em;
+  color: var(--off-white); text-decoration: none; display: block; margin-bottom: 12px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: 13px; color: var(--mid-grey); line-height: 1.7; max-width: 240px; }
+footer h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--off-white); margin-bottom: 16px;
+}
+footer a { display: block; color: var(--mid-grey); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+.footer-bottom {
+  grid-column: 1/-1; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: var(--mid-grey); }
+
+/*  BG VARIANTS  */
+.bg-surface { background: var(--surface); }
+.bg-steel { background: var(--steel); }
+.bg-charcoal { background: var(--charcoal); }
+
+/*  INLINE LABEL  */
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  background: var(--accent); padding: 4px 10px; display: inline-block;
 }
 
-/* FOOTER */
-footer{
-  padding:60px;
-  background:#070709;
-  border-top:1px solid #1f1f25;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
+/*  TABLE  */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  text-align: left;
 }
-footer h4{margin-bottom:12px;}
-footer p{color:var(--muted);}
-.copyright{
-  grid-column:1/-1;
-  text-align:center;
-  margin-top:20px;
+.data-table td {
+  font-size: 13px; color: var(--mid-grey);
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+  nav.desktop-nav { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  header { padding: 0 24px; }
+  .page-hero { padding: 64px 24px; }
+  .section { padding: 60px 24px; }
+  .section-sm { padding: 44px 24px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr 1fr; padding: 48px 24px 28px; }
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; }
+  .form-wrap { padding: 28px 20px; }
+}
+
+
+/* ── LOGO IMAGE ── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  object-fit: contain;
 }
 </style>
 </head>
-
-<body>
-
-<header>
-  <img src="logo.png" alt="LG Supply Ltd Logo">
-
-  <nav class="desktop-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+<body class="page-body" style="display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:40px;">
+  <div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;">Redirecting</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;">Page Moved</div>
+    <p style="color:#888888;font-size:14px;margin-bottom:28px;">This page has moved to our Products section.</p>
+    <a href="products.html" style="background:#FFFFFF;color:#000000;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 30px;text-decoration:none;">View Products →</a>
   </div>
-
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tenders.html">Tenders</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h1>Water & Sanitation Equipment</h1>
-  <p>Explore our range of high-quality water infrastructure solutions.</p>
-</div>
-
-<section>
-<h2>Our Products</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-<img src="Piping & Distribution Systems.jfif" alt="Piping & Distribution Systems">
-<div class="content">
-<h3>Piping & Distribution Systems</h3>
-<p>Durable pipes and fittings for municipal and industrial water networks.</p>
-<ul>
-<li>HDPE & PVC pipes</li>
-<li>Fittings & connectors</li>
-<li>Distribution manifolds</li>
-<li>Pressure regulators</li>
-</ul>
-</div>
-</div>
-
-<div class="product-card">
-<img src="Pumping Stations.webp" alt="Pumping Stations">
-<div class="content">
-<h3>Pumping Stations</h3>
-<p>Efficient pumping solutions for large-scale water transfer and supply.</p>
-<ul>
-<li>Centrifugal pumps</li>
-<li>Booster stations</li>
-<li>Control panels</li>
-<li>Monitoring systems</li>
-</ul>
-</div>
-</div>
-
-<div class="product-card">
-<img src="Storage Tanks & Reservoirs.jpg" alt="Storage Tanks & Reservoirs">
-<div class="content">
-<h3>Storage Tanks & Reservoirs</h3>
-<p>Reliable storage solutions for treated and untreated water.</p>
-<ul>
-<li>Steel & HDPE tanks</li>
-<li>Reservoir structures</li>
-<li>Level monitoring systems</li>
-<li>Safety accessories</li>
-</ul>
-</div>
-</div>
-
-<div class="product-card">
-<img src="UV Disinfection Systems.jfif" alt="UV Disinfection Systems">
-<div class="content">
-<h3>UV Disinfection Systems</h3>
-<p>Advanced UV systems for microbial treatment in water facilities.</p>
-<ul>
-<li>UV lamps & reactors</li>
-<li>Control units</li>
-<li>Flow measurement</li>
-<li>Maintenance kits</li>
-</ul>
-</div>
-</div>
-
-<div class="product-card">
-<img src="Water Filtration Systems.jpg" alt="Water Filtration Systems">
-<div class="content">
-<h3>Water Filtration Systems</h3>
-<p>High-performance filtration for industrial and municipal applications.</p>
-<ul>
-<li>Sand & media filters</li>
-<li>Cartridge filters</li>
-<li>Membrane systems</li>
-<li>Backwash systems</li>
-</ul>
-</div>
-</div>
-
-<div class="product-card">
-<img src="Water Treatment Plants.webp" alt="Water Treatment Plants">
-<div class="content">
-<h3>Water Treatment Plants</h3>
-<p>Integrated treatment solutions for drinking and industrial water.</p>
-<ul>
-<li>Clarifiers & sedimentation tanks</li>
-<li>Coagulation & flocculation units</li>
-<li>Disinfection systems</li>
-<li>Automation & SCADA</li>
-</ul>
-</div>
-</div>
-
-</div>
-
-<a href="contact.html" class="request-quote">Request a Quote →</a>
-</section>
-
-<footer>
-<div>
-<h4>Balsira Group (Pty) Ltd</h4>
-<p>Engineering & Infrastructure Supply</p>
-</div>
-<div>
-<h4>Contact</h4>
-<p>Email: Sales@balsiragroup.com</p>
-<p>Phone: +44 7506 347826</p>
-</div>
-<div>
-<h4>Address</h4>
-<p>Johannesburg, South Africa</p>
-</div>
-
-<div class="copyright">
-© 2026 Balsira Group (Pty) Ltd. All rights reserved.
-</div>
-</footer>
-
-<script>
-document.getElementById('hamburger').onclick = () =>
-document.getElementById('mobile-nav').classList.toggle('show');
-</script>
-
 </body>
 </html>
